@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 const Employees = require("../models/employee");
-const employee = require("../models/employee");
+
 
 //test
 router.get("/test",(req,res) => res.send("Employee Routes Working"));
