@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Cut = require('../models/cut');
+const Cut = require('../models/Cut');
 
 
 // GET All Cuts
 router.get('/', async (req, res) => {
-  try {
+  try { 
     const cuts = await Cut.find();
     res.json(cuts);
   } catch (error) {
@@ -28,6 +28,19 @@ router.get('/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+// Update cut by ID
+router.put("/:id", (req, res) => {
+  Cut.findByIdAndUpdate(req.params.id, req.body)
+      .then(() => res.json({ msg: "Updated Successfully" }))
+      .catch(() => res.status(400).json({ msg: "Update Failed" }));
+});
+
+// Delete cut by ID
+router.delete("/:id", (req, res) => {
+  Cut.findByIdAndDelete(req.params.id)
+      .then(() => res.json({ msg: "Deleted Successfully" }))
+      .catch(() => res.status(400).json({ msg: "Cannot be deleted" }));
 });
 
 module.exports = router;
