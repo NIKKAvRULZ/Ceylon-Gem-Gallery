@@ -1,0 +1,144 @@
+/* Full-page container */
+.Admin-container {
+  display: flexbox;
+  justify-content: center; /* Centers the form horizontally */
+  align-items: center; /* Centers the form vertically */
+  padding-top: 120px; /* Adjust this value based on your navbar height */
+}
+/* Card container */
+.Admin-card {
+    max-width: 600px;
+    margin: auto; /* Center the card */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Card title */
+  .Admin-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #417558;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .input, .textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Button styling */
+  .submit-button {
+    background-color: #3E9263;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .submit-button:hover {
+    background-color: #1fad5b;
+  }
+  
+
+/* Card container */
+.Admin-card {
+    max-width: 600px;
+    margin: auto; /* Center the card */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Card title */
+  .Admin-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #417558;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .input, .textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Button styling */
+  .submit-button {
+    background-color: #3E9263;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .submit-button:hover {
+    background-color: #1fad5b;
+  }
+  

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   // State to track which nav item is active
@@ -16,12 +17,14 @@ const Navbar = () => {
   };
 
   return (
+    <div className="layout-container">
+
     <div className="navbar-container">
       <div className="navbar-background">
 
         {/* Logo Section */}
         <div className="logo-section">
-          <img className="logo-image" src='./src/assets/logo.png' alt="Logo" />
+          <img className="logo-image" src='../src/assets/logo.png' alt="Logo" />
           <div className="logo-text">
             <span className="logo-black">Ceylon<br/> </span>
             <span className="logo-green">Gem</span>
@@ -36,30 +39,28 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <div 
+          <Link 
             className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Home')}
+            onClick={() => handleNavClick('Home')} to="Home"
           >
             Home
-          </div>
-          <div 
+          </Link>
+          <Link 
             className={`nav-item ${activeLink === 'Shop' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Shop')}
+            onClick={() => handleNavClick('Shop')} to="Shop"
           >
             Shop
-          </div>
-          <div 
-            className={`nav-item ${activeLink === 'Custom Cuts' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Custom Cuts')}
-          >
+          </Link>
+          <Link className={`nav-item ${activeLink === 'Custom Cuts' ? 'highlight' : ''}`}
+            onClick={() => handleNavClick('Custom Cuts')} to="GemCutHome" >
             Custom Cuts
-          </div>
-          <div 
+          </Link>
+          <Link 
             className={`nav-item ${activeLink === 'About' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('About')}
+            onClick={() => handleNavClick('About')} to="About"
           >
             About
-          </div>
+          </Link>
         </div>
 
         {/* User Icon */}
@@ -68,6 +69,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

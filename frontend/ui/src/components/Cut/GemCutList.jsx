@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
 import GemCutCard from './GemCutCard'
+import './GemCutList.css'
 
-const GemList = () => {
+const GemCutList = () => {
     const [gemCut, setGemCuts] = useState([]);
 
     useEffect(()=>{
@@ -14,21 +15,19 @@ const GemList = () => {
         });
     },[]);
 
-    const gemCutList = gemCut.list === 0? "No gem cuts found !" : gemCut.map((gemCut,index)=>(<GemCutCard/>));
+    const gemCutList = gemCut.list === 0? "No gem cuts found !" 
+    : gemCut.map((gemCut,index)=>(<GemCutCard key={index} gemCut={gemCut}/>));
 
 
   return (
-    <div>
-        <div className="show_gemCutList">
-            <div className="container">
-                <div className="list">
-                    {gemCutList}
-                </div>
-
+    <div className="show_GemCutList">
+        <div className="list-container">
+            <div className="list">
+                {gemCutList}
             </div>
         </div>
-    </div>
+    </div> 
   )
 }
 
-export default GemList
+export default GemCutList

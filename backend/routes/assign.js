@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Cut = require('../models/Cut');
+const Cut = require('../models/Cut/Cut');
 const Worker = require('../models/Worker');
 
 // POST Assign Worker to Cut

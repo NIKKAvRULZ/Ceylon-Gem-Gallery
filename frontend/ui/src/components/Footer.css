@@ -14,11 +14,9 @@
   align-items: flex-start;
   box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Add slight shadow to separate from content */
   background: rgba(255, 255, 255, 0.7);
-  padding: 20px 50px; /* Adjusted padding */
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Add slight shadow to separate from content */
+  border-radius: 22px;
+  margin-top: 10px;
+
 }
 
 /* Section container */

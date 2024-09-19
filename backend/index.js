@@ -3,7 +3,7 @@ const dbConeection = require("./config/db");
 
 // Routes
 const employeeRoutes  = require("./routes/employees");
-const cutsRoutes = require("./routes/cuts");
+const cutsRoutes = require("./routes/Cut/cuts");
 const assignRoutes = require("./routes/assign");
 const notificationRoutes = require("./routes/notifications");
 // const trackRoutes = require("./routes/track");

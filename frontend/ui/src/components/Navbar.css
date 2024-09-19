@@ -3,17 +3,21 @@
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: baseline;
+    justify-content:flex-start ;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background: rgba(255, 255, 255, 0.58);
+    background: rgba(255, 255, 255);
     border-radius: 22px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000; /* Ensure the navbar is always on top */
   }
-  
+
+  .layout-container {
+    display: flex;
+    flex-direction: column; /* Navbar at the top, content follows */
+  }
   
   .navbar-background {
     display:inline-flex;
@@ -67,12 +71,15 @@
     font-weight: 500;
     cursor: pointer;
     transition: color 0.3s;
+    text-decoration: none; /* Removes the underline */
   }
   
     /* Highlight for the active link */
     .nav-item.highlight {
     color: #3E9263;
     font-weight: 700;
+    text-decoration: none; /* Remove underline for active links */
+
   }
   
   .icon-placeholder {
@@ -89,6 +96,7 @@
   }
   .nav-item:hover {
     color: #3E9263;
+    text-decoration: none; /* Ensure no underline on hover as well */
   }
 
   /* Hamburger Menu Styling */
