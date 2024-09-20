@@ -1,0 +1,92 @@
+/* Footer container */
+.footer-container {
+  position: relative; /* Set position to fixed */
+  bottom: 0; /* Fix it to the bottom of the page */
+  left: 0; /* Fix it to the left side of the page */
+  right: 0; /* Fix it to the right side of the page */  
+  height: auto; /* Set the height to match the header */
+  z-index: 1000; /* Set a high z-index to ensure it's on top of other elements */
+  overflow: hidden; /* Hide overflow to avoid scrollbar */
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px 50px; /* Adjusted padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Add slight shadow to separate from content */
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 22px;
+  margin-top: 10px;
+
+}
+
+/* Section container */
+.footer-section {
+  text-align: left;
+  width: auto;
+  padding: 0 30px;
+}
+
+/* Footer section titles */
+.footer-title {
+  font-size: 24px;
+  color: #3E9263;
+  font-family: 'SF Pro', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Footer section content */
+.footer-content {
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  font-family: 'SF Pro', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Horizontal divider line */
+.footer-divider {
+
+  width: 300px;
+  height: 0;
+  border: 2px solid #3E9263;
+  margin: 30px auto 0;
+}
+
+/* Social media icons container */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+}
+
+.social-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .footer-divider {
+    width: 80%;
+  }
+
+  .social-icons {
+    gap: 20px;
+  }
+}
