@@ -61,6 +61,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin: 10px 0; 
+    width: 90%;
   }
   
   .Update:hover {
@@ -81,6 +82,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin: 10px 0;
+    width: 90%;
   }
   
   .Delete:hover {
