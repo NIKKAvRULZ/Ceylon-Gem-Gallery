@@ -21,7 +21,7 @@ const upload = multer({
 
 // Add Cuts
 router.post("/", upload.single('imageUrl'), (req, res) => {
-  Cut.create({...req.body, imageUrl: req.file.filename })
+  Cut.create({ ...req.body, imageUrl: req.file.filename })
     .then(() => res.json({ msg: "Cut Added Successfully" }))
     .catch((err) => res.status(400).json({ msg: err })); // Changed req to res
 });
@@ -49,8 +49,8 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update cut by ID
-router.put("/:id", (req, res) => {
-  Cut.findByIdAndUpdate(req.params.id, req.body, { new: true }) // Optional: Return the updated document
+router.put("/:id", upload.single('imageUrl'), (req, res) => {
+  Cut.findByIdAndUpdate(req.params.id, { ...req.body, imageUrl: req.file.filename }, { new: true }) // Optional: Return the updated document
     .then(() => res.json({ msg: "Updated Successfully" }))
     .catch(() => res.status(400).json({ msg: "Update Failed" }));
 });

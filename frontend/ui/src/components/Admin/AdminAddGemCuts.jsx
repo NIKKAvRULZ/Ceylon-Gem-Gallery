@@ -37,18 +37,11 @@ const AdminAddGemCuts = () => {
     formData.append('Facets', gemCutData.facets);
     formData.append('Proportions', gemCutData.proportions);
     formData.append('Appearance', gemCutData.appearance);
-    for (let pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
-    
+
 
     try {
       // Send the form data to the backend
-      const response = await axios.post('http://localhost:3000/api/cuts', formData, {
-        headers: {
-          // 'Content-Type': 'application/json', // Set the content type
-        },
-      });
+      const response = await axios.post('http://localhost:3000/api/cuts', formData);
       console.log('Gem cut added successfully:', response.data);
 
       // Optionally, reset the form after successful submission
@@ -152,7 +145,7 @@ const AdminAddGemCuts = () => {
           </div>
           <div>
             <button type="submit" className="btn btn-outline-choose float-right">Add Cut</button>
-            <Link to={"/AdminGemCutHome/AdminGemCutList"} className="btn btn-outline-danger float-right">Back</Link>
+            <Link to={"/admin/AdminGemCutHome/AdminGemCutList"} className="btn btn-outline-danger float-right">Back</Link>
           </div>
         </form>
       </div>
