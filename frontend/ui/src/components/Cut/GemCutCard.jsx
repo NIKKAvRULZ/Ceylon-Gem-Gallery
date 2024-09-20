@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 
 
 const GemCutCard = ({gemCut}) => {
+  console.log(gemCut)
   return (
     <div className="content-container">
       <div className="card">
-        <img src={gemCut.imageUrl} alt={gemCut.name} />
+        <img src={`http://localhost:3000/Cuts/${gemCut.imageUrl}`} alt={gemCut.name} />
         <h3 className="card-title">{gemCut.name}</h3>
 
         <p className="card-description">{gemCut.description}</p>

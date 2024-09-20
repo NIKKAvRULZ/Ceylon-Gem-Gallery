@@ -15,6 +15,12 @@ const cors = require("cors");
 const app = express();
 app.use(cors({orgin:true,credentials:true}));
 
+app.use((req, res, next) => {
+    console.log(req.path, req.method)
+    next()
+})
+app.use(express.static('Images'))
+
 //DB connection
 dbConeection();
 

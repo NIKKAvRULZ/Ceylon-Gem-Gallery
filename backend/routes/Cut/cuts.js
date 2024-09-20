@@ -2,9 +2,33 @@ const express = require('express');
 const router = express.Router();
 const Cut = require('../../models/Cut/Cut');
 
+
+const multer = require("multer");
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'Images/Cuts')
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + Math.round(Math.random() * 1E9) + path.extname(file.originalname))
+  }
+})
+
+const upload = multer({
+  storage: storage
+})
+
+// Add Cuts
+router.post("/", upload.single('imageUrl'), (req, res) => {
+  Cut.create({...req.body, imageUrl: req.file.filename })
+    .then(() => res.json({ msg: "Cut Added Successfully" }))
+    .catch((err) => res.status(400).json({ msg: err })); // Changed req to res
+});
+
 // GET All Cuts
 router.get('/', async (req, res) => {
-  try { 
+  try {
     const cuts = await Cut.find();
     res.json(cuts);
   } catch (error) {
@@ -12,12 +36,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Add Cuts
-router.post("/", (req, res) => {
-  Cut.create(req.body)
-    .then(() => res.json({ msg: "Cut Added Successfully" }))
-    .catch((err) => res.status(400).json({ msg: err })); // Changed req to res
-});
 
 // GET Cut by ID
 router.get('/:id', async (req, res) => {

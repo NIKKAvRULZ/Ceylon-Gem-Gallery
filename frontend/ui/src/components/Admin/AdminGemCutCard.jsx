@@ -18,10 +18,10 @@ const AdminGemCutCard = ({ AdminGemCut }) => {
   return (
     <div className="content-container">
       <div className="card">
-        <img src={AdminGemCut.imageUrl} alt={AdminGemCut.name} />
+        <img src={`http://localhost:3000/Cuts/${AdminGemCut.imageUrl}`} alt={AdminGemCut.name} />
         <h3 className="card-title">{AdminGemCut.name}</h3>
         <p className="card-description">{AdminGemCut.description}</p>
-        
+
         <button className="Update">
           <Link className="link" to={`/admin/updateDetails/${AdminGemCut._id}`}>Update</Link>
         </button>
