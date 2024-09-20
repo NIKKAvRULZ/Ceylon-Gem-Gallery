@@ -1,5 +1,9 @@
 import React from 'react'
 import './GemCutCard.css'
+import axios from 'axios'
+import { Link } from 'react-router-dom';
+
+
 const GemCutCard = ({gemCut}) => {
   return (
     <div class="content-container">
@@ -9,7 +13,7 @@ const GemCutCard = ({gemCut}) => {
 
         <p class="card-description">{gemCut.description}</p>
 
-        <button class="add-to-cart">Use</button>
+        <button class="Update"><Link class="link" to={`/showdetails/${gemCut._id}`}>Details</Link></button>
       </div>
     </div>
     

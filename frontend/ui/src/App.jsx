@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 
@@ -13,6 +14,8 @@ import Home from './components/Home/Home';
 import Shop from './components/Shop/Shop';
 import About from './components/About/About';
 import AdminAddGemCuts from './components/Admin/AdminAddGemCuts';
+import ShowGemCutDetails from './components/Cut/ShowGemCutDetails';
+import UpdateGemCut from './components/Admin/UpdateGemCut';
 
 function App() {
 
@@ -26,8 +29,10 @@ function App() {
             <Route path="/Home" element={<Home/>}/>
             <Route path="/Shop" element={<Shop/>}/>
             <Route path="/About" element={<About/>}/>
+            <Route path='/showdetails/:id' element={<ShowGemCutDetails/>}/>
 
 
+            <Route path='/UpdateDetails/:id' element={<UpdateGemCut/>}/>
             <Route path="/AdminGemCutHome" element={<AdminGemCutHome/>} />
             <Route path="/AdminGemCutHome/AdminGemCutList" element={<AdminGemCutList/>} />
             <Route path="/AdminGemCutHome/AdminAddGemCuts" element={<AdminAddGemCuts/>} />

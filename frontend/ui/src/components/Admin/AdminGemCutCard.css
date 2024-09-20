@@ -66,6 +66,10 @@
   .Update:hover {
     background-color: #1fad5b;
   }
+  .link{
+    text-decoration: none;
+    color: white;
+  }
   
   .Delete {
     background-color: #923e3e;
