@@ -1,5 +1,8 @@
 import React from 'react';
 import './AdminFooter.css';
+import twitter from '../../assets/twitter.png';
+import facebook from '../../assets/facebook.png';
+import instagram from '../../assets/instagram.png';
 
 const AdminFooter = () => {
   return (
@@ -18,13 +21,13 @@ const AdminFooter = () => {
       {/* Social Media Icons */}
       <div className="social-icons">
         <div className="social-icon">
-          <img src='./src/assets/twitter.png' alt="Icon 1" />
+          <img src={twitter} alt="Icon 1" />
         </div>
         <div className="social-icon">
-          <img src='./src/assets/facebook.png' alt="Icon 2" />
+          <img src={facebook} alt="Icon 2" />
         </div>
         <div className="social-icon">
-          <img src='./src/assets/instagram.png' alt="Icon 3" />
+          <img src={instagram} alt="Icon 3" />
         </div>
       </div>
 

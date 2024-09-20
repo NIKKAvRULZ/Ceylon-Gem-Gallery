@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    
   }
   
   .hero {
@@ -20,7 +20,7 @@
   
   .home-card-container {
     display: flex;
-    gap: 20px;
+    gap: 30px;
   }
   
   .home-card {
@@ -40,8 +40,8 @@
   }
   
   .home-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-20px);
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.25);
   }
   
   .home-card-content h3 {

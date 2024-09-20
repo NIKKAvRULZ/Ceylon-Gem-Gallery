@@ -3,15 +3,26 @@ import './AdminGemCutHome.css'
 import { Link } from 'react-router-dom';
 const AdminGemCutHome = () => {
   return (
-    <div>
-    <section class="hero">
-        <div class="hero-text">
-            <ul>
-                <li><Link to="AdminGemCutList">Manage Cuts</Link></li>
-                <li><Link to="AdminAddGemCuts">Add Cuts</Link></li>
-            </ul>
+    <div className="home-container">
+      <section className="hero">
+        <div className="hero-text">
+
+          <div className="home-card-container">
+
+            <Link to="AdminGemCutList" className="home-card">
+              <div className="card-content">
+                <h3>Manage Cuts</h3>
+              </div>
+            </Link>
+
+            <Link to="AdminAddGemCuts" className="home-card">
+              <div className="card-content">
+                <h3>Add Cuts</h3>
+              </div>
+            </Link>
+          </div>
         </div>
-    </section>
+      </section>
     </div>
   )
 }
