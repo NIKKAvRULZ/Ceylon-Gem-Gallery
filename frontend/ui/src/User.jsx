@@ -18,8 +18,6 @@ import InsertPayment from './components/Cost/InsertPayment';
 
 //profile
 import Profile from './components/customer/profile'
-import ShowCustomerDetails from './components/customer/ShowCustomerDetails'
-import UpdateCustomer from './components/customer/UpdateCustomer'
 
 const User = () => {
   return (
@@ -42,8 +40,6 @@ const User = () => {
 
         {/* user */}
         <Route path="/profile" element={<Profile />} />
-        <Route path='/showcustomerdetails/:id' element = {<ShowCustomerDetails />} />
-        <Route path='/updatecustomerdetails/:id' element = {<UpdateCustomer />} />
 
 
       </Routes>

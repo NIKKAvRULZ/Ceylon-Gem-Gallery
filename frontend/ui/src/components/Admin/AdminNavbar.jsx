@@ -61,6 +61,10 @@ const AdminNavbar = () => {
               onClick={() => handleNavClick('Custom Cuts')} to="AdminPaymentManagement" >
               Transactions
             </Link>
+            <Link className={`nav-item ${activeLink === 'Gem Cut Manage' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Custom Cuts')} to="customerList" >
+              Customer
+            </Link>
 
           </div>
 

@@ -3,7 +3,7 @@
     padding-right: 15%;
 }
 
-.container {
+.mcontainer .container {
     background-color: rgb(218, 218, 218);
     padding: 20px;
     border-radius: 25px;
@@ -12,16 +12,16 @@
     margin-bottom: 30px;
 }
 
-.img {
+.mcontainer .container .imgcon .img {
     width: 100px;
 }
 
-.containerButton {
+.mcontainer .container .containerButton {
     flex-direction: column;
     align-items: center;
 }
 
-.btn {
+.mcontainer .container .containerButton .btn {
     width: 200px;
     background-color: #638763;
     border-radius: 25px;
@@ -29,7 +29,7 @@
     margin-top: 8px;
 }
 
-.btn:hover {
+.mcontainer .container .containerButton .btn:hover {
     background-color: #518e51;
     color: white;
 }

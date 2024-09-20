@@ -19,6 +19,11 @@ import UpdateCost from "./components/Admin/Cost/UpdateCost";
 
 import AdminPaymentManagement from './components/Admin/AdminPaymentManagement'
 
+
+import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails'
+import UpdateCustomer from './components/Admin/customer/updateCustomer'
+import CustomerList from "./components/Admin/customer/CustomerList";
+
 const Admin = () => {
   return (
     <div>
@@ -39,6 +44,11 @@ const Admin = () => {
         <Route path="/costs" element={<CostList />} />
         <Route path="/insert-cost" element={<InsertCost />} />
         <Route path="/update-cost/:id" element={<UpdateCost />} />
+
+
+        <Route path='/customerList' element={<CustomerList />} />
+        <Route path='/showcustomerdetails/:id' element={<ShowCustomerDetails />} />
+        <Route path='/updatecustomerdetails/:id' element={<UpdateCustomer />} />
 
 
       </Routes>
