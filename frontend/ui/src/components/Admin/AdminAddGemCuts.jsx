@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import './AdminAddGemCuts.css';
+import './AdminAddGemCuts.css'; // Import the CSS file
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import jsPDF from 'jspdf';
+import jsPDF from 'jspdf'; 
 import 'jspdf-autotable';
 
 const AdminAddGemCuts = () => {
+  // State to store form data
   const [gemCutData, setGemCutData] = useState({
     name: '',
     description: '',
@@ -29,7 +30,6 @@ const AdminAddGemCuts = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submit action
-
     const formData = new FormData();
     formData.append('name', gemCutData.name);
     formData.append('description', gemCutData.description);
@@ -38,17 +38,12 @@ const AdminAddGemCuts = () => {
     formData.append('Facets', gemCutData.facets);
     formData.append('Proportions', gemCutData.proportions);
     formData.append('Appearance', gemCutData.appearance);
-    for (let pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
     
-
     try {
-      // Send the form data to the backend
       const response = await axios.post('http://localhost:3000/api/cuts', formData);
       console.log('Gem cut added successfully:', response.data);
 
-      // Reset form after successful submission
+      // Reset the form
       setGemCutData({
         name: '',
         description: '',
@@ -63,40 +58,54 @@ const AdminAddGemCuts = () => {
     }
   };
 
-  // Function to generate PDF
+  // PDF generation function
   const generatePDF = () => {
     const doc = new jsPDF();
 
-    // Add title to the PDF
-    doc.text("Gem Cut Details", 14, 20);
+    // Add Title
+    doc.setFontSize(18);
+    doc.text("Gem Cut Invoice", 14, 20);
 
-    // Define columns for the table
+    // Add Date and Invoice ID (example)
+    doc.setFontSize(12);
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 30);
+    doc.text(`Invoice ID: ${Math.floor(Math.random() * 100000)}`, 14, 36);
+
+    // Define the columns for the invoice table
     const columns = [
-      "No", "Name", "Description", "Shape", "Facets", "Proportions", "Appearance"
+      "Property",
+      "Details",
     ];
 
-    // Define the rows for the table using the form data
+    // Map the form data into an array of arrays for the table rows
     const rows = [
-      [
-        1,
-        gemCutData.name,
-        gemCutData.description,
-        gemCutData.shape,
-        gemCutData.facets,
-        gemCutData.proportions,
-        gemCutData.appearance,
-      ],
+      ["Cut Name", gemCutData.name],
+      ["Description", gemCutData.description],
+      ["Shape", gemCutData.shape],
+      ["Facets", gemCutData.facets],
+      ["Proportions", gemCutData.proportions],
+      ["Appearance", gemCutData.appearance],
     ];
 
     // Add the table to the PDF using autoTable
     doc.autoTable({
       head: [columns],
       body: rows,
-      startY: 30,
+      startY: 50,
     });
 
-    // Save the PDF with a name
-    doc.save(`${gemCutData.name}_gem_cut_details.pdf`);
+    // Add image if available
+    if (image) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const imgData = e.target.result;
+        doc.addImage(imgData, 'JPEG', 15, doc.autoTable.previous.finalY + 10, 50, 50); // Adjust positioning and size
+        doc.save('gem-cut-invoice.pdf');
+      };
+      reader.readAsDataURL(image);
+    } else {
+      doc.save('gem-cut-invoice.pdf');
+    }
   };
 
   return (
@@ -188,7 +197,8 @@ const AdminAddGemCuts = () => {
             <Link to={"/AdminGemCutHome/AdminGemCutList"} className="btn btn-outline-danger float-right">Back</Link>
           </div>
         </form>
-      
+        <br />
+        <button className="btn btn-outline-primary" onClick={generatePDF}>Generate Invoice PDF</button>
       </div>
     </div>
   );
