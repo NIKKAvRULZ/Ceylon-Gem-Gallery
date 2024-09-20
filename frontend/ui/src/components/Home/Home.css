@@ -1,10 +1,11 @@
 /* Container for the whole page */
-.home-container {
+.home-container-home {
   text-align: center;
   font-family: 'Poppins', sans-serif; /* Added a modern font */
   padding: 20px;
   margin: 0 auto;
   max-width: 1200px; /* Restrict max width for better readability */
+  align-items: stretch;
 }
 
 /* Hero Banner */

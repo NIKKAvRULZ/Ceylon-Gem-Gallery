@@ -7,7 +7,7 @@ import trackingImage from '../../assets/trackingImage.jpeg'; // Placeholder for 
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div className="home-container-home">
       {/* Hero Section */}
       <div className="hero-banner">
         <img src={heroImage} alt="Gem Collection" className="hero-image" />
