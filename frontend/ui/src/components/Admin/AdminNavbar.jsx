@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './AdminNavbar.css';
 import { Link } from 'react-router-dom';
 import User from '../../assets/user.png'
-import logo from '../../assets/logo.png'  
+import logo from '../../assets/logo.png'
 
 const AdminNavbar = () => {
   // State to track which nav item is active
@@ -21,52 +21,56 @@ const AdminNavbar = () => {
   return (
     <div className="layout-container">
 
-    <div className="navbar-container">
-      <div className="navbar-background">
+      <div className="navbar-container">
+        <div className="navbar-background">
 
-        {/* Logo Section */}
-        <div className="logo-section">
-          <img className="logo-image" src={logo} alt="Logo" />
-          <div className="logo-text">
-            <span className="logo-black">Ceylon<br/> </span>
-            <span className="logo-green">Gem</span>
-            <span className="logo-black"> Gallery</span>
+          {/* Logo Section */}
+          <div className="logo-section">
+            <img className="logo-image" src={logo} alt="Logo" />
+            <div className="logo-text">
+              <span className="logo-black">Ceylon<br /> </span>
+              <span className="logo-green">Gem</span>
+              <span className="logo-black"> Gallery</span>
+            </div>
           </div>
-        </div>
 
-        {/* Hamburger Menu Icon */}
-        <div className="hamburger-menu" onClick={toggleMenu}>
-          ☰
-        </div>
+          {/* Hamburger Menu Icon */}
+          <div className="hamburger-menu" onClick={toggleMenu}>
+            ☰
+          </div>
 
-        {/* Navigation Links */}
-        <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <Link 
-            className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Home')} to="AdminHome"
-          >
-            Home
-          </Link>
-          <Link 
-            className={`nav-item ${activeLink === 'Shop' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Shop')} to="AdminShop"
-          >
-            Shop
-          </Link>
-          <Link className={`nav-item ${activeLink === 'Gem Cut Manage' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Custom Cuts')} to="AdminGemCutHome" >
-            Custom Cuts
-          </Link>
-          
-        </div>
+          {/* Navigation Links */}
+          <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+            <Link
+              className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Home')} to="AdminGemCutHome"
+            >
+              Home
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'Shop' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Shop')} to="AdminShop"
+            >
+              Shop
+            </Link>
+            <Link className={`nav-item ${activeLink === 'Gem Cut Manage' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Custom Cuts')} to="AdminGemCutHome" >
+              Custom Cuts
+            </Link>
+            <Link className={`nav-item ${activeLink === 'Gem Cut Manage' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Custom Cuts')} to="AdminPaymentManagement" >
+              Transactions
+            </Link>
 
-        {/* User Icon */}
-        <div className="icon-placeholder">
-          <img className="profile-icon" src={User} alt="User" />
+          </div>
+
+          {/* User Icon */}
+          <div className="icon-placeholder">
+            <img className="profile-icon" src={User} alt="User" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
   );
 };
 

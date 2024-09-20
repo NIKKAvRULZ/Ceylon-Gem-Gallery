@@ -7,7 +7,7 @@ import Footer from './components/Admin/AdminFooter';
 import AdminGemCutHome from './components/Admin/AdminGemCutHome';
 import AdminGemCutList from './components/Admin/AdminGemCutList';
 import AdminAddGemCuts from './components/Admin/AdminAddGemCuts';
-import UpdateGemCut from './components/Admin/UpdateGemCut'; 
+import UpdateGemCut from './components/Admin/UpdateGemCut';
 
 // cost
 import PaymentList from "./components/Admin/Cost/paymentlist";
@@ -17,21 +17,22 @@ import CostList from "./components/Admin/Cost/CostList";
 import InsertCost from "./components/Admin/Cost/InsertCost";
 import UpdateCost from "./components/Admin/Cost/UpdateCost";
 
-
+import AdminPaymentManagement from './components/Admin/AdminPaymentManagement'
 
 const Admin = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Routes>
         {/* cut */}
-        <Route path='/UpdateDetails/:id' element={<UpdateGemCut/>}/>
+        <Route path='/UpdateDetails/:id' element={<UpdateGemCut />} />
         <Route path="/AdminGemCutHome" element={<AdminGemCutHome />} />
         <Route path="/AdminGemCutHome/AdminGemCutList" element={<AdminGemCutList />} />
         <Route path="/AdminGemCutHome/AdminAddGemCuts" element={<AdminAddGemCuts />} />
-        <Route path='/' element={<AdminGemCutHome />} /> 
+        <Route path='/' element={<AdminGemCutHome />} />
+        <Route path='/AdminPaymentManagement' element={<AdminPaymentManagement />} />
         {/* cost */}
-        
+
         <Route path="/payments" element={<PaymentList />} />
         <Route path="/insert-payment" element={<InsertPayment />} />
         <Route path="/update-payment/:id" element={<UpdatePayment />} />
@@ -41,7 +42,7 @@ const Admin = () => {
 
 
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
