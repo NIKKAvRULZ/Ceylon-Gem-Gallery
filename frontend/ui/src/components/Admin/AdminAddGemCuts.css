@@ -142,3 +142,36 @@
     background-color: #1fad5b;
   }
   
+  /* Button Styling */
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  .btn-outline-danger {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-outline-choose {
+    color: #3E9263;
+    border: 1px solid #3E9263;
+  }
+  
+  .btn-outline-choose:hover {
+    background-color: #3E9263;
+    color: white;
+  }
+  
+  .float-right {
+    float: right;
+  }

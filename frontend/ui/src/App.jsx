@@ -30,6 +30,7 @@ function App() {
             <Route path="/Shop" element={<Shop/>}/>
             <Route path="/About" element={<About/>}/>
             <Route path='/showdetails/:id' element={<ShowGemCutDetails/>}/>
+            <Route path='/' element={<Home/>}/>
 
 
             <Route path='/UpdateDetails/:id' element={<UpdateGemCut/>}/>

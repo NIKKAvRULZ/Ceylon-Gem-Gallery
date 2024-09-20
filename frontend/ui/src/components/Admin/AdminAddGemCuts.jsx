@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './AdminAddGemCuts.css'; // Import the CSS file
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const AdminAddGemCuts = () => {
   // State to store form data
@@ -94,7 +96,8 @@ const AdminAddGemCuts = () => {
             ></textarea>
           </div>
           <div>
-            <button type="submit" className="submit-button">Add Cut</button>
+            <button type="submit" className="btn btn-outline-choose float-right">Add Cut</button>
+            <Link to={"/AdminGemCutHome/AdminGemCutList"} className="btn btn-outline-danger float-right">Back</Link>
           </div>
         </form>
       </div>
