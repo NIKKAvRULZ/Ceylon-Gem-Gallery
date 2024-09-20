@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import './AdminAddGemCuts.css'; // Import the CSS file
+import './AdminAddGemCuts.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const AdminAddGemCuts = () => {
-  // State to store form data
   const [gemCutData, setGemCutData] = useState({
     name: '',
     description: '',
@@ -28,7 +29,7 @@ const AdminAddGemCuts = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submit action
-    console.log(gemCutData)
+
     const formData = new FormData();
     formData.append('name', gemCutData.name);
     formData.append('description', gemCutData.description);
@@ -37,21 +38,13 @@ const AdminAddGemCuts = () => {
     formData.append('Facets', gemCutData.facets);
     formData.append('Proportions', gemCutData.proportions);
     formData.append('Appearance', gemCutData.appearance);
-    for (let pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
-    
 
     try {
       // Send the form data to the backend
-      const response = await axios.post('http://localhost:3000/api/cuts', formData, {
-        headers: {
-          // 'Content-Type': 'application/json', // Set the content type
-        },
-      });
+      const response = await axios.post('http://localhost:3000/api/cuts', formData);
       console.log('Gem cut added successfully:', response.data);
 
-      // Optionally, reset the form after successful submission
+      // Reset form after successful submission
       setGemCutData({
         name: '',
         description: '',
@@ -60,10 +53,46 @@ const AdminAddGemCuts = () => {
         proportions: '',
         appearance: '',
       });
-      setImage(null)
+      setImage(null);
     } catch (error) {
       console.error('Error adding gem cut:', error);
     }
+  };
+
+  // Function to generate PDF
+  const generatePDF = () => {
+    const doc = new jsPDF();
+
+    // Add title to the PDF
+    doc.text("Gem Cut Details", 14, 20);
+
+    // Define columns for the table
+    const columns = [
+      "No", "Name", "Description", "Shape", "Facets", "Proportions", "Appearance"
+    ];
+
+    // Define the rows for the table using the form data
+    const rows = [
+      [
+        1,
+        gemCutData.name,
+        gemCutData.description,
+        gemCutData.shape,
+        gemCutData.facets,
+        gemCutData.proportions,
+        gemCutData.appearance,
+      ],
+    ];
+
+    // Add the table to the PDF using autoTable
+    doc.autoTable({
+      head: [columns],
+      body: rows,
+      startY: 30,
+    });
+
+    // Save the PDF with a name
+    doc.save(`${gemCutData.name}_gem_cut_details.pdf`);
   };
 
   return (
@@ -151,10 +180,11 @@ const AdminAddGemCuts = () => {
             ></textarea>
           </div>
           <div>
-            <button type="submit" className="btn btn-outline-choose float-right">Add Cut</button>
+            <button type="submit" className="btn btn-outline-choose float-right" onClick={generatePDF}>Add Cut</button>
             <Link to={"/AdminGemCutHome/AdminGemCutList"} className="btn btn-outline-danger float-right">Back</Link>
           </div>
         </form>
+      
       </div>
     </div>
   );
