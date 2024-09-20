@@ -23,7 +23,7 @@ function ShowGemCutDetails() {
         <tbody>
           <tr>
             <td colSpan="2" className="text-center">
-              <img src={gemCut.imageUrl} alt={gemCut.name}/>
+              <img src={`http://localhost:3000/Cuts/${gemCut.imageUrl}`} alt={gemCut.name}/>
             </td>
           </tr>
           <tr>

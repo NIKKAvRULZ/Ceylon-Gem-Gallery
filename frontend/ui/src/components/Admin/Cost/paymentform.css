@@ -7,19 +7,19 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.form-container h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-form label {
+.form-container form label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
 }
 
-form input,
-form select {
+.form-container form input,
+.form-container form select {
   width: 100%;
   padding: 8px;
   margin-bottom: 12px;
@@ -27,7 +27,7 @@ form select {
   border: 1px solid #ccc;
 }
 
-button {
+.form-container button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -38,10 +38,10 @@ button {
   cursor: pointer;
 }
 
-.btn1 {
+/* .btn1 {
   background-color: #ff4000;
-}
+} */
 
-button:hover {
+.form-container button:hover {
   background-color: #45a049;
 }

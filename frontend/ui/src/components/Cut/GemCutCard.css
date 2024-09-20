@@ -1,5 +1,13 @@
 /* Card container */
-.Cut-card {
+.content-container {
+  flex-grow: 1; /* Ensures the content takes remaining height */
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  padding-top: 100px; /* Adjusts for navbar height */
+}
+
+.content-container .Cut-card {
   max-width: 300px;
   margin:auto; /* Adjust the top margin to be larger than the navbar height */
   background-color: #fff;
@@ -10,31 +18,28 @@
   font-family: 'Arial', sans-serif;
 
 }
-.content-container {
-  flex-grow: 1; /* Ensures the content takes remaining height */
-  display: flex;
-  justify-content: center; /* Centers the content horizontally */
-  align-items: center; /* Centers the content vertically */
-  padding-top: 100px; /* Adjusts for navbar height */
+
+.content-container .Cut-card{
+  width: 100%;
+  /* padding: 0 15px; */
 }
 
-
 /* Image */
-.Cut-card img {
+.content-container .Cut-card img {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
 /* Product title */
-.Cut-card-title {
+.content-container .Cut-card .Cut-card-title {
   font-size: 20px;
   font-weight: bold;
   color: #417558;
   padding: 10px;
   margin: 0;
 }
-.Cut-card-description {
+.content-container .Cut-card .Cut-card-description {
   font-size: 15px;
   font-weight: bold;
   color: #333;
@@ -45,27 +50,28 @@
 
 
 /* Button */
-.Cut-Update {
+.content-container .Cut-card .Cut-Update {
   background-color: #3E9263;
   color: #fff;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   border: none;
   border-radius: 15px;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: 10px;
+  margin: 10px 0;
 }
-.link{
+
+.content-container .Cut-card .Cut-Update:hover {
+  background-color: #1fad5b;
+}
+.content-container .Cut-card .link{
   text-decoration: none;
   color: white;
 }
 
-.Cut-Update:hover {
-  background-color: #1fad5b;
-}
 
-.Cut-Delete {
+/* .Cut-Delete {
   background-color: #923e3e;
   color: #fff;
   padding: 10px 20px;
@@ -79,4 +85,4 @@
 
 .Cut-Delete:hover {
   background-color: #ad1f1f;
-}
+} */
