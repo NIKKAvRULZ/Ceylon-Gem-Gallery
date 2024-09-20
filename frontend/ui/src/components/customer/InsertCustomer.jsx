@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './InsertCus.css';
 import axios from "axios";
 
@@ -36,49 +36,49 @@ const InsertCustomer = () => {
 
   return (
     <div className='Mcontain'>
-        <div class="form-container">
-            <form onSubmit={handleSubmit} class="form">
-                <label for="first-name" class="form-label">First Name:</label>
+        <div className="form-container">
+            <form onSubmit={handleSubmit} className="form">
+                <label htmlFor="first-name" className="form-label">First Name:</label>
                 <input 
                 type="text" 
                 id="first-name" 
                 name="Fname" 
-                class="form-input" 
+                className="form-input" 
                 onChange={handleChange}
                 value={customerData.Fname} />
                 <br/>
 
-                <label for="last-name" class="form-label">Last Name:</label>
+                <label htmlFor="last-name" className="form-label">Last Name:</label>
                 <input 
                 type="text" 
                 id="last-name" 
                 name="Lname" 
-                class="form-input" 
+                className="form-input" 
                 onChange={handleChange}
                 value={customerData.Lname} />
                 <br/>
 
-                <label for="email" class="form-label">Email:</label>
+                <label htmlFor="email" className="form-label">Email:</label>
                 <input 
                 type="email" 
                 id="email" 
                 name="Email" 
-                class="form-input" 
+                className="form-input" 
                 onChange={handleChange} 
                 value={customerData.Email}/>
                 <br/>
 
-                <label for="password" class="form-label">Password:</label>
+                <label htmlFor="password" className="form-label">Password:</label>
                 <input 
                 type="password" 
                 id="password" 
                 name="Password" 
-                class="form-input" 
+                className="form-input" 
                 onChange={handleChange}
                 value={customerData.Password} />
                 <br/>
 
-                <button type="submit" class="form-button">Submit</button>
+                <button type="submit" className="form-button">Submit</button>
             </form>
         </div>
     </div>

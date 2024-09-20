@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import './InsertCus.css';
 
-function updateCustomer() {
+function UpdateCustomer() {
     const [customer, setCustomers] = useState({
         Fname: "",
         Lname: "",
@@ -114,4 +114,4 @@ function updateCustomer() {
     )
 }
 
-export default updateCustomer;
+export default UpdateCustomer;
