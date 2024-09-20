@@ -11,13 +11,14 @@
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensure the navbar is always on top */
+    z-index: 999; /* Ensure the navbar is always on top */
     padding-bottom: 20px; /* Add padding below the navbar */
     margin-bottom: 20px;
 
   }
 
   .layout-container {
+    z-index: 999;
     display: flex;
     flex-direction: column; /* Navbar at the top, content follows */
     position: sticky;
