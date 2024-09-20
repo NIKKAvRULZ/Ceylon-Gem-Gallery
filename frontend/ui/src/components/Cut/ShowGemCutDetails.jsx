@@ -67,8 +67,8 @@ function ShowGemCutDetails() {
 
       <div className="col-md-10 m-auto">
         <br />
-        <Link to={"/GemCutHome/CustomCut"} className="btn btn-outline-danger float-right">Back</Link>
-        <Link to={"/GemCutHome/CustomCut"} className="btn btn-outline-choose float-right">Use This Cut</Link>
+        <Link to={"/user/GemCutHome/CustomCut"} className="btn btn-outline-danger float-right">Back</Link>
+        <Link to={"/user/GemCutHome/CustomCut"} className="btn btn-outline-choose float-right">Use This Cut</Link>
       </div>
     </div>
   );
