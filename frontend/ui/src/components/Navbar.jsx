@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import User from '../assets/logo.png'
+import User from '../assets/user.png'
+import logo from '../assets/logo.png'  
 
 const Navbar = () => {
   // State to track which nav item is active
@@ -25,7 +26,7 @@ const Navbar = () => {
 
         {/* Logo Section */}
         <div className="logo-section">
-          <img className="logo-image" src={User} alt="Logo" />
+          <img className="logo-image" src={logo} alt="Logo" />
           <div className="logo-text">
             <span className="logo-black">Ceylon<br/> </span>
             <span className="logo-green">Gem</span>
