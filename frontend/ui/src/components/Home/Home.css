@@ -1,102 +1,136 @@
 /* Container for the whole page */
 .home-container {
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Added a modern font */
   padding: 20px;
   margin: 0 auto;
+  max-width: 1200px; /* Restrict max width for better readability */
 }
 
-/* Hero Banner */
 /* Hero Banner */
 .hero-banner {
-  background-color: #f4f4f9;
-  padding: 50px;
+  background-color: #f9f9fb;
+  padding: 50px 20px;
   margin-bottom: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Image inside the hero banner */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6fd3c1 0%, #3E9263 100%);
+  z-index: 0;
+  opacity: 0.1; /* Subtle background gradient */
+}
+
 .hero-banner img {
-  width: 50%; /* Adjust this value to make the image smaller */
-  height: auto; /* Maintain the aspect ratio */
-  max-width: 300px; /* Optional: Set a maximum width */
-  border-radius: 8px; /* Optional: Add rounded corners */
-  margin-top: 20px; /* Optional: Add space above the image */
+  width: 15%;
+  max-width: 150px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  z-index: 1; /* Ensure it appears above the gradient */
 }
 
+.hero-text {
+  z-index: 1;
+}
 
 .hero-banner h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
   color: #333;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .hero-banner p {
   font-size: 1.2rem;
-  color: #777;
-  margin-bottom: 20px;
+  color: #555;
+  margin-bottom: 30px;
 }
 
 .cta-button {
   background-color: #3E9263;
   color: #fff;
-  padding: 10px 20px;
+  padding: 15px 25px;
   border: none;
-  border-radius: 15px;
-  font-size: 14px;
+  border-radius: 50px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .cta-button:hover {
   background-color: #1fad5b;
+  transform: scale(1.05); /* Add hover scale effect */
 }
 
 /* Features Section */
 .features-section {
-  padding: 40px 20px;
+  padding: 60px 20px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .features-section h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
 }
 
 .features {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .feature-item {
   flex-basis: 30%;
   padding: 20px;
-  text-align: left;
+  background-color: #f4f4f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px); /* Hover effect */
 }
 
 .feature-item h3 {
-  font-size: 1.5rem;
-  color: #6200ea;
+  font-size: 1.7rem;
+  color: #333;
+  margin-bottom: 15px;
 }
 
 .feature-item p {
   font-size: 1rem;
-  color: #555;
+  color: #666;
+  margin-bottom: 20px;
 }
 
 /* Set equal size for feature images */
 .feature-image {
-  width: 100%; /* Ensures image fills the available space */
-  height: 200px; /* Set a fixed height */
-  object-fit: cover; /* Ensures images maintain aspect ratio and don't get distorted */
-  border-radius: 8px; /* Optional: Add rounded corners */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 /* Responsive design */
@@ -104,4 +138,14 @@
   .feature-item {
     flex-basis: 100%;
   }
+
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }
+  

@@ -12,7 +12,7 @@ const Home = () => {
       <div className="hero-banner">
         <img src={heroImage} alt="Gem Collection" className="hero-image" />
         <div className="hero-text">
-          <h1>Welcome to Ceylon<font color="green"> Gem  </font>Gallery</h1>
+          <h1>Welcome to Ceylon<font color="green"> Gem </font>Gallery</h1>
           <p>Discover the finest gemstones and experience precision cutting like never before.</p>
           <button className="cta-button">Explore Our Collection</button>
         </div>

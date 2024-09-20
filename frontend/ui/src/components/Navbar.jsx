@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
           <Link 
             className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Home')} to="Home"
+            onClick={() => handleNavClick('/Home')} to="Home"
           >
             Home
           </Link>

@@ -1,5 +1,5 @@
 /* Card container */
-.card {
+.Cut-card {
   max-width: 300px;
   margin:auto; /* Adjust the top margin to be larger than the navbar height */
   background-color: #fff;
@@ -20,21 +20,21 @@
 
 
 /* Image */
-.card img {
+.Cut-card img {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
 /* Product title */
-.card-title {
+.Cut-card-title {
   font-size: 20px;
   font-weight: bold;
   color: #417558;
   padding: 10px;
   margin: 0;
 }
-.card-description {
+.Cut-card-description {
   font-size: 15px;
   font-weight: bold;
   color: #333;
@@ -42,16 +42,10 @@
   margin: 0;
 }
 
-/* Price */
-.price {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin: 10px;
-}
+
 
 /* Button */
-.Update {
+.Cut-Update {
   background-color: #3E9263;
   color: #fff;
   padding: 10px 20px;
@@ -67,11 +61,11 @@
   color: white;
 }
 
-.Update:hover {
+.Cut-Update:hover {
   background-color: #1fad5b;
 }
 
-.Delete {
+.Cut-Delete {
   background-color: #923e3e;
   color: #fff;
   padding: 10px 20px;
@@ -83,6 +77,6 @@
   margin: 10px;
 }
 
-.Delete:hover {
+.Cut-Delete:hover {
   background-color: #ad1f1f;
 }

@@ -1,0 +1,84 @@
+.payment-list-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.payment-table th {
+  background-color: #f4f4f4;
+}
+
+.payment-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.payment-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+p {
+  text-align: center;
+  color: #999;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
+
+.update-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.update-button:hover {
+  background-color: darkgreen;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}

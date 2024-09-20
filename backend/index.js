@@ -6,6 +6,11 @@ const employeeRoutes  = require("./routes/employees");
 const cutsRoutes = require("./routes/Cut/cuts");
 const assignRoutes = require("./routes/assign");
 const notificationRoutes = require("./routes/notifications");
+
+//Cost Routes
+const paymentRoutes = require("./routes/Cost/costpayroute");
+const costRoutes = require("./routes/Cost/costManagementRoutes");
+
 // const trackRoutes = require("./routes/track");
 const homeRoutes = require("./routes/home");
 
@@ -37,6 +42,10 @@ app.use("/api/notifications", notificationRoutes);
 // app.use("/api/track", trackRoutes);
 app.use("/api/home", homeRoutes);
 
+//cost
+app.use("/api/costpayroute", paymentRoutes);
+app.use("/api/costmanagement", costRoutes);
 const PORT = 3000;
+
 
 app.listen(PORT,() => console.log(`Server Running On PORT ${PORT}`)); 
