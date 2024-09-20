@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.post("/", (req, res) => {
   Cut.create(req.body)
     .then(() => res.json({ msg: "Cut Added Successfully" }))
-    .catch(() => res.status(400).json({ msg: "Cut Adding Failed" })); // Changed req to res
+    .catch((err) => res.status(400).json({ msg: err })); // Changed req to res
 });
 
 // GET Cut by ID

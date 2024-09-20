@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './AdminAddGemCuts.css'; // Import the CSS file
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -8,10 +8,10 @@ const AdminAddGemCuts = () => {
   const [gemCutData, setGemCutData] = useState({
     name: '',
     description: '',
-    image: '', 
-    Shape: '',
-    Facets: '',
-    Proportions: '',
+    imageUrl: '', 
+    shape: '',
+    facets: '',
+    proportions: '',
     appearance: '',
   });
 
@@ -35,21 +35,21 @@ const AdminAddGemCuts = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submit action
-
+    console.log(gemCutData)
     const formData = new FormData();
     formData.append('name', gemCutData.name);
     formData.append('description', gemCutData.description);
-    formData.append('image', gemCutData.image); // Append the image file
-    formData.append('shape', gemCutData.shape);
-    formData.append('facets', gemCutData.facets);
-    formData.append('proportions', gemCutData.proportions);
-    formData.append('appearance', gemCutData.appearance);
+    formData.append('imageUrl', gemCutData.image); // Append the image file
+    formData.append('Shape', gemCutData.shape);
+    formData.append('Facets', gemCutData.facets);
+    formData.append('Proportions', gemCutData.proportions);
+    formData.append('Appearance', gemCutData.appearance);
 
     try {
       // Send the form data to the backend
       const response = await axios.post('http://localhost:3000/api/cuts', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data', // Set the content type
+          'Content-Type': 'application/json', // Set the content type
         },
       });
       console.log('Gem cut added successfully:', response.data);
