@@ -38,6 +38,10 @@ const AdminAddGemCuts = () => {
     formData.append('Facets', gemCutData.facets);
     formData.append('Proportions', gemCutData.proportions);
     formData.append('Appearance', gemCutData.appearance);
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+    
 
     try {
       // Send the form data to the backend
@@ -180,7 +184,7 @@ const AdminAddGemCuts = () => {
             ></textarea>
           </div>
           <div>
-            <button type="submit" className="btn btn-outline-choose float-right" onClick={generatePDF}>Add Cut</button>
+            <button type="submit" className="btn btn-outline-choose float-right">Add Cut</button>
             <Link to={"/AdminGemCutHome/AdminGemCutList"} className="btn btn-outline-danger float-right">Back</Link>
           </div>
         </form>

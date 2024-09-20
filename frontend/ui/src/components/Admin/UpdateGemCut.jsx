@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 function UpdateGemCut() {
   const [GemCut, setGemCut] = useState({
-    name: "",
-    description: "",
-    imageUrl: "",
-    specifications: "",
+    name: '',
+    description: '',
+    shape: '',
+    facets: '',
+    proportions: '',
+    appearance: '',
   });
   const { id } = useParams();
   const navigate = useNavigate();
+  const [image, setImage] = useState();
+
 
   useEffect(() => {
     // Fetch data from the API
@@ -18,10 +22,12 @@ function UpdateGemCut() {
       .get(`http://localhost:3000/api/cuts/${id}`)
       .then((res) => {
         setGemCut({
-          name: res.data.name || "",
-          description: res.data.description || "",
-          imageUrl: res.data.imageUrl || "",
-          specifications: res.data.specifications || "",
+          name: res.data.name,
+          description: res.data.description,
+          shape: res.data.Shape,
+          facets: res.data.Facets,
+          proportions: res.data.Proportions,
+          appearance: res.data.Appearance,
         });
       })
       .catch((err) => {
@@ -36,18 +42,21 @@ function UpdateGemCut() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const data = {
-      name: GemCut.name,
-      description: GemCut.description,
-      imageUrl: GemCut.imageUrl,
-      specifications: GemCut.specifications,
-    };
+    const formData = new FormData();
+    formData.append('name', GemCut.name);
+    formData.append('description', GemCut.description);
+    formData.append('imageUrl', image); // Append the image file
+    formData.append('Shape', GemCut.shape);
+    formData.append('Facets', GemCut.facets);
+    formData.append('Proportions', GemCut.proportions);
+    formData.append('Appearance', GemCut.appearance);
+
 
     axios
-      .put(`http://localhost:3000/api/cuts/${id}`, data)
+      .put(`http://localhost:3000/api/cuts/${id}`, formData)
       .then((res) => {
         console.log("Gem Cut updated successfully");
-        navigate('/AdminGemCutHome/AdminGemCutList');
+        navigate('/admin/AdminGemCutHome/AdminGemCutList');
       })
       .catch((err) => {
         console.log("Error from Update Gem Cut", err);
@@ -60,12 +69,12 @@ function UpdateGemCut() {
       <div className="Admin-card">
         <h2 className="Admin-card-title">Update Gem Cut</h2>
         <br />
-        <form className="form" onSubmit={onSubmit}>
+        <form className="form" onSubmit={onSubmit} encType="multipart/form-data">
           <div className="form-group">
-            <label htmlFor="name" className="label">Cut Name:</label>
+            <label htmlFor="cutName" className="label">Cut Name:</label>
             <input
               type="text"
-              id="name"
+              id="cutName"
               name="name"
               value={GemCut.name}
               required
@@ -74,9 +83,9 @@ function UpdateGemCut() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="description" className="label">Cut Description:</label>
+            <label htmlFor="cutDescription" className="label">Cut Description:</label>
             <textarea
-              id="description"
+              id="cutDescription"
               name="description"
               value={GemCut.description}
               required
@@ -85,23 +94,56 @@ function UpdateGemCut() {
             ></textarea>
           </div>
           <div className="form-group">
-            <label htmlFor="imageUrl" className="label">Cut Image URL:</label>
+            <label htmlFor="cutImage" className="label">Cut Image URL:</label>
             <input
-              type="text"
-              id="imageUrl"
+              type="file"
+              id="cutImage"
+              accept="image/png, image/jpeg"
               name="imageUrl"
-              value={GemCut.imageUrl}
               required
               className="input"
-              onChange={onChange}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="specifications" className="label">Cut Specifications:</label>
+            <label htmlFor="cutShape" className="label">Cut Shape:</label>
             <textarea
-              id="specifications"
-              name="specifications"
-              value={GemCut.specifications}
+              id="cutShape"
+              name="shape"
+              value={GemCut.shape}
+              required
+              className="textarea"
+              onChange={onChange}
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <label htmlFor="cutFacets" className="label">Cut Facets:</label>
+            <textarea
+              id="cutFacets"
+              name="facets"
+              value={GemCut.facets}
+              required
+              className="textarea"
+              onChange={onChange}
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <label htmlFor="cutProportions" className="label">Cut Proportions:</label>
+            <textarea
+              id="cutProportions"
+              name="proportions"
+              value={GemCut.proportions}
+              required
+              className="textarea"
+              onChange={onChange}
+            ></textarea>
+          </div>
+          <div className="form-group">
+            <label htmlFor="cutAppearance" className="label">Cut Appearance:</label>
+            <textarea
+              id="cutAppearance"
+              name="appearance"
+              value={GemCut.appearance}
               required
               className="textarea"
               onChange={onChange}
