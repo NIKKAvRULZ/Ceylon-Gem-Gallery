@@ -1,5 +1,9 @@
 import React from 'react';
 import './Footer.css';
+import Twitter from '../assets/twitter.png';
+import Facebook from '../assets/facebook.png';
+import Instagram from '../assets/instagram.png';
+
 
 const Footer = () => {
   return (
@@ -18,13 +22,13 @@ const Footer = () => {
       {/* Social Media Icons */}
       <div className="social-icons">
         <div className="social-icon">
-          <img src='./src/assets/twitter.png' alt="Icon 1" />
+          <img src={Twitter} alt="Icon 1" />
         </div>
         <div className="social-icon">
-          <img src='./src/assets/facebook.png' alt="Icon 2" />
+          <img src={Facebook} alt="Icon 2" />
         </div>
         <div className="social-icon">
-          <img src='./src/assets/instagram.png' alt="Icon 3" />
+          <img src={Instagram} alt="Icon 3" />
         </div>
       </div>
 
