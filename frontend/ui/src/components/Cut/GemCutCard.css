@@ -53,13 +53,15 @@
 .content-container .Cut-card .Cut-Update {
   background-color: #3E9263;
   color: #fff;
-  /* padding: 10px 20px; */
+  padding: 10px 20px;
   border: none;
   border-radius: 15px;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin: 10px 0;
+  width: 90%;
+
 }
 
 .content-container .Cut-card .Cut-Update:hover {
