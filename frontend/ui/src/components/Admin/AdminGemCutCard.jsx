@@ -23,7 +23,7 @@ const AdminGemCutCard = ({ AdminGemCut }) => {
         <p className="card-description">{AdminGemCut.description}</p>
         
         <button className="Update">
-          <Link className="link" to={`/updateDetails/${AdminGemCut._id}`}>Update</Link>
+          <Link className="link" to={`/admin/updateDetails/${AdminGemCut._id}`}>Update</Link>
         </button>
         <button className="Delete" onClick={() => onDeleteClick(AdminGemCut._id)}>Delete</button>
       </div>

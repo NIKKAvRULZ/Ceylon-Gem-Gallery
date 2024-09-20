@@ -15,6 +15,8 @@ const Admin = () => {
         <Route path="/AdminGemCutHome" element={<AdminGemCutHome />} />
         <Route path="/AdminGemCutHome/AdminGemCutList" element={<AdminGemCutList />} />
         <Route path="/AdminGemCutHome/AdminAddGemCuts" element={<AdminAddGemCuts />} />
+        <Route path='/' element={<AdminGemCutHome />} /> 
+
       </Routes>
       <Footer/>
     </div>
