@@ -34,6 +34,22 @@ function ShowGemCutDetails() {
             <td>Description</td>
             <td className="description-text">{gemCut.description}</td>
           </tr>
+          <tr>
+            <td>Shape</td>
+            <td className="description-text">{gemCut.Shape}</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td className="description-text">{gemCut.Facets}</td>
+          </tr>
+          <tr>
+            <td>Proportions</td>
+            <td className="description-text">{gemCut.Proportions}</td>
+          </tr>
+          <tr>
+            <td>Appearance</td>
+            <td className="description-text">{gemCut.Appearance}</td>
+          </tr>
         </tbody>
       </table>
     </div>
