@@ -1,0 +1,35 @@
+.mcontainer {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.container {
+    background-color: rgb(218, 218, 218);
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.img {
+    width: 100px;
+}
+
+.containerButton {
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    width: 200px;
+    background-color: #638763;
+    border-radius: 25px;
+    color: white;
+    margin-top: 8px;
+}
+
+.btn:hover {
+    background-color: #518e51;
+    color: white;
+}

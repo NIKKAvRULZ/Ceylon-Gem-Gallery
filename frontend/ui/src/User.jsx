@@ -16,6 +16,11 @@ import ShowGemCutDetails from "./components/Cut/ShowGemCutDetails";
 //cost
 import InsertPayment from './components/Cost/InsertPayment';
 
+//profile
+import Profile from './components/customer/profile'
+import ShowCustomerDetails from './components/customer/ShowCustomerDetails'
+import UpdateCustomer from './components/customer/UpdateCustomer'
+
 const User = () => {
   return (
     <div>
@@ -34,6 +39,13 @@ const User = () => {
         
         {/* cost */}
         <Route path="/insert-payment" element={<InsertPayment />} />
+
+        {/* user */}
+        <Route path="/profile" element={<Profile />} />
+        <Route path='/showcustomerdetails/:id' element = {<ShowCustomerDetails />} />
+        <Route path='/updatecustomerdetails/:id' element = {<UpdateCustomer />} />
+
+
       </Routes>
       <Footer />
     </div>
