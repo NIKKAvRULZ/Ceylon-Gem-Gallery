@@ -55,6 +55,8 @@ General Layout
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+        background-color: #e9ecef;
+
   }
   
   .customer-table th, .customer-table td {
@@ -82,6 +84,10 @@ General Layout
     color: #333;
   }
   
+  .customer-table tr:hover {
+    background-color: #e9ecef;
+}
+
   /* Edit Customer Link */
   .edit-link {
     display: inline-block;
@@ -97,3 +103,13 @@ General Layout
   .edit-link:hover {
     background-color: #2b6d46;
   }
+
+  @media (max-width: 600px) {
+    .customer-container {
+        width: 95%;
+        padding: 10px;
+    }
+    .customer-title {
+        font-size: 20px;
+    }
+}

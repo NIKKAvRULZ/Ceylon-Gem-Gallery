@@ -1,0 +1,91 @@
+/* update.css */
+
+.con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9; /* Light background to match the web app theme */
+  }
+  
+  .customer-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    width: 500px;
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  .customer-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .customer-description {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .customer-divider {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+  }
+  
+  .customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+  }
+  
+  .customer-table th {
+    text-align: left;
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #ddd;
+    color: #333;
+  }
+  
+  .customer-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .customer-table th:first-child {
+    width: 50px;
+  }
+  
+  .customer-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .back-link, .edit-link {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff; /* Primary button color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-link:hover, .edit-link:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .back-link {
+    background-color: #6c757d; /* Secondary button color for "Back" */
+    margin-bottom: 20px;
+  }
+  
+  .back-link:hover {
+    background-color: #5a6268;
+  }
+  

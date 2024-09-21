@@ -54,11 +54,13 @@ a:hover {
     margin-bottom: 12px;
     width: 100%;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Focus State for Inputs */
 .form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(62, 146, 99, 0.5);
     border-color: #3E9263;
     outline: none;
 }
@@ -76,6 +78,11 @@ a:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+.form-button:active {
+    background-color: #2b6d46;
+    transform: scale(0.98);
+}
+
 
 /* Hover Effect for Button */
 .form-button:hover {

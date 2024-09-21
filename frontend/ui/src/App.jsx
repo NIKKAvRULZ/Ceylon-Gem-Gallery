@@ -4,6 +4,12 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Admin from './Admin';
 import User from './User'
+// import Worker from './Worker';
+import AdminLogin from './components/Login/AdminLogin';
+import UserLogin from './components/Login/UserLogin';
+import WorkerLogin from './components/Login/WorkerLogin';
+
+import LoginHome from './components/LoginHome';
 
 function App() {
 
@@ -11,10 +17,16 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path='/' element={<Navigate to={'/user/Home'} />} />
+          <Route path='/' element={<LoginHome/>}/>
 
+          <Route path='/AdminLogin' element={<AdminLogin />} />
           <Route path='/admin/*' element={<Admin />} />
+
+          <Route path='/UserLogin' element={<UserLogin />} />
           <Route path='/user/*' element={<User />} />
+
+          <Route path='/WorkerLogin' element={<WorkerLogin />} />
+          <Route path='/worker/*' element={<Worker />} />
 
         </Routes>
         {/* <Footer /> */}
