@@ -11,7 +11,7 @@ const AssignJob = () => {
   useEffect(() => {
     // Fetch workers from the API
     const fetchWorkers = async () => {
-      const response = await axios.get('/api/employees');
+      const response = await axios.get('http://localhost:3000/api/employees');
       setWorkers(response.data);
     };
     fetchWorkers();
@@ -20,7 +20,7 @@ const AssignJob = () => {
   const handleAssignJob = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/assign/assign', { workerID, cutID, customerID });
+      await axios.post('http://localhost:3000/api/assign/assign', { workerID, cutID, customerID });
       alert('Job assigned successfully!');
       setWorkerID('');
       setCutID('');
@@ -36,7 +36,7 @@ const AssignJob = () => {
       <form onSubmit={handleAssignJob}>
         <select value={workerID} onChange={(e) => setWorkerID(e.target.value)} required>
           <option value="">Select Worker</option>
-          {workers.map((worker) => (
+          {workers && workers.map((worker) => (
             <option key={worker._id} value={worker._id}>
               {worker.name}
             </option>

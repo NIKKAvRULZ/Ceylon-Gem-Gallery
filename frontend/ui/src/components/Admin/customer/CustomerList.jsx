@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import CustomerCard from './CustomerCard';
 import "./CustomerList.css";
+import { useNavigate } from 'react-router-dom';
 
 const CustomerList = () => {
 
   const [coustomers, setCustomer] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/customer")
@@ -36,6 +38,8 @@ const CustomerList = () => {
 
   return (
     <div className='showCustomerList'>
+      <button className='btn btn-outline-choose' onClick={() => navigate('/admin/addCustomer')}>Add Customers</button>
+      <br /><br />
       <div className='container'>
         <div className='list'>{customerList}</div>
       </div>

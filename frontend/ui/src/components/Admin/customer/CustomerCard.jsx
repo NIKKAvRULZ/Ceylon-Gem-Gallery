@@ -1,10 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import './Card.css';
 
 const CustomerCard = ({ customer, onDelete }) => {
 
+  const navigate = useNavigate();
+
   const handleDelete = () => {
-    onDelete(customer._id);
+    if(confirm("Are you sure?")){
+      onDelete(customer._id);
+    }
   };
+
+  const handleUpdate = () => {
+    navigate(`/admin/updatecustomerdetails/${customer._id}`);
+  }
 
   // Create a hidden password representation with asterisks
   const hiddenPassword = '*'.repeat(customer.Password.length);
@@ -16,14 +25,12 @@ const CustomerCard = ({ customer, onDelete }) => {
         <h3 className="email-label">Email</h3>
         <div className="email-content">
           <span className="email-text">{customer.Email}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
       <div className="email-container">
         <h3 className="email-label">Password</h3>
         <div className="email-content">
           <span className="email-text">{hiddenPassword}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
       <br />
@@ -32,16 +39,17 @@ const CustomerCard = ({ customer, onDelete }) => {
         <h3 className="email-label">First name</h3>
         <div className="email-content">
           <span className="email-text">{customer.Fname}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
       <div className="email-container">
         <h3 className="email-label">Last name</h3>
         <div className="email-content">
           <span className="email-text">{customer.Lname}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
+      <br />
+      <button className='btn btn-outline-choose' onClick={handleUpdate}>Update Customer</button>
+      <button className='btn btn-outline-danger' onClick={handleDelete}>Delete Customer</button>
     </div>
 
   );

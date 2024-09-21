@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './InsertCus.css';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const InsertCustomer = () => {
 
@@ -36,6 +37,9 @@ const InsertCustomer = () => {
 
   return (
     <div className='Mcontain'>
+        <div>
+                <Link to="/admin/customerList" className="simple-button-link">Show Employee List</Link>
+            </div>
         <div className="form-container">
             <form onSubmit={handleSubmit} className="form">
                 <label htmlFor="first-name" className="form-label">First Name:</label>

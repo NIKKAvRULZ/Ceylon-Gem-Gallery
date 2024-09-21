@@ -16,14 +16,12 @@ const CustomerCard = ({ customer, onDelete }) => {
         <h3 className="email-label">Email</h3>
         <div className="email-content">
           <span className="email-text">{customer.Email}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
       <div className="email-container">
         <h3 className="email-label">Password</h3>
         <div className="email-content">
           <span className="email-text">{hiddenPassword}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
       <br />
@@ -32,14 +30,12 @@ const CustomerCard = ({ customer, onDelete }) => {
         <h3 className="email-label">First name</h3>
         <div className="email-content">
           <span className="email-text">{customer.Fname}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
       <div className="email-container">
         <h3 className="email-label">Last name</h3>
         <div className="email-content">
           <span className="email-text">{customer.Lname}</span>
-          <button className="change-btn">Change</button>
         </div>
       </div>
     </div>

@@ -23,6 +23,7 @@ import AdminPaymentManagement from './components/Admin/AdminPaymentManagement'
 import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails'
 import UpdateCustomer from './components/Admin/customer/updateCustomer'
 import CustomerList from "./components/Admin/customer/CustomerList";
+import InsertCustomer from './components/Admin/customer/InsertCustomer'
 
 const Admin = () => {
   return (
@@ -47,6 +48,7 @@ const Admin = () => {
 
 
         <Route path='/customerList' element={<CustomerList />} />
+        <Route path='/addCustomer' element={<InsertCustomer />} />
         <Route path='/showcustomerdetails/:id' element={<ShowCustomerDetails />} />
         <Route path='/updatecustomerdetails/:id' element={<UpdateCustomer />} />
 

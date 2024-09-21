@@ -58,7 +58,7 @@ function UpdateCustomer() {
     return (
         <div>
             <div className='cont'>
-                <Link to="/" className="simple-button-link">Show Employee List</Link>
+                <Link to="/admin/customerList" className="simple-button-link">Show Employee List</Link>
             </div>
 
             <div className="form-container">
