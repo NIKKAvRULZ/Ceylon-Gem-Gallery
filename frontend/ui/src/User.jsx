@@ -12,12 +12,15 @@ import GemCutHome from './components/Cut/GemCutHome';
 import GemCutList from './components/Cut/GemCutList';
 import ShowGemCutDetails from "./components/Cut/ShowGemCutDetails";
 
-
-//cost
+// cost
 import InsertPayment from './components/Cost/InsertPayment';
 
-//profile
-import Profile from './components/customer/profile'
+// profile
+import Profile from './components/customer/profile';
+
+// job assignment and completion
+import AssignJob from './components/Cut/AssignJob';
+import CompleteJob from './components/Cut/CompleteJob';
 
 const User = () => {
   return (
@@ -41,7 +44,9 @@ const User = () => {
         {/* user */}
         <Route path="/profile" element={<Profile />} />
 
-
+        {/* job assignment and completion */}
+        <Route path="/assign-job" element={<AssignJob />} />
+        <Route path="/complete-job" element={<CompleteJob />} />
       </Routes>
       <Footer />
     </div>

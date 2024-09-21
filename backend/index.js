@@ -1,6 +1,8 @@
 const express = require("express");
 const dbConeection = require("./config/db");
 
+const workerRoutes = require('./routes/Woker/Worker');
+
 // Routes
 const employeeRoutes  = require("./routes/employees");
 const cutsRoutes = require("./routes/Cut/cuts");
@@ -11,7 +13,7 @@ const notificationRoutes = require("./routes/notifications");
 const paymentRoutes = require("./routes/Cost/costpayroute");
 const costRoutes = require("./routes/Cost/costManagementRoutes");
 
-// const trackRoutes = require("./routes/track");
+const trackRoutes = require("./routes/track");
 const homeRoutes = require("./routes/home");
 
 const bodyParser = require("body-parser");
@@ -39,8 +41,10 @@ app.use("/api/cuts", cutsRoutes);
 app.use("/api/assign", assignRoutes);
 app.use("/api/notifications", notificationRoutes);
 // app.use("/api/status", statusRoutes);
-// app.use("/api/track", trackRoutes);
+app.use("/api/track", trackRoutes);
 app.use("/api/home", homeRoutes);
+app.use('/api/workers', workerRoutes);
+
 
 //cost
 app.use("/api/costpayroute", paymentRoutes);

@@ -1,21 +1,33 @@
 const express = require('express');
 const router = express.Router();
-const Cut = require('../models/Cut/Cut');
 const Worker = require('../models/Worker');
+const Job = require('../models/Job');
 
-// POST Assign Worker to Cut
-router.post('/', async (req, res) => {
+const generateTrackingID = () => {
+  return 'TRACK-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2, 9).toUpperCase();
+};
+
+router.post('/assign', async (req, res) => {
+  const { workerID, cutID, customerID } = req.body;
+
   try {
-    const { cutId, workerId } = req.body;
-
-    const worker = await Worker.findById(workerId);
-    if (!worker) throw new Error('Worker not found');
+    let worker = await Worker.findById(workerID);
+    if (!worker) return res.status(404).json({ message: 'Worker not found' });
 
     worker.workload += 1;
+    worker.experience += 1;
     await worker.save();
 
-    // Here you can add logic to link the worker with the specific cut
-    res.json({ message: 'Worker assigned successfully' });
+    const newJob = new Job({
+      workerID,
+      cutID,
+      customerID,
+      status: 'Assigned',
+      trackingID: generateTrackingID(),
+    });
+    await newJob.save();
+
+    res.status(201).json({ message: 'Job assigned successfully', worker, job: newJob });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

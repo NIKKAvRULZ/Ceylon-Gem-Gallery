@@ -58,6 +58,18 @@ const Navbar = () => {
               Custom Cuts
             </Link>
             <Link
+              className={`nav-item ${activeLink === 'complete-job' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('complete-job')} to="complete-job"
+            >
+              Complete Job
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'assign-job' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('assign-job')} to="assign-job"
+            >
+              Assign Job
+            </Link>
+            <Link
               className={`nav-item ${activeLink === 'About' ? 'highlight' : ''}`}
               onClick={() => handleNavClick('About')} to="About"
             >

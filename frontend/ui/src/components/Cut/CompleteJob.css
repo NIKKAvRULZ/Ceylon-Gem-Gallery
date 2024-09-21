@@ -1,0 +1,38 @@
+.complete-job {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .complete-job h2 {
+    text-align: center;
+  }
+  
+  .complete-job form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .complete-job input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .complete-job button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .complete-job button:hover {
+    background-color: #218838;
+  }
+  
