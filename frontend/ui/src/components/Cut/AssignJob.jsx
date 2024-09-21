@@ -15,7 +15,7 @@ const AssignJob = () => {
   useEffect(() => {
     const fetchWorkers = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/employees');
+        const response = await axios.get('http://localhost:3000/api/workers');
         setWorkers(response.data);
       } catch (err) {
         setError('Failed to fetch workers.');
@@ -35,7 +35,7 @@ const AssignJob = () => {
 
     const fetchCustomers = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/customers');
+        const response = await axios.get('http://localhost:3000/api/customer');
         console.log(response.data); // Log the data to check the structure
         setCustomers(response.data);
       }catch (err) {
@@ -55,14 +55,23 @@ const AssignJob = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
+  
     try {
-      await axios.post('http://localhost:3000/api/assign', {
+      const response = await axios.post('http://localhost:3000/api/track', {
         workerId: workerID,
         cutId: cutID,
         customerId: customerID,
       });
-      alert('Job assigned successfully!');
+  
+      const { trackOrder } = response.data; // Get the trackOrder from the response
+  
+      // Displaying job data and tracking ID
+      alert(`Job assigned successfully! Tracking ID: ${trackOrder.trackingID}`);
+      
+      // Optionally, you can log the entire job data
+      console.log('Assigned Job Data:', trackOrder);
+  
+      // Clear the form
       setWorkerID('');
       setCutID('');
       setCustomerID('');
@@ -73,6 +82,8 @@ const AssignJob = () => {
       setLoading(false);
     }
   };
+  
+  
 
   return (
     <div className="assign-job">
@@ -101,7 +112,7 @@ const AssignJob = () => {
           <option value="">Select Customer</option>
           {customers.map((customer) => (
             <option key={customer._id} value={customer._id}>
-              {customer.firstName} {/* Show only the first name */}
+              {customer.Fname} {/* Show only the first name */}
             </option>
           ))}
         </select>

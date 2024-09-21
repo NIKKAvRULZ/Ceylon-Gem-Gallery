@@ -3,20 +3,21 @@ import axios from 'axios';
 import './CompleteJob.css';
 
 const CompleteJob = () => {
-  const [jobID, setJobID] = useState('');
+  const [trackingID, setTrackingID] = useState(''); // Update state to hold tracking ID
   const [workerID, setWorkerID] = useState('');
 
   const handleCompleteJob = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/api/assign/complete/${jobID}`, { workerID });
+      await axios.post(`/api/assign/complete/${trackingID}`, { workerID });
       alert('Job completed successfully!');
-      setJobID('');
-      setWorkerID('');
+      setTrackingID(''); // Clear the tracking ID input
+      setWorkerID(''); // Clear the worker ID input
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response?.data?.message || 'An error occurred while completing the job.');
     }
   };
+  
 
   return (
     <div className="complete-job">
@@ -24,9 +25,9 @@ const CompleteJob = () => {
       <form onSubmit={handleCompleteJob}>
         <input
           type="text"
-          placeholder="Job ID"
-          value={jobID}
-          onChange={(e) => setJobID(e.target.value)}
+          placeholder="Tracking ID" // Change placeholder to reflect the tracking ID
+          value={trackingID}
+          onChange={(e) => setTrackingID(e.target.value)}
           required
         />
         <input

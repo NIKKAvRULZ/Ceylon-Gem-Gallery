@@ -1,7 +1,7 @@
 /* Container and Layout */
 .showGemCutDetails {
-    padding: 150px;
-    background-color: #f9f9f9;
+    padding: 120px;
+    padding-top: 0px;
     min-height: 100vh;
   }
   
@@ -113,4 +113,25 @@
       max-width: 100%;
     }
   }
+
+  /* Select Worker Styling */
+/* Unique Select Worker Styling */
+.worker-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #3E9263; /* Same border color as the buttons */
+  border-radius: 5px; /* Match button border radius */
+  margin-bottom: 20px; /* Add some space below the dropdown */
+  background-color: #fff; /* White background for contrast */
+  color: #333; /* Dark text color */
+  transition: border-color 0.3s ease;
+}
+
+.worker-select:focus {
+  outline: none; /* Remove default outline */
+  border-color: #dc3545; /* Change border color on focus */
+}
+
+
   

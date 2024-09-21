@@ -1,31 +1,29 @@
+// Assuming this is part of your existing Express setup
 const express = require('express');
 const router = express.Router();
-const Cut = require('../models/Cut/Cut'); // Ensure the path is correct
+const TrackOrder = require('../models/TrackOrder'); // Adjust the path as needed
 const Worker = require('../models/Worker');
 
-// POST Assign Worker to Cut
-router.post('/', async (req, res) => {
+// POST route to complete a job using tracking ID
+router.post('/complete/:trackingID', async (req, res) => {
   try {
-    const { cutId, workerId, customerId } = req.body;
+    const { workerID } = req.body;
+    const { trackingID } = req.params;
 
-    const worker = await Worker.findById(workerId);
-    if (!worker) throw new Error('Worker not found');
+    // Find the job using tracking ID
+    const job = await TrackOrder.findOne({ trackingID });
+    if (!job) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
 
-    // Update worker workload
-    worker.workload += 1;
-    await worker.save();
+    // Update job status
+    job.status = 'Completed'; // Set the status to completed
+    job.workerID = workerID; // Associate the worker with the job
+    await job.save();
 
-    // Find the cut and assign the worker
-    const cut = await Cut.findById(cutId);
-    if (!cut) throw new Error('Cut not found');
-
-    cut.assignedWorker = workerId; // Assuming you have a field in the Cut model
-    cut.customerId = customerId; // Assuming you want to track the customer as well
-    await cut.save();
-
-    res.json({ message: 'Worker assigned successfully' });
+    res.json({ message: 'Job completed successfully', job });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: 'Error completing job', error: error.message });
   }
 });
 
