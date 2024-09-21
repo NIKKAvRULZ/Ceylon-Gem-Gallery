@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Login.css';
 
 const UserLogin = () => {
@@ -6,6 +7,8 @@ const UserLogin = () => {
     email: '',
     password: '',
   });
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +22,9 @@ const UserLogin = () => {
     e.preventDefault();
     // Handle login logic for User here (API call, etc.)
     console.log('User Login Data:', loginData);
+
+    // Navigate to the User page
+    navigate('/User');
   };
 
   return (

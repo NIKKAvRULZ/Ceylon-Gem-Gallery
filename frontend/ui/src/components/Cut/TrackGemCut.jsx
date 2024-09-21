@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './TrackGemCut.css';
 
 const TrackOrder = () => {
   const [trackingID, setTrackingID] = useState('');
@@ -19,21 +20,22 @@ const TrackOrder = () => {
   };
 
   return (
-    <div>
-      <h2>Track Your Order</h2>
-      <form onSubmit={handleTrackOrder}>
+    <div id="track-order-container">
+      <h2 id="track-order-title">Track Your Order</h2>
+      <form id="track-order-form" onSubmit={handleTrackOrder}>
         <input
+          id="track-order-input"
           type="text"
           placeholder="Enter Tracking ID"
           value={trackingID}
           onChange={(e) => setTrackingID(e.target.value)}
           required
         />
-        <button type="submit">Track Order</button>
+        <button id="track-order-button" type="submit">Track Order</button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p id="error-message">{error}</p>}
       {jobDetails && (
-        <div>
+        <div id="job-details">
           <h3>Job Details:</h3>
           <p><strong>Worker:</strong> {jobDetails.workerID.name}</p>
           <p><strong>Cut ID:</strong> {jobDetails.cutID}</p>
@@ -45,6 +47,8 @@ const TrackOrder = () => {
       )}
     </div>
   );
+  
+  
 };
 
 export default TrackOrder;

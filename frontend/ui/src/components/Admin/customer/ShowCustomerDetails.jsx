@@ -1,76 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './update.css';
+import { useParams } from 'react-router-dom';
 
 function ShowCustomerDetails() {
-    const [customer, setCustomer] = useState({});
     const { id } = useParams();
+    const [customer, setCustomer] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
 
     useEffect(() => {
-        axios
-            .get(`http://localhost:3000/api/customer/${id}`)
-            .then((res) => {
+        const fetchCustomer = async () => {
+            try {
+                const res = await axios.get(`http://localhost:3000/api/customer/${id}`);
                 setCustomer(res.data);
-            })
-            .catch(() => {
-                console.log("Error fetching customer details");
-            });
+            } catch (err) {
+                console.log("Error fetching customer details:", err);
+                setError("Failed to load customer details.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCustomer();
     }, [id]);
 
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
+    if (!customer) return <div>No customer found.</div>;
+
     return (
-        <div className='con'>
-            <div className="customer-container">
-            {/* Back link */}
-                <div>
-                    <br />
-                    <Link to="/" className="back-link">Back to main</Link>
-                </div>
-
-                {/* Customer Details */}
-                <br />
-                <div>
-                    <h1 className="customer-title">Customer Details</h1>
-                    <p className="customer-description">This is the full details of the customer:</p>
-                    <hr className="customer-divider" />
-                    <br />
-                </div>
-
-                {/* Table displaying customer details */}
-                <div>
-                    <table className="customer-table">
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>First Name:</td>
-                                <td>{customer.Fname}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Last Name:</td>
-                                <td>{customer.Lname}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Email:</td>
-                                <td>{customer.Email}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Password:</td>
-                                <td>{customer.Password}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                {/* Edit Customer Link */}
-                <div>
-                    <Link to={`/updatedetails/${customer._id}`} className="edit-link">
-                        Edit Customer
-                    </Link>
-                </div>
-            </div>
+        <div>
+            <h1>Customer Details</h1>
+            <p>First Name: {customer.Fname}</p>
+            <p>Last Name: {customer.Lname}</p>
+            <p>Email: {customer.Email}</p>
+            {/* Add more fields as necessary */}
         </div>
     );
 }

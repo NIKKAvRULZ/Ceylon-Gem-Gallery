@@ -4,59 +4,111 @@ import './AssignJob.css';
 
 const AssignJob = () => {
   const [workers, setWorkers] = useState([]);
+  const [cuts, setCuts] = useState([]); // For cut IDs
+  const [customers, setCustomers] = useState([]); // For customer IDs
   const [cutID, setCutID] = useState('');
   const [customerID, setCustomerID] = useState('');
   const [workerID, setWorkerID] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    // Fetch workers from the API
     const fetchWorkers = async () => {
-      const response = await axios.get('http://localhost:3000/api/employees');
-      setWorkers(response.data);
+      try {
+        const response = await axios.get('http://localhost:3000/api/employees');
+        setWorkers(response.data);
+      } catch (err) {
+        setError('Failed to fetch workers.');
+        console.error(err);
+      }
     };
+
+    const fetchCuts = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/cuts'); // Adjust this endpoint as needed
+        setCuts(response.data);
+      } catch (err) {
+        setError('Failed to fetch cuts.');
+        console.error(err);
+      }
+    };
+
+    const fetchCustomers = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/customers');
+        console.log(response.data); // Log the data to check the structure
+        setCustomers(response.data);
+      }catch (err) {
+        setError('Failed to fetch customers: ' + (err.response?.data?.message || err.message));
+        console.error(err);
+      
+      }
+    };
+    
+
     fetchWorkers();
+    fetchCuts();
+    fetchCustomers();
   }, []);
 
   const handleAssignJob = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+
     try {
-      await axios.post('http://localhost:3000/api/assign/assign', { workerID, cutID, customerID });
+      await axios.post('http://localhost:3000/api/assign', {
+        workerId: workerID,
+        cutId: cutID,
+        customerId: customerID,
+      });
       alert('Job assigned successfully!');
       setWorkerID('');
       setCutID('');
       setCustomerID('');
-    } catch (error) {
-      alert(error.response.data.message);
+    } catch (err) {
+      setError(err.response?.data?.message || 'An error occurred while assigning the job.');
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="assign-job">
       <h2>Assign Job to Worker</h2>
+      {error && <div className="error">{error}</div>}
       <form onSubmit={handleAssignJob}>
         <select value={workerID} onChange={(e) => setWorkerID(e.target.value)} required>
           <option value="">Select Worker</option>
-          {workers && workers.map((worker) => (
+          {workers.map((worker) => (
             <option key={worker._id} value={worker._id}>
               {worker.name}
             </option>
           ))}
         </select>
-        <input
-          type="text"
-          placeholder="Cut ID"
-          value={cutID}
-          onChange={(e) => setCutID(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Customer ID"
-          value={customerID}
-          onChange={(e) => setCustomerID(e.target.value)}
-          required
-        />
-        <button type="submit">Assign Job</button>
+
+        <select value={cutID} onChange={(e) => setCutID(e.target.value)} required>
+          <option value="">Select Cut ID</option>
+          {cuts.map((cut) => (
+            <option key={cut._id} value={cut._id}>
+              {cut.name} {/* Adjust based on your cut object structure */}
+            </option>
+          ))}
+        </select>
+
+        <select value={customerID} onChange={(e) => setCustomerID(e.target.value)} required>
+          <option value="">Select Customer</option>
+          {customers.map((customer) => (
+            <option key={customer._id} value={customer._id}>
+              {customer.firstName} {/* Show only the first name */}
+            </option>
+          ))}
+        </select>
+
+        <button type="submit" disabled={loading}>
+          {loading ? 'Assigning...' : 'Assign Job'}
+        </button>
       </form>
     </div>
   );
