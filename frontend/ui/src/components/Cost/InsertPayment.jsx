@@ -49,7 +49,7 @@ const InsertPayment = () => {
       .post("http://localhost:3000/api/costpayroute", form)
       .then((res) => {
         console.log("Payment added:", res.data);
-        navigate("/payments"); // Redirect back link change it!!!!!!!!!!!
+        navigate("/user/shop"); // Redirect back link change it!!!!!!!!!!!
       })
       .catch((err) => console.log("Error adding payment:", err));
   };

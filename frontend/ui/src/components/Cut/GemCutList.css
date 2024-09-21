@@ -46,3 +46,45 @@
                  0 0 10px #00b54f,
                  0 0 15px #007834;
 }
+/* Search Bar Container */
+.search-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    margin: 10px auto; /* Space above and below */
+}
+
+/* Search Input */
+.search-input {
+    width: 80%; /* Adjust width as needed */
+    padding: 12px 20px; /* Comfortable padding */
+    font-size: 16px; /* Font size */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 20px; /* Rounded corners */
+    outline: none; /* Remove outline on focus */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Search Input Focus State */
+.search-input:focus {
+    border-color: #3E9263; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(62, 146, 99, 0.5); /* Soft glow effect */
+}
+
+/* Search Button */
+.search-button {
+    background-color: #3E9263; /* Primary color */
+    color: #fff; /* White text */
+    padding: 12px 20px; /* Comfortable padding */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+    margin-left: 10px; /* Space between input and button */
+}
+
+/* Search Button Hover State */
+.search-button:hover {
+    background-color: #1fad5b; /* Hover color */
+    transform: scale(1.05); /* Slight scaling effect */
+}

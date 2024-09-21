@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../src/assets/bg_cut.png'); /* Replace with your wallpaper path */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+}
+
+.wrapper {
+  min-height: 100vh; /* Ensure the wrapper covers the full height */
+  display: flex;
+  flex-direction: column; /* Flexbox layout for easy positioning */
+}

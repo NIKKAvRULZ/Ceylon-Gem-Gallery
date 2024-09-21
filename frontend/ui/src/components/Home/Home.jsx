@@ -7,11 +7,11 @@ import trackingImage from '../../assets/trackingImage.jpeg'; // Placeholder for 
 
 const Home = () => {
   return (
-    <div className="home-container-home">
+    <div className="home-container-main">
       {/* Hero Section */}
       <div className="hero-banner">
         <img src={heroImage} alt="Gem Collection" className="hero-image" />
-        <div className="hero-text">
+        <div className="head-text">
           <h1>Welcome to Ceylon<font color="green"> Gem </font>Gallery</h1>
           <p>Discover the finest gemstones and experience precision cutting like never before.</p>
           <button className="cta-button">Explore Our Collection</button>

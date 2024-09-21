@@ -9,19 +9,18 @@
 
 .content-container .Cut-card {
   max-width: 300px;
-  margin:auto; /* Adjust the top margin to be larger than the navbar height */
+  margin: auto; /* Adjust the top margin to be larger than the navbar height */
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Slightly larger radius for a softer look */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
   overflow: hidden;
   text-align: center;
   font-family: 'Arial', sans-serif;
-
+  transition: transform 0.3s ease; /* Subtle scaling effect */
 }
 
-.content-container .Cut-card{
-  width: 100%;
-  /* padding: 0 15px; */
+.content-container .Cut-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
 }
 
 /* Image */
@@ -29,51 +28,54 @@
   width: 100%;
   height: 250px;
   object-fit: cover;
+  border-bottom: 4px solid #3E9263; /* Adding a bottom border for separation */
 }
 
 /* Product title */
 .content-container .Cut-card .Cut-card-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #417558;
+  font-size: 22px; /* Slightly larger for emphasis */
+  font-weight: 600; /* Use a semi-bold weight */
+  color: #3E9263; /* Primary color for consistency */
   padding: 10px;
   margin: 0;
 }
+
+/* Product description */
 .content-container .Cut-card .Cut-card-description {
-  font-size: 15px;
-  font-weight: bold;
-  color: #333;
+  font-size: 16px; /* Adjusted for better readability */
+  font-weight: 400; /* Normal weight for description */
+  color: #555; /* Softer color for descriptions */
   padding: 10px;
   margin: 0;
 }
-
-
 
 /* Button */
 .content-container .Cut-card .Cut-Update {
   background-color: #3E9263;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 20px; /* Slightly larger padding for a better feel */
   border: none;
-  border-radius: 15px;
-  font-size: 14px;
+  border-radius: 20px; /* Larger radius for a more modern look */
+  font-size: 15px; /* Increased font size */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for interaction */
   margin: 10px 0;
   width: 90%;
-
 }
 
 .content-container .Cut-card .Cut-Update:hover {
-  background-color: #1fad5b;
+  background-color: #1fad5b; /* Consistent hover color */
+  transform: scale(1.05); /* Slight scaling effect on hover */
 }
-.content-container .Cut-card .link{
+
+.content-container .Cut-card .link {
   text-decoration: none;
   color: white;
 }
 
-
-/* .Cut-Delete {
+/* Optional Delete button styles (commented out) */
+/*
+.content-container .Cut-card .Cut-Delete {
   background-color: #923e3e;
   color: #fff;
   padding: 10px 20px;
@@ -85,6 +87,7 @@
   margin: 10px;
 }
 
-.Cut-Delete:hover {
+.content-container .Cut-card .Cut-Delete:hover {
   background-color: #ad1f1f;
-} */
+}
+*/

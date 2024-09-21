@@ -3,7 +3,7 @@ import './AdminGemCutHome.css'
 import { Link } from 'react-router-dom';
 const AdminGemCutHome = () => {
   return (
-    <div className="home-container">
+    <div className="home-container-home">
       <section className="hero">
         <div className="hero-text">
 

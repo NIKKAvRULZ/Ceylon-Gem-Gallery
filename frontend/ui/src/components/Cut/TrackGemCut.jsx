@@ -3,26 +3,27 @@ import axios from 'axios';
 import './TrackGemCut.css'; // Assuming CSS styles for the component
 
 const TrackOrder = () => {
-  const [trackingID, setTrackingID] = useState(''); // State to hold tracking ID input
-  const [jobDetails, setJobDetails] = useState(null); // State to hold job details from the API
-  const [error, setError] = useState(''); // State to hold any errors
+  const [trackingID, setTrackingID] = useState('');
+  const [jobDetails, setJobDetails] = useState(null);
+  const [error, setError] = useState('');
 
-  // Handle form submission to track the order
   const handleTrackOrder = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(`http://localhost:3000/api/track/${trackingID}`);
-      console.log("Response Data:", response.data); // Log the response data
-      setJobDetails(response.data.job); // Set job details if data is found
-      setError(''); // Clear any errors
+      console.log("Response Data:", response.data);
+      setJobDetails(response.data.job);
+      setError('');
     } catch (error) {
-      console.error("Error Fetching Job Details:", error); // Log the error
-      setJobDetails(null); // Clear job details in case of an error
-      setError(error.response?.data?.message || 'Error fetching job details.'); // Display error message
+      console.error("Error Fetching Job Details:", error);
+      setJobDetails(null);
+      setError(error.response?.data?.message || 'Error fetching job details.');
     }
   };
 
   return (
+    <div className='page-tr'>
+    
     <div id="track-order-container">
       <h2 id="track-order-title">Track Your Order</h2>
       <form id="track-order-form" onSubmit={handleTrackOrder}>
@@ -37,10 +38,8 @@ const TrackOrder = () => {
         <button id="track-order-button" type="submit">Track Order</button>
       </form>
 
-      {/* Display error if there is one */}
       {error && <p id="error-message">{error}</p>}
 
-      {/* Display job details if found */}
       {jobDetails && (
         <div id="job-details">
           <h3>Job Details:</h3>
@@ -53,10 +52,8 @@ const TrackOrder = () => {
         </div>
       )}
     </div>
+    </div>
   );
-
-  
 };
-
 
 export default TrackOrder;

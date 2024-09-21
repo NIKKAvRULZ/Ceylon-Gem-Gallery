@@ -1,38 +1,62 @@
+/* Container for the entire page */
+.page {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  min-height: 100vh;      /* Full viewport height */
+  }
+
 .complete-job {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+  max-width: 400px;
+  margin: auto;
+  padding: 30px; /* Increased padding for spaciousness */
+  border-radius: 12px; /* Smoother corners */
+  background-color: #ffffff; /* White background for clarity */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+  transition: transform 0.3s ease; /* Subtle scaling effect */
+}
+
+.complete-job h2 {
+  text-align: center;
+  color: #3E9263; /* Updated color to match your theme */
+  margin-bottom: 20px; /* More spacing for better visual balance */
+}
+
+.complete-job form {
+  display: flex;
+  flex-direction: column;
+}
+
+.complete-job input {
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  padding: 12px; /* Increased padding for a more comfortable feel */
+  border-radius: 6px; /* Slightly larger radius */
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease; /* Smooth transition for focus */
+}
+
+.complete-job input:focus {
+  border-color: #3E9263; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.complete-job button {
+  padding: 12px; /* Increased padding for consistency */
+  background-color: #3E9263; /* Match the primary theme color */
+  color: white;
+  border: none;
+  border-radius: 6px; /* Slightly larger radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.complete-job button:hover {
+  background-color: #1fad5b; /* Consistent hover color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .complete-job {
+    width: 90%; /* Make it responsive */
   }
-  
-  .complete-job h2 {
-    text-align: center;
-  }
-  
-  .complete-job form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .complete-job input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .complete-job button {
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .complete-job button:hover {
-    background-color: #218838;
-  }
-  
+}

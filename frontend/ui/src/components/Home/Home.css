@@ -1,10 +1,10 @@
 /* Container for the whole page */
-.home-container-home {
+.home-container-main {
   text-align: center;
-  font-family: 'Poppins', sans-serif; /* Added a modern font */
+  font-family: 'Poppins', sans-serif;
   padding-bottom: 20px;
   margin: 0 auto;
-  max-width: 1200px; /* Restrict max width for better readability */
+  max-width: 1200px;
   align-items: stretch;
 }
 
@@ -21,6 +21,11 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.hero-banner:hover {
+  background-color: #e0f7fa; /* Lighten on hover */
 }
 
 .hero-banner::before {
@@ -32,7 +37,7 @@
   height: 100%;
   background: linear-gradient(135deg, #6fd3c1 0%, #3E9263 100%);
   z-index: 0;
-  opacity: 0.1; /* Subtle background gradient */
+  opacity: 0.1;
 }
 
 .hero-banner img {
@@ -40,7 +45,12 @@
   max-width: 150px;
   border-radius: 8px;
   margin-bottom: 20px;
-  z-index: 1; /* Ensure it appears above the gradient */
+  z-index: 1;
+  transition: transform 0.3s ease; /* Image transition */
+}
+
+.hero-banner img:hover {
+  transform: scale(1.1); /* Scale effect on hover */
 }
 
 .hero-text {
@@ -54,12 +64,22 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.hero-banner h1:hover {
+  color: #1fad5b; /* Change color on hover */
 }
 
 .hero-banner p {
   font-size: 1.2rem;
   color: #555;
   margin-bottom: 30px;
+  transition: color 0.3s ease;
+}
+
+.hero-banner p:hover {
+  color: #333; /* Change color on hover */
 }
 
 .cta-button {
@@ -75,7 +95,7 @@
 
 .cta-button:hover {
   background-color: #1fad5b;
-  transform: scale(1.05); /* Add hover scale effect */
+  transform: scale(1.05);
 }
 
 /* Features Section */
@@ -91,6 +111,11 @@
   color: #333;
   margin-bottom: 40px;
   letter-spacing: 1px;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.features-section h2:hover {
+  color: #1fad5b; /* Change color on hover */
 }
 
 .features {
@@ -106,11 +131,12 @@
   background-color: #f4f4f9;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-item:hover {
-  transform: translateY(-10px); /* Hover effect */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow increase on hover */
 }
 
 .feature-item h3 {
@@ -132,6 +158,11 @@
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease; /* Image transition */
+}
+
+.feature-image:hover {
+  transform: scale(1.05); /* Scale effect on hover */
 }
 
 /* Responsive design */
@@ -149,4 +180,3 @@
     padding: 10px 20px;
   }
 }
-  

@@ -1,10 +1,11 @@
 import React from 'react'
 import '../components/Cut/GemCutHome.css';
 import { Link } from 'react-router-dom';
+import './LoginHome.css'
 
 const LoginHome = () => {
   return (
-    <div className="home-container">
+    <div className="login-container">
       <section className="hero">
         <div className="hero-text">
 

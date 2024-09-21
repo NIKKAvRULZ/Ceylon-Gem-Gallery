@@ -30,13 +30,14 @@ const GemCutList = () => {
     return (
         <div className="show_GemCutList">
             <div className="search-container">
-                <input
-                    type="text"
-                    placeholder="Search by name..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="search-input"
-                />
+            <input
+                type="text"
+                placeholder="Search by name..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+            />
+                <button className="search-button">Search</button>
             </div>
             <div className="list-container">
                 <div className="list">

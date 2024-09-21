@@ -1,14 +1,18 @@
 .payment-list-container {
   margin: 20px;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: #2c3e50;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
 
 .payment-table {
@@ -16,57 +20,65 @@ h2 {
   border-collapse: collapse;
   margin: 0 auto;
   text-align: left;
+  font-family: 'Roboto', sans-serif;
 }
 
 .payment-table th,
 .payment-table td {
-  padding: 12px 15px;
-  border: 1px solid #ddd;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .payment-table th {
-  background-color: #f4f4f4;
+  background-color: #f7f7f7;
+  color: #333;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .payment-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f4f8f9;
 }
 
 .payment-table tr:hover {
-  background-color: #f1f1f1;
+  background-color: #f1f9f6;
 }
 
 p {
   text-align: center;
-  color: #999;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.delete-button,
+.update-button {
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .delete-button {
-  background-color: red;
+  background-color: #e74c3c;
   color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 14px;
 }
 
 .delete-button:hover {
-  background-color: darkred;
+  background-color: #c0392b;
+  transform: translateY(-2px);
 }
 
 .update-button {
-  background-color: #4caf50;
+  background-color: #27ae60;
   color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 14px;
 }
 
 .update-button:hover {
-  background-color: darkgreen;
+  background-color: #229954;
+  transform: translateY(-2px);
 }
 
 .search-bar {
@@ -76,9 +88,17 @@ p {
 }
 
 .search-bar input {
-  padding: 10px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #dfe6e9;
+  border-radius: 6px;
   font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #3498db;
+  outline: none;
 }

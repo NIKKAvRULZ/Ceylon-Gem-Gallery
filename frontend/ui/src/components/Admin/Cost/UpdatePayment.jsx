@@ -33,7 +33,7 @@ const UpdatePayment = () => {
     e.preventDefault();
     axios
       .put(`http://localhost:3000/api/costpayroute/${id}`, form)
-      .then(() => navigate("/payments"))
+      .then(() => navigate("/Admin/payments"))
       .catch((err) => console.log("Error updating payment:", err));
   };
 

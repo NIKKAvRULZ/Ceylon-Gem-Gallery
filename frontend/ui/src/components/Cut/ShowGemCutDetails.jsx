@@ -14,23 +14,19 @@ function ShowGemCutDetails() {
   const { id } = useParams(); 
 
   useEffect(() => {
-    // Fetch gem cut details
-    axios.get(`http://localhost:3000/api/cuts/${id}`)
-      .then((res) => {
-        setGemCut(res.data);
-      })
-      .catch((error) => {
-        console.log("Error getting gem cuts:", error);
-      });
+    const fetchData = async () => {
+      try {
+        const cutResponse = await axios.get(`http://localhost:3000/api/cuts/${id}`);
+        setGemCut(cutResponse.data);
 
-    // Fetch the list of available workers
-    axios.get('http://localhost:3000/api/workers')
-      .then((res) => {
-        setWorkers(res.data);
-      })
-      .catch((error) => {
-        console.log("Error fetching workers:", error);
-      });
+        const workersResponse = await axios.get('http://localhost:3000/api/workers');
+        setWorkers(workersResponse.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, [id]);
 
   const handleUseCut = async () => {
@@ -41,18 +37,14 @@ function ShowGemCutDetails() {
 
     setLoading(true);
     try {
-      // Assign job using the selected worker and gem cut
       const response = await axios.post(`http://localhost:3000/api/track`, {
         cutId: gemCut._id,
         workerId: selectedWorker,
-        customerId: '66ee8cc3f4cfe655dc12ce2d' // Replace with the actual customer ID
+        customerId: '66ee8cc3f4cfe655dc12ce2d' // Replace with actual customer ID
       });
 
-      console.log("Job assigned response:", response.data);
       setTrackingID(response.data.trackOrder.trackingID);
       alert(`Job assigned successfully! Tracking ID: ${response.data.trackOrder.trackingID}`);
-      
-      // Generate PDF receipt
       generatePDF(response.data.trackOrder.trackingID);
     } catch (error) {
       console.error("Error assigning job:", error.response ? error.response.data : error.message);
@@ -64,47 +56,23 @@ function ShowGemCutDetails() {
 
   const generatePDF = (trackingID) => {
     const doc = new jsPDF();
+    const logoURL = '../../assets/logo.png';
     
-    // Add Company Logo
-    const logoURL = '../../assets/logo.png'; // Placeholder logo
-    doc.addImage(logoURL, 'PNG', 170, 10, 20, 20); // Adjust logo position and size
+    doc.addImage(logoURL, 'PNG', 170, 10, 20, 20);
+    doc.setFontSize(22).setFont('helvetica', 'bold').text("Gem Cut Receipt", 14, 20);
     
-    // Add Receipt Title
-    doc.setFontSize(22);
-    doc.setFont('helvetica', 'bold');
-    doc.text("Gem Cut Receipt", 14, 20);
-    
-    // Add Date and Tracking ID
     const orderSetDate = new Date();
     const estimatedFinishDate = new Date(orderSetDate);
-    estimatedFinishDate.setDate(estimatedFinishDate.getDate() + 2); // Two days after the order
+    estimatedFinishDate.setDate(estimatedFinishDate.getDate() + 2);
 
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'normal');
-    doc.text(`Order Set Date: ${orderSetDate.toLocaleDateString()}`, 14, 30);
-    doc.text(`Tracking ID: ${trackingID}`, 14, 36);
-    doc.text(`Estimated Finish Date: ${estimatedFinishDate.toLocaleDateString()}`, 14, 42);
-    doc.text(`Worker Name: ${workers.find(worker => worker._id === selectedWorker)?.name}`, 14, 48); // Worker name
+    doc.setFontSize(12).setFont('helvetica', 'normal')
+      .text(`Order Set Date: ${orderSetDate.toLocaleDateString()}`, 14, 30)
+      .text(`Tracking ID: ${trackingID}`, 14, 36)
+      .text(`Estimated Finish Date: ${estimatedFinishDate.toLocaleDateString()}`, 14, 42)
+      .text(`Worker Name: ${workers.find(worker => worker._id === selectedWorker)?.name}`, 14, 48);
 
-    // Add Divider
-    doc.setDrawColor(0, 0, 0);
-    doc.setLineWidth(0.5);
-    doc.line(14, 52, 196, 52); // Horizontal line
+    doc.setDrawColor(0, 0, 0).setLineWidth(0.5).line(14, 52, 196, 52);
     
-    // Receipt Details Section
-    doc.setFontSize(12);
-    doc.setTextColor(100);
-    doc.text("Company Name: Ceylon Gem Gallery", 14, 64);
-    doc.text("Address: 123 Gem Street, Colombo, Sri Lanka", 14, 70);
-    doc.text("Email: info@ceylongemgallery.com", 14, 76);
-    doc.text("Phone: +94 76 039 4961", 14, 82);
-    
-    // Add some space before the table
-    doc.setFontSize(14);
-    doc.setTextColor(0, 0, 0);
-    doc.text("Gem Cut Details", 14, 94);
-    
-    // Table Columns and Rows
     const columns = ["Property", "Details"];
     const rows = [
       ["Cut Name", gemCut.name],
@@ -114,90 +82,62 @@ function ShowGemCutDetails() {
       ["Proportions", gemCut.Proportions],
       ["Appearance", gemCut.Appearance],
     ];
-    
-    // Table Style
-    doc.autoTable({
-      head: [columns],
-      body: rows,
-      startY: 104,
-      styles: {
-        fontSize: 12,
-        cellPadding: 5,
-        textColor: [0, 0, 0],
-        lineColor: [0, 0, 0],
-        lineWidth: 0.1,
-      },
-      headStyles: {
-        fillColor: [65, 117, 88],
-        textColor: [255, 255, 255],
-      },
-      bodyStyles: {
-        fillColor: [245, 245, 245],
-        textColor: [0, 0, 0],
-      },
-      alternateRowStyles: {
-        fillColor: [220, 220, 220],
-      },
-      margin: { top: 104 },
-    });
 
-    // Save the PDF
+    doc.autoTable({ head: [columns], body: rows, startY: 104, styles: { fontSize: 12, cellPadding: 5 }, headStyles: { fillColor: [65, 117, 88], textColor: [255, 255, 255] }, bodyStyles: { fillColor: [245, 245, 245] } });
     doc.save('gem-cut-receipt.pdf');
   };
 
-  const TableItem = (
-    <div>
-      <table className="table">
-        <tbody>
-          <tr>
-            <td colSpan="2" className="text-center">
-              <img src={`http://localhost:3000/Cuts/${gemCut.imageUrl}`} alt={gemCut.name}/>
-            </td>
-          </tr>
-          <tr>
-            <td>Name</td>
-            <td>{gemCut.name}</td>
-          </tr>
-          <tr>
-            <td>Description</td>
-            <td className="description-text">{gemCut.description}</td>
-          </tr>
-          <tr>
-            <td>Shape</td>
-            <td className="description-text">{gemCut.Shape}</td>
-          </tr>
-          <tr>
-            <td>Facets</td>
-            <td className="description-text">{gemCut.Facets}</td>
-          </tr>
-          <tr>
-            <td>Proportions</td>
-            <td className="description-text">{gemCut.Proportions}</td>
-          </tr>
-          <tr>
-            <td>Appearance</td>
-            <td className="description-text">{gemCut.Appearance}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-
   return (
     <div className="showGemCutDetails">
-      <div className="col-md-8 m-auto">
+      <div className="header">
         <h1 className="title">Gem Cut Details</h1>
         <p className="subHead">This is the full detail of {gemCut.name}</p>
-        <hr />
       </div>
 
-      <div className="col-md-10 m-auto">{TableItem}</div>
+      <div className="gemCutInfo">
+        <img src={`http://localhost:3000/Cuts/${gemCut.imageUrl}`} alt={gemCut.name} className="gemImage" />
+        <table className="table">
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>{gemCut.name}</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td className="description-text">{gemCut.description}</td>
+            </tr>
+            <tr>
+              <td>Shape</td>
+              <td className="description-text">{gemCut.Shape}</td>
+            </tr>
+            <tr>
+              <td>Facets</td>
+              <td className="description-text">{gemCut.Facets}</td>
+            </tr>
+            <tr>
+              <td>Proportions</td>
+              <td className="description-text">{gemCut.Proportions}</td>
+            </tr>
+            <tr>
+              <td>Appearance</td>
+              <td className="description-text">{gemCut.Appearance}</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <div className="col-md-10 m-auto">
+
+        {trackingID && (
+          <div className="tracking-info">
+            <h3 className="header">Job Assigned!</h3>
+            <p className="tracking-id"><strong>Tracking ID:</strong> {trackingID}</p>
+          </div>
+        )}
+
+        <div className="workerSelection">
         <label htmlFor="workerSelect">Select Worker:</label>
         <select
           id="workerSelect"
-          className="worker-select" // Unique class added here
+          className="worker-select"
           value={selectedWorker}
           onChange={(e) => setSelectedWorker(e.target.value)}
         >
@@ -207,26 +147,20 @@ function ShowGemCutDetails() {
               {worker.name}
             </option>
           ))}
-        </select>
-
-
-        <br />
-        <Link to={"/user/GemCutHome/CustomCut"} className="btn btn-outline-danger float-right">Back</Link>
-        <button 
-          className="btn btn-outline-choose float-right" 
-          onClick={handleUseCut} 
-          disabled={loading}
-        >
-          {loading ? 'Assigning...' : 'Use This Cut'}
-        </button>
+        </select>      
       </div>
-
-      {trackingID && (
-        <div className="tracking-info">
-          <h3>Job Assigned!</h3>
-          <p><strong>Tracking ID:</strong> {trackingID}</p>
+      <div className="buttonContainer">
+          <Link to={"/user/GemCutHome/CustomCut"} className="btn btn-outline-danger">Back</Link>
+          <button 
+            className="btn btn-outline-choose" 
+            onClick={handleUseCut} 
+            disabled={loading}
+          >
+            {loading ? 'Assigning...' : 'Use This Cut'}
+          </button>
         </div>
-      )}
+      </div>
+      
     </div>
   );
 }

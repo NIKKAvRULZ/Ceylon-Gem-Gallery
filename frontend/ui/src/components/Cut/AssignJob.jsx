@@ -86,6 +86,7 @@ const AssignJob = () => {
   
 
   return (
+    <div className='page'>
     <div className="assign-job">
       <h2>Assign Job to Worker</h2>
       {error && <div className="error">{error}</div>}
@@ -121,6 +122,7 @@ const AssignJob = () => {
           {loading ? 'Assigning...' : 'Assign Job'}
         </button>
       </form>
+    </div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const GemCutHome = () => {
   return (
-    <div className="home-container">
+    <div className="home-container-home">
       <section className="hero">
         <div className="hero-text">
 
