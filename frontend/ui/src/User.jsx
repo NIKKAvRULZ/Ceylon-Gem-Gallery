@@ -22,6 +22,8 @@ import Profile from './components/customer/profile';
 import AssignJob from './components/Cut/AssignJob';
 import CompleteJob from './components/Cut/CompleteJob';
 
+import TrackOrder from './components/Cut/TrackGemCut';
+
 const User = () => {
   return (
     <div>
@@ -44,9 +46,14 @@ const User = () => {
         {/* user */}
         <Route path="/profile" element={<Profile />} />
 
+      
+
         {/* job assignment and completion */}
         <Route path="/assign-job" element={<AssignJob />} />
         <Route path="/complete-job" element={<CompleteJob />} />
+
+        <Route path="/GemCutHome/track-order" element={<TrackOrder />} />
+
       </Routes>
       <Footer />
     </div>

@@ -16,11 +16,12 @@ const GemCutHome = () => {
               </div>
             </Link>
 
-            <Link to="#" className="home-card">
+            <Link to="track-order" className="home-card">
               <div className="card-content">
                 <h3>Track My Gem</h3>
               </div>
             </Link>
+            
           </div>
         </div>
       </section>

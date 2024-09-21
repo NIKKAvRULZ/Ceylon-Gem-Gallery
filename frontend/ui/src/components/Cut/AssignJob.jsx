@@ -9,14 +9,10 @@ const AssignJob = () => {
   const [workerID, setWorkerID] = useState('');
 
   useEffect(() => {
+    // Fetch workers from the API
     const fetchWorkers = async () => {
-      try {
-        const response = await axios.get('/api/employees');
-        setWorkers(response.data);
-      } catch (error) {
-        console.error('Error fetching workers:', error);
-        alert('Failed to load workers. Please try again later.');
-      }
+      const response = await axios.get('/api/employees');
+      setWorkers(response.data);
     };
     fetchWorkers();
   }, []);
@@ -24,15 +20,13 @@ const AssignJob = () => {
   const handleAssignJob = async (e) => {
     e.preventDefault();
     try {
-      // Use the correct endpoint for assigning a job
-      await axios.post('/api/assign', { workerID, cutID, customerID });
+      await axios.post('/api/assign/assign', { workerID, cutID, customerID });
       alert('Job assigned successfully!');
       setWorkerID('');
       setCutID('');
       setCustomerID('');
     } catch (error) {
-      const errorMessage = error.response?.data?.message || 'An error occurred while assigning the job.';
-      alert(errorMessage);
+      alert(error.response.data.message);
     }
   };
 
