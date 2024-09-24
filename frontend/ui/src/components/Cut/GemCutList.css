@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: repeat(4,1fr); /*3 cols with equel width*/
     grid-gap: 10px;
+    animation: fadeInUp 1s ease-in-out;
+    
 }
 
 .show_GemCutList{
@@ -17,6 +19,7 @@
     margin-top: auto;
     text-align: center;
     position: relative;
+    max-height: 100vh;
 }
 
 .search-input {
@@ -36,7 +39,7 @@
 .no-gems-found {
     font-size: 24px; /* Adjust font size */
     font-weight: bold; /* Make the text bold */
-    color: #3e9263; /* Change color to red */
+    color: #ffffff; /* Change color to red */
     margin: 50px; /* Add some space around the message */
     text-align: center; /* Center the text */
     position: absolute; /* Position it absolutely */
