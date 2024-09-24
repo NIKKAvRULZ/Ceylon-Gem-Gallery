@@ -21,11 +21,19 @@
     // Handle input changes
     const handleChange = (e) => {
       const { name, value } = e.target;
+    
+      // Allow empty input to clear the field and restrict cut name input to letters only
+      if (name === 'name' && !/^[A-Za-z]*$/.test(value)) {
+        return; // Do not update state if the input is not valid
+      }
+    
       setGemCutData({
         ...gemCutData,
         [name]: value,
       });
     };
+    
+    
 
     // Handle form submission
     const handleSubmit = async (e) => {

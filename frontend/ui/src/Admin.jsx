@@ -17,13 +17,13 @@ import CostList from "./components/Admin/Cost/CostList";
 import InsertCost from "./components/Admin/Cost/InsertCost";
 import UpdateCost from "./components/Admin/Cost/UpdateCost";
 
-import AdminPaymentManagement from './components/Admin/AdminPaymentManagement'
+import AdminPaymentManagement from './components/Admin/AdminPaymentManagement';
 
 
-import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails'
-import UpdateCustomer from './components/Admin/customer/updateCustomer'
+import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails';
+import UpdateCustomer from './components/Admin/customer/updateCustomer';
 import CustomerList from "./components/Admin/customer/CustomerList";
-import InsertCustomer from './components/Admin/customer/InsertCustomer'
+import InsertCustomer from './components/Admin/customer/InsertCustomer';
 
 
 // job assignment and completion

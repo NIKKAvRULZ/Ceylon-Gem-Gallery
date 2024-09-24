@@ -43,7 +43,7 @@ const UpdateCost = () => {
     if (validateForm()) {
       axios
         .put(`http://localhost:3000/api/costmanagement/${id}`, form)
-        .then(() => navigate("/costs"))
+        .then(() => navigate("/Admin/costs"))
         .catch((err) => console.log("Error updating cost:", err));
     }
   };

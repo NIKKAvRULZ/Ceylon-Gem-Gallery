@@ -11,9 +11,13 @@ const CostList = () => {
   useEffect(() => {
     axios
       .get("http://localhost:3000/api/costmanagement")
-      .then((res) => setCosts(res.data))
+      .then((res) => {
+        console.log(res.data);  // Check if data is fetched properly
+        setCosts(res.data);
+      })
       .catch((err) => console.log("Error fetching costs:", err));
   }, []);
+  
 
   const handleDelete = (id) => {
     axios
@@ -22,9 +26,10 @@ const CostList = () => {
       .catch((err) => console.log("Error deleting cost:", err));
   };
 
-  const filteredCosts = costs.filter((cost) =>
-    cost.month.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCosts = costs.filter(cost => 
+  cost.month && typeof cost.month === 'string' && cost.month.toLowerCase().includes(searchTerm.toLowerCase())
+);
+
 
   const generatePDF = () => {
     const doc = new jsPDF();
