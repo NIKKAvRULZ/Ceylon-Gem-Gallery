@@ -65,6 +65,22 @@ const AdminNavbar = () => {
               onClick={() => handleNavClick('Custom Cuts')} to="customerList" >
               Customer
             </Link>
+            <Link
+              className={`nav-item ${activeLink === 'complete-job' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('complete-job')} to="complete-job"
+            >
+              Complete Job
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'assign-job' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('assign-job')} to="assign-job"
+            >
+              Assign Job
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'About' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('About')} to="About"
+            ></Link>
 
           </div>
 

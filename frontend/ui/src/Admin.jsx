@@ -25,6 +25,11 @@ import UpdateCustomer from './components/Admin/customer/updateCustomer'
 import CustomerList from "./components/Admin/customer/CustomerList";
 import InsertCustomer from './components/Admin/customer/InsertCustomer'
 
+
+// job assignment and completion
+import AssignJob from './components/Admin/AssignJob';
+import CompleteJob from './components/Admin/CompleteJob';
+
 const Admin = () => {
   return (
     <div>
@@ -49,6 +54,10 @@ const Admin = () => {
         <Route path='/addCustomer' element={<InsertCustomer />} />
         <Route path='/showcustomerdetails/:id' element={<ShowCustomerDetails />} />
         <Route path='/updatecustomerdetails/:id' element={<UpdateCustomer />} />
+
+        {/* job assignment and completion */}
+        <Route path="/assign-job" element={<AssignJob />} />
+        <Route path="/complete-job" element={<CompleteJob />} />
       </Routes>
       <Footer />
     </div>

@@ -18,9 +18,6 @@ import InsertPayment from './components/Cost/InsertPayment';
 // profile
 import Profile from './components/customer/profile';
 
-// job assignment and completion
-import AssignJob from './components/Cut/AssignJob';
-import CompleteJob from './components/Cut/CompleteJob';
 
 import TrackOrder from './components/Cut/TrackGemCut';
 
@@ -47,10 +44,6 @@ const User = () => {
         <Route path="/profile" element={<Profile />} />
 
       
-
-        {/* job assignment and completion */}
-        <Route path="/assign-job" element={<AssignJob />} />
-        <Route path="/complete-job" element={<CompleteJob />} />
 
         <Route path="/GemCutHome/track-order" element={<TrackOrder />} />
 
