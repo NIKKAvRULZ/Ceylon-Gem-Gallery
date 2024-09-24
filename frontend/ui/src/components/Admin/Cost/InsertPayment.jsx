@@ -19,7 +19,45 @@ const InsertPayment = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    // Check the field and apply validation accordingly
+    switch (name) {
+      case "postalCode":
+      case "cvc":
+      case "cardNo":
+        // Allow only numbers for district, postal code, CVC, and card number
+        if (/^\d*$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      case "cardHName":
+      case "city":
+        // Allow only letters (and spaces if needed) for card holder name and city
+        if (/^[a-zA-Z\s]*$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      case "address":
+        // Allow letters, numbers, slashes, and spaces for the address
+        if (/^[a-zA-Z0-9\s/]*$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      case "district":
+        // Allow only "$" followed by numbers
+        if (/^\$?\d*$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      default:
+        setForm({ ...form, [name]: value });
+        break;
+    }
   };
 
   // Function to validate the expiration date
@@ -45,14 +83,25 @@ const InsertPayment = () => {
       return; // Do not submit the form if validation fails
     }
 
+    // Ensure amount starts with $ sign
+    if (!form.district.startsWith('$') || isNaN(form.district.slice(1))) {
+      alert("Amount must start with a '$' followed by a number.");
+      return; // Do not submit the form if validation fails
+    }
+
     axios
       .post("http://localhost:3000/api/costpayroute", form)
       .then((res) => {
         console.log("Payment added:", res.data);
-        navigate("/Admin/payments"); // Redirect back to payment list
+        navigate("/Admin/payments"); // Redirect back link change it!!!!!!!!!!!
       })
       .catch((err) => console.log("Error adding payment:", err));
   };
+
+  // Get current year and month for the min attribute
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = String(today.getMonth() + 1).padStart(2, '0'); // Month is zero-indexed
 
   return (
     <div className="form-container">
@@ -75,7 +124,7 @@ const InsertPayment = () => {
           value={form.address}
           onChange={handleChange}
           required
-          placeholder="Enter billing address"
+          placeholder="Enter billing address (e.g., 123 Main St / Apt 4B)"
         />
 
         <label>Amount:</label>
@@ -85,9 +134,7 @@ const InsertPayment = () => {
           value={form.district}
           onChange={handleChange}
           required
-          pattern="^\$\d+(\.\d{1,2})?$"
-          title="Please enter a valid amount starting with a $ sign"
-          placeholder="Enter amount (e.g., $100.00)"
+          placeholder="Enter amount (e.g., $100)"
         />
 
         <label>City:</label>
@@ -107,7 +154,7 @@ const InsertPayment = () => {
           value={form.postalCode}
           onChange={handleChange}
           required
-          placeholder="Enter postal code"
+          placeholder="Enter postal code (numbers only)"
         />
 
         <label>Card Number:</label>
@@ -117,6 +164,7 @@ const InsertPayment = () => {
           value={form.cardNo}
           onChange={handleChange}
           required
+          maxLength={16} // Limit input to 16 digits
           pattern="\d{16}"
           title="Card number must be 16 digits"
           placeholder="Enter 16-digit card number"
@@ -129,6 +177,7 @@ const InsertPayment = () => {
           value={form.expireDate}
           onChange={handleChange}
           required
+          min={`${currentYear}-${currentMonth}`} // Set minimum to the current month
         />
 
         <label>CVC:</label>
@@ -138,6 +187,7 @@ const InsertPayment = () => {
           value={form.cvc}
           onChange={handleChange}
           required
+          maxLength={3} // Limit input to 3 digits
           pattern="\d{3}"
           title="CVC must be 3 digits"
           placeholder="Enter 3-digit CVC"

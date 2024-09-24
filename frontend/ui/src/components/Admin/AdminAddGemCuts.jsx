@@ -103,7 +103,7 @@
       doc.setTextColor(0, 0, 0);
       doc.text("Gem Cut Details", 14, 80);
     
-      // Table Columns and Rows
+      // Table Columns and Rows   
       const columns = ["Property", "Details"];
       const rows = [
         ["Cut Name", gemCutData.name],
