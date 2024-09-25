@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from "axios";
-import CustomerCard from './CustomerCard';
-import "./CustomerList.css";
+import ProfileCard from './profileCard';
+import "./ProfileList.css";
 
-const CustomerList = () => {
+const profileList = () => {
 
   const [coustomers, setCustomer] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/customer")
-      .then((res) => {
-        setCustomer(res.data);
-        console.log(res.data);
-      }).catch(() => {
-        console.log("Error while getting data");
-      });
+    .then((res) => {
+      setCustomer(res.data);
+      console.log(res.data);
+    }).catch(() => {
+      console.log("Error while getting data");
+    });
   }, []);
 
   const onDeleteClick = (id) => {
@@ -28,11 +28,11 @@ const CustomerList = () => {
       });
   }
 
-  const customerList = coustomers.length === 0
-    ? "No customers found !"
-    : coustomers.map((customer) => (
-      <CustomerCard key={customer._id} customer={customer} onDelete={onDeleteClick} />
-    ));
+  const customerList = coustomers.length === 0 
+  ? "No customers found !" 
+  : coustomers.map((customer) => (
+  <ProfileCard key = {customer._id} customer = {customer} onDelete = {onDeleteClick} />
+));
 
   return (
     <div className='showCustomerList'>
@@ -43,4 +43,4 @@ const CustomerList = () => {
   )
 }
 
-export default CustomerList
+export default profileList
