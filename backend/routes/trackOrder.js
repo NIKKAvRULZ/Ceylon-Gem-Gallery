@@ -84,5 +84,29 @@ router.get('/:trackingID', async (req, res) => {
   }
 });
 
+// DELETE route to delete job by tracking ID
+router.delete('/:trackingID', async (req, res) => {
+  try {
+    const { trackingID } = req.params;
+
+    // Find the job by tracking ID
+    const trackOrder = await TrackOrder.findOneAndDelete({ trackingID });
+    
+    if (!trackOrder) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
+
+    // Optionally, you can decrease the workload of the worker
+    const worker = await Worker.findById(trackOrder.workerID);
+    if (worker) {
+      worker.workload = Math.max(0, (worker.workload || 0) - 1); // Decrease workload but don't go below zero
+      await worker.save();
+    }
+
+    res.status(200).json({ message: 'Job deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting job', error: error.message });
+  }
+});
 
 module.exports = router;
