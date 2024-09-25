@@ -1,0 +1,122 @@
+.showGemCutDetails {
+  padding-top: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 36px;
+  color: #3c972f;
+  margin-bottom: 10px;
+}
+
+.subHead {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.gemCutInfo {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.gemImage {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+  .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;  
+  }
+
+  .table td {
+    padding: 12px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+
+.description-text {
+  font-size: 14px;
+  color: #666;
+}
+.workerSelection {
+  margin: 50px 250px 50px 250px;
+}
+
+.worker-select {
+  width: 100%;
+  padding: 12px 15px; /* Added padding for a more comfortable click area */
+  font-size: 16px;
+  border: 1px solid #3E9263;
+  border-radius: 8px; /* Slightly larger border radius for a softer look */
+  margin-bottom: 20px;
+  background-color: #f9f9f9; /* Light background for better contrast */
+  color: #333;
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition effects */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.worker-select:focus {
+  outline: none;  
+  border-color: #dc3545;
+  background-color: #ffffff; /* Slightly brighter background on focus */
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.5); /* Glow effect on focus */
+}
+
+.worker-select option {
+  padding: 10px; /* Padding for dropdown options */
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+ 
+}
+.tracking-info {
+  background-color: #f0f9f0; /* Light green background for a positive notification */
+  border: 1px solid #3E9263; /* Matching border color */
+  border-radius: 8px; /* Softer corners */
+  padding: 15px; /* Space inside the box */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 20px; /* Space above the notification */
+  text-align: center; /* Center align text */
+}
+
+.tracking-id {
+  font-size: 16px; /* Standard font size for the ID */
+  color: #333; /* Dark color for readability */
+}

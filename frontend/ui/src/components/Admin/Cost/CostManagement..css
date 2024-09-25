@@ -1,0 +1,92 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  text-align: left;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+}
+
+table th {
+  background-color: #009879;
+  color: white;
+  text-transform: uppercase;
+}
+
+table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+table tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/* Buttons styling */
+button,
+a {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background-color: #009879;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+button:hover,
+a:hover {
+  background-color: #007b63;
+}
+
+/* Form styling */
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #009879;
+}
+
+button[type="submit"]:hover {
+  background-color: #007b63;
+}

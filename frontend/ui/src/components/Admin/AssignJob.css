@@ -1,0 +1,74 @@
+.assign-job {
+  max-width: 400px;
+  margin: auto;
+  padding: 30px; /* Increased padding for spaciousness */
+  border-radius: 12px; /* Smoother corners */
+  background-color: #ffffff; /* White background for clarity */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+  transition: transform 0.3s ease; /* Subtle scaling effect */
+}
+
+.assign-job:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.assign-job h2 {
+  text-align: center;
+  color: #3E9263; /* Theme color */
+  margin-bottom: 20px; /* More spacing for better visual balance */
+  font-family: 'Arial', sans-serif; /* Modern font */
+  font-weight: bold; /* Emphasized heading */
+  font-size: 24px; /* Increased font size */
+}
+
+.assign-job form {
+  display: flex;
+  flex-direction: column;
+}
+
+.assign-job select,
+.assign-job input {
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  padding: 12px; /* Increased padding for comfort */
+  border-radius: 6px; /* Rounded corners */
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  font-size: 16px; /* Larger font size for readability */
+}
+
+.assign-job select:focus,
+.assign-job input:focus {
+  border-color: #3E9263; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(62, 146, 99, 0.5); /* Add a glow effect */
+  outline: none; /* Remove default outline */
+}
+
+.assign-job button {
+  padding: 12px; /* Increased padding for consistency */
+  background-color: #3E9263; /* Match the primary theme color */
+  color: white;
+  border: none;
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+  font-size: 16px; /* Consistent font size */
+}
+
+.assign-job button:hover {
+  background-color: #1fad5b; /* Consistent hover color */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px; /* Larger font for better visibility */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .assign-job {
+    width: 90%; /* Make it responsive */
+  }
+}

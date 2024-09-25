@@ -1,0 +1,156 @@
+/* Container styling for spacing and layout */
+.cost-list-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Page title styling */
+.page-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Actions section for add cost and search */
+.actions-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+/* Add cost link */
+.add-cost-link {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.add-cost-link:hover {
+  background-color: #45a049;
+}
+
+/* Search bar styling */
+.search-bar {
+  width: 250px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Download PDF Button */
+.download-btn {
+  display: block;
+  margin: 20px auto;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.download-btn:hover {
+  background-color: #45a049;
+}
+
+/* No data found message */
+.no-data {
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+}
+
+/* Table styling */
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cost-table thead {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cost-table th,
+.cost-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover effect for table rows */
+.cost-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Action buttons */
+.update-link {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.update-link:hover {
+  background-color: #388e3c;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .cost-list-container {
+    width: 95%;
+  }
+
+  .actions-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-cost-link {
+    margin-bottom: 15px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .cost-table th,
+  .cost-table td {
+    padding: 10px;
+  }
+}

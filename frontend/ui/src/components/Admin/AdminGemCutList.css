@@ -1,0 +1,9 @@
+.list{
+    display: grid;
+    grid-template-columns: repeat(4,1fr); /*3 cols with equel width*/
+    grid-gap: 10px;
+}
+
+.show_GemCutList{
+    padding: 50px;
+}

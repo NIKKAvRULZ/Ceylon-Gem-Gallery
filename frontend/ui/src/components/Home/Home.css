@@ -1,0 +1,198 @@
+/* Container for the whole page */
+.home-container-main {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  align-items: stretch;
+  animation: fadeInUp 1s ease-in-out;
+
+}
+
+/* Hero Banner */
+.hero-banner {
+  background-color: #f9f9fb;
+  padding: 50px 20px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.hero-banner:hover {
+  background-color: #e0f7fa; /* Lighten on hover */
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6fd3c1 0%, #3E9263 100%);
+  z-index: 0;
+  opacity: 0.1;
+}
+
+.hero-banner img {
+  width: 15%;
+  max-width: 150px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  z-index: 1;
+  transition: transform 0.3s ease; /* Image transition */
+}
+
+.hero-banner img:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+.hero-text {
+  z-index: 1;
+}
+
+.hero-banner h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.hero-banner h1:hover {
+  color: #1fad5b; /* Change color on hover */
+}
+
+.hero-banner p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  transition: color 0.3s ease;
+}
+
+.hero-banner p:hover {
+  color: #333; /* Change color on hover */
+}
+
+.cta-button {
+  background-color: #3E9263;
+  color: #fff;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #1fad5b;
+  transform: scale(1.05);
+}
+
+/* Features Section */
+.features-section {
+  padding: 60px 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.features-section h2:hover {
+  color: #1fad5b; /* Change color on hover */
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature-item {
+  flex-basis: 30%;
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow increase on hover */
+}
+
+.feature-item h3 {
+  font-size: 1.7rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Set equal size for feature images */
+.feature-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease; /* Image transition */
+}
+
+.feature-image:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .feature-item {
+    flex-basis: 100%;
+  }
+
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* Add a smooth fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

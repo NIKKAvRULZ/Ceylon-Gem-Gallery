@@ -1,0 +1,61 @@
+.home-container-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1s ease-in-out; 
+  }
+  
+  .hero {
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .hero-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .home-card-container {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .home-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .home-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  .home-card-content h3 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  /* Add a smooth fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

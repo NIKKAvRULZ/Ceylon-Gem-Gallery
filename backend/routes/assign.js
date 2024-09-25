@@ -1,23 +1,29 @@
+// Assuming this is part of your existing Express setup
 const express = require('express');
 const router = express.Router();
-const Cut = require('../models/Cut');
+const TrackOrder = require('../models/TrackOrder'); // Adjust the path as needed
 const Worker = require('../models/Worker');
 
-// POST Assign Worker to Cut
-router.post('/', async (req, res) => {
+// POST route to complete a job using tracking ID
+router.post('/complete/:trackingID', async (req, res) => {
   try {
-    const { cutId, workerId } = req.body;
+    const { workerID } = req.body;
+    const { trackingID } = req.params;
 
-    const worker = await Worker.findById(workerId);
-    if (!worker) throw new Error('Worker not found');
+    // Find the job using tracking ID
+    const job = await TrackOrder.findOne({ trackingID });
+    if (!job) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
 
-    worker.workload += 1;
-    await worker.save();
+    // Update job status
+    job.status = 'Completed'; // Set the status to completed
+    job.workerID = workerID; // Associate the worker with the job
+    await job.save();
 
-    // Here you can add logic to link the worker with the specific cut
-    res.json({ message: 'Worker assigned successfully' });
+    res.json({ message: 'Job completed successfully', job });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: 'Error completing job', error: error.message });
   }
 });
 

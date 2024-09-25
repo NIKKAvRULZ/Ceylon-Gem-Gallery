@@ -1,0 +1,89 @@
+/* Card container */
+.card {
+    max-width: 300px;
+    margin:auto; /* Adjust the top margin to be larger than the navbar height */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  
+  }
+  .content-container {
+    flex-grow: 1; /* Ensures the content takes remaining height */
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    padding-top: 100px; /* Adjusts for navbar height */
+}
+
+
+  /* Image */
+  .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  /* Product title */
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(65, 117, 88);
+    padding: 10px;
+    margin: 0;
+  }
+  .card-description {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  /* Price */
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px;
+  }
+  
+  /* Button */
+  .Update {
+    background-color: #3E9263;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px ; 
+  }
+  
+  .Update:hover {
+    background-color: #1fad5b;
+  }
+  .link{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .Delete {
+    background-color: #923e3e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px ;
+  }
+  
+  .Delete:hover {
+    background-color: #ad1f1f;
+  }
+  

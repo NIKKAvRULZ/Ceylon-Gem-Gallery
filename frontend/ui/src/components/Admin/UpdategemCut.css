@@ -1,0 +1,70 @@
+.Admin-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif; /* Consistent font */
+  }
+  
+  .Admin-card {
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 8px; /* Softer corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+  }
+  
+  .Admin-card-title {
+    text-align: center;
+    color: #3E9263; /* Title color */
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; /* Darker color for labels */
+  }
+  
+  .input,
+  .textarea {
+    padding: 12px 15px; /* Comfortable padding */
+    border: 1px solid #3E9263; /* Matching border color */
+    border-radius: 8px; /* Softer corners */
+    width: 100%; /* Full width */
+    background-color: #f9f9f9; /* Light background */
+    transition: border-color 0.3s ease;
+  }
+  
+  .textarea {
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  .input:focus,
+  .textarea:focus {
+    outline: none;
+    border-color: #dc3545; /* Change border color on focus */
+  }
+  
+  .submit-button {
+    padding: 12px 20px; /* Comfortable button size */
+    background-color: #3E9263; /* Button color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Space above button */
+  }
+  
+  .submit-button:hover {
+    background-color: #2b6f4b; /* Darker shade on hover */
+  }
+  

@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
+import User from '../assets/user.png'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   // State to track which nav item is active
@@ -16,55 +19,66 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar-container">
-      <div className="navbar-background">
+    <div className="layout-container">
 
-        {/* Logo Section */}
-        <div className="logo-section">
-          <img className="logo-image" src='./src/assets/logo.png' alt="Logo" />
-          <div className="logo-text">
-            <span className="logo-black">Ceylon<br/> </span>
-            <span className="logo-green">Gem</span>
-            <span className="logo-black"> Gallery</span>
-          </div>
-        </div>
+      <div className="navbar-container">
+        <div className="navbar-background">
 
-        {/* Hamburger Menu Icon */}
-        <div className="hamburger-menu" onClick={toggleMenu}>
-          ☰
-        </div>
+          {/* Logo Section */}
+          <div className="logo-section">
+            <img className="logo-image" src={logo} alt="Logo" />
+            <div className="logo-text">
+              <span className="logo-black">Ceylon<br /> </span>
+              <span className="logo-green">Gem</span>
+              <span className="logo-black"> Gallery</span>
+            </div>
+          </div>
 
-        {/* Navigation Links */}
-        <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <div 
-            className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Home')}
-          >
-            Home
+          {/* Hamburger Menu Icon */}
+          <div className="hamburger-menu" onClick={toggleMenu}>
+            ☰
           </div>
-          <div 
-            className={`nav-item ${activeLink === 'Shop' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Shop')}
-          >
-            Shop
-          </div>
-          <div 
-            className={`nav-item ${activeLink === 'Custom Cuts' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('Custom Cuts')}
-          >
-            Custom Cuts
-          </div>
-          <div 
-            className={`nav-item ${activeLink === 'About' ? 'highlight' : ''}`}
-            onClick={() => handleNavClick('About')}
-          >
-            About
-          </div>
-        </div>
 
-        {/* User Icon */}
-        <div className="icon-placeholder">
-          <img className="profile-icon" src='./src/assets/user.png' alt="User" />
+          {/* Navigation Links */}
+          <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+            <Link
+              className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('/Home')} to="Home"
+            >
+              Home
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'Shop' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Shop')} to="Shop"
+            >
+              Shop
+            </Link>
+            <Link className={`nav-item ${activeLink === 'Custom Cuts' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Custom Cuts')} to="GemCutHome" >
+              Custom Cuts
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'complete-job' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('complete-job')} to="complete-job" // change this
+            >
+              Gem Dust
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'About' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('About')} to="About"
+            >
+              About
+            </Link>
+          </div>
+
+          {/* User Icon */}
+          <div className="icon-placeholder">
+            <Link
+              to="profile"
+            >
+              <img className="profile-icon" src={User} alt="User" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

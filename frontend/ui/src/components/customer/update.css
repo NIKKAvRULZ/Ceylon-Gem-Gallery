@@ -1,0 +1,99 @@
+General Layout
+.customer-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .con {
+    margin-top: 40px;
+  }
+  
+  /* Back Link Styling */
+  .back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #3E9263;
+    font-weight: bold;
+  }
+  
+  .back-link:hover {
+    color: #2b6d46;
+    text-decoration: underline;
+  }
+  
+  /* Title and Description */
+  .customer-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .customer-description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Horizontal Line Styling */
+  .customer-divider {
+    border: 0;
+    height: 2px;
+    background: #ddd;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styling */
+  .customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .customer-table th, .customer-table td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+  
+  .customer-table th {
+    background-color: #3E9263;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .customer-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .customer-table tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  
+  .customer-table td {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Edit Customer Link */
+  .edit-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3E9263;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-link:hover {
+    background-color: #2b6d46;
+  }
