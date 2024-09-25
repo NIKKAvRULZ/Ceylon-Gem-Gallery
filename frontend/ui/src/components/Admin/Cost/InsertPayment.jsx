@@ -84,7 +84,7 @@ const InsertPayment = () => {
     }
 
     // Ensure amount starts with $ sign
-    if (!form.district.startsWith('$') || isNaN(form.district.slice(1))) {
+    if (!form.district.startsWith("$") || isNaN(form.district.slice(1))) {
       alert("Amount must start with a '$' followed by a number.");
       return; // Do not submit the form if validation fails
     }
@@ -101,7 +101,7 @@ const InsertPayment = () => {
   // Get current year and month for the min attribute
   const today = new Date();
   const currentYear = today.getFullYear();
-  const currentMonth = String(today.getMonth() + 1).padStart(2, '0'); // Month is zero-indexed
+  const currentMonth = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-indexed
 
   return (
     <div className="form-container">
@@ -153,6 +153,7 @@ const InsertPayment = () => {
           name="postalCode"
           value={form.postalCode}
           onChange={handleChange}
+          maxLength={5}
           required
           placeholder="Enter postal code (numbers only)"
         />

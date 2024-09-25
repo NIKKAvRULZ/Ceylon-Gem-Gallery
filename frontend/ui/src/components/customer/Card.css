@@ -1,6 +1,6 @@
 .mcontiner {
   text-align: left;
-  width: 500px;
+  width: 100%;
 }
 
 .email-container {
@@ -37,6 +37,7 @@
 .change-btn {
   padding: 8px 15px;
   background-color: #F1F1F1;
+  color: black;
   border: none;
   border-radius: 15px;
   cursor: pointer;
@@ -45,8 +46,53 @@
   position: absolute; /* Position button absolutely within the container */
   right: 0; /* Align button to the right corner */
   margin-bottom: 10px;
+  text-decoration: none;
 }
 
 .change-btn:hover {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
+  text-decoration: none;
+}
+
+.logout_con {
+  margin: 50px 40% 0 40%;
+  text-align: center;
+}
+
+/* Base styles for the logout and delete button */
+.logoutAndDel_btn {
+  background-color: #ff4d4f; /* Example color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  text-decoration: none;
+  margin-top: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover and click effect */
+}
+
+/* Hover effect */
+.logoutAndDel_btn:hover {
+  background-color: #d9363e;
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Add animation when the page loads */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Apply the fade-in animation */
+.logoutAndDel_btn {
+  animation: fadeIn 0.5s ease-in-out;
 }
