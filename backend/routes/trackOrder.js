@@ -59,7 +59,7 @@ router.delete('/:trackingID', async (req, res) => {
     console.log(`Received request to delete job with tracking ID: ${trackingID}`);
 
     // Find and delete the job using tracking ID
-    const result = await TrackOrder.deleteOne({ trackingID });
+    const result = await TrackOrder.findByIdAndDelete(trackingID);
     if (result.deletedCount === 0) {
       console.log('Job not found');
       return res.status(404).json({ message: 'Job not found' });
