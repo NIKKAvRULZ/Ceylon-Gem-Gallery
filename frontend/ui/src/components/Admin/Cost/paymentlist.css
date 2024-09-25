@@ -11,7 +11,7 @@ h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #2c3e50;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
 
@@ -20,7 +20,7 @@ h2 {
   border-collapse: collapse;
   margin: 0 auto;
   text-align: left;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .payment-table th,

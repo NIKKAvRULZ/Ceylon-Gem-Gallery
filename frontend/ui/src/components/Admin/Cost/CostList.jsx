@@ -4,6 +4,7 @@ import axios from "axios";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./CostList.css"; // Make sure to import your CSS file here
+
 const CostList = () => {
   const [costs, setCosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,43 +13,58 @@ const CostList = () => {
     axios
       .get("http://localhost:3000/api/costmanagement")
       .then((res) => {
-        console.log(res.data);  // Check if data is fetched properly
+        console.log(res.data); // Check if data is fetched properly
         setCosts(res.data);
       })
       .catch((err) => console.log("Error fetching costs:", err));
   }, []);
-  
 
   const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3000/api/costmanagement/${id}`)
-      .then(() => setCosts(costs.filter((cost) => cost._id !== id)))
-      .catch((err) => console.log("Error deleting cost:", err));
+    // Confirm delete action
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this record?"
+    );
+
+    if (confirmDelete) {
+      axios
+        .delete(`http://localhost:3000/api/costmanagement/${id}`)
+        .then(() => setCosts(costs.filter((cost) => cost._id !== id)))
+        .catch((err) => console.log("Error deleting cost:", err));
+    }
   };
 
-  const filteredCosts = costs.filter(cost => 
-  cost.month && typeof cost.month === 'string' && cost.month.toLowerCase().includes(searchTerm.toLowerCase())
-);
+  // Format month to display only year and month
+  const formatMonth = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB", { year: "numeric", month: "long" });
+  };
 
+  // Filter costs by month based on formatted month-year string
+  const filteredCosts = costs.filter((cost) => {
+    const formattedMonth = formatMonth(cost.month).toLowerCase();
+    return formattedMonth.includes(searchTerm.toLowerCase());
+  });
 
+  // Generate PDF
   const generatePDF = () => {
     const doc = new jsPDF();
 
-    // Add Company Logo (Adjust logo URL or replace with base64 image if needed)
-    const logoURL = 'https://i.ibb.co/sPPq6j0/Crown-Jewelry-gems-Stones-Logo-2.png'; // Replace with the actual logo URL or base64
+    // Add Company Logo
+    const logoURL =
+      "https://i.ibb.co/sPPq6j0/Crown-Jewelry-gems-Stones-Logo-2.png"; // Replace with actual logo URL or base64
     doc.addImage(logoURL, "png", 170, 10, 20, 20); // Adjust logo position and size
 
     // Add Company Name
     doc.setFontSize(22);
     doc.setFont("helvetica", "bold");
-    doc.text("Ceylon Gem Gallery", 14, 20); // Adjust the company name
+    doc.text("Ceylon Gem Gallery", 14, 20); // Adjust company name
 
-    // Add Company Address and Contact Info
+    // Add Address and Contact Info
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
-    doc.text("Address: 123 Company Street, City, Country", 14, 30); // Adjust the company address
-    doc.text("Email: contact@company.com", 14, 36); // Adjust the email
-    doc.text("Phone: +71 283 789", 14, 42); // Adjust the phone number
+    doc.text("Address: 123 Company Street, City, Country", 14, 30); // Adjust address
+    doc.text("Email: contact@company.com", 14, 36); // Adjust email
+    doc.text("Phone: +71 283 789", 14, 42); // Adjust phone number
 
     // Add Document Title
     doc.setFontSize(16);
@@ -58,7 +74,7 @@ const CostList = () => {
     // Add Divider
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.5);
-    doc.line(14, 60, 196, 60); // Horizontal line to separate header
+    doc.line(14, 60, 196, 60); // Horizontal line
 
     // Table Columns and Data
     const columns = [
@@ -72,7 +88,7 @@ const CostList = () => {
     ];
 
     const data = filteredCosts.map((cost) => ({
-      month: cost.month,
+      month: formatMonth(cost.month),
       validationCost: cost.validationCost,
       cuttingCost: cost.cuttingCost,
       salaryCost: cost.salaryCost,
@@ -98,12 +114,11 @@ const CostList = () => {
         lineWidth: 0.1,
       },
       headStyles: {
-        fillColor: [76, 175, 80], // Change table header to green (RGB)
-        textColor: [255, 255, 255], // White text for table header
+        fillColor: [76, 175, 80], // Green for table header
+        textColor: [255, 255, 255], // White text
       },
       bodyStyles: {
         fillColor: [245, 245, 245], // Light grey for table body
-        textColor: [0, 0, 0],
       },
       alternateRowStyles: {
         fillColor: [220, 220, 220], // Alternate row color
@@ -139,6 +154,7 @@ const CostList = () => {
         Download PDF
       </button>
 
+      {/* If no costs are found */}
       {filteredCosts.length === 0 ? (
         <p className="no-data">No cost records found</p>
       ) : (
@@ -158,7 +174,7 @@ const CostList = () => {
           <tbody>
             {filteredCosts.map((cost, index) => (
               <tr key={index}>
-                <td>{cost.month}</td>
+                <td>{formatMonth(cost.month)}</td>
                 <td>{cost.validationCost}</td>
                 <td>{cost.cuttingCost}</td>
                 <td>{cost.salaryCost}</td>
@@ -175,7 +191,7 @@ const CostList = () => {
                     <button className="update-link">Update</button>
                   </Link>
                   <br></br>
-                  <br></br>
+                  <br />
                   <button
                     className="delete-btn"
                     onClick={() => handleDelete(cost._id)}
@@ -190,6 +206,6 @@ const CostList = () => {
       )}
     </div>
   );
-};``
+};
 
 export default CostList;

@@ -21,12 +21,11 @@ const InsertPayment = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Check the field and apply validation accordingly
     switch (name) {
       case "postalCode":
       case "cvc":
       case "cardNo":
-        // Allow only numbers for district, postal code, CVC, and card number
+        // Allow only numbers for postal code, CVC, and card number
         if (/^\d*$/.test(value)) {
           setForm({ ...form, [name]: value });
         }
@@ -34,7 +33,7 @@ const InsertPayment = () => {
 
       case "cardHName":
       case "city":
-        // Allow only letters (and spaces if needed) for card holder name and city
+        // Allow only letters (and spaces) for card holder name and city
         if (/^[a-zA-Z\s]*$/.test(value)) {
           setForm({ ...form, [name]: value });
         }
@@ -48,7 +47,7 @@ const InsertPayment = () => {
         break;
 
       case "district":
-        // Allow only "$" followed by numbers
+        // Ensure the input starts with a '$' followed by digits
         if (/^\$?\d*$/.test(value)) {
           setForm({ ...form, [name]: value });
         }
@@ -84,7 +83,7 @@ const InsertPayment = () => {
     }
 
     // Ensure amount starts with $ sign
-    if (!form.district.startsWith('$') || isNaN(form.district.slice(1))) {
+    if (!form.district.startsWith("$") || isNaN(form.district.slice(1))) {
       alert("Amount must start with a '$' followed by a number.");
       return; // Do not submit the form if validation fails
     }
@@ -101,7 +100,7 @@ const InsertPayment = () => {
   // Get current year and month for the min attribute
   const today = new Date();
   const currentYear = today.getFullYear();
-  const currentMonth = String(today.getMonth() + 1).padStart(2, '0'); // Month is zero-indexed
+  const currentMonth = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-indexed
 
   return (
     <div className="form-container">
@@ -153,6 +152,7 @@ const InsertPayment = () => {
           name="postalCode"
           value={form.postalCode}
           onChange={handleChange}
+          maxLength={5}
           required
           placeholder="Enter postal code (numbers only)"
         />

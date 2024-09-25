@@ -3,12 +3,8 @@ const mongoose = require("mongoose");
 // Define schema for cost management
 const costManagementSchema = new mongoose.Schema({
   month: {
-    type: String,
+    type: Date,
     required: [true, "Month is required"],
-    match: [
-      /^(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/i,
-      "Please enter a valid month name (e.g., January, Feb, etc.)",
-    ],
   },
   validationCost: {
     type: Number,

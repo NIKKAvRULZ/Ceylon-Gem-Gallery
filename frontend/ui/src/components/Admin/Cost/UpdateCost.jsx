@@ -18,7 +18,9 @@ const UpdateCost = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/costmanagement/${id}`)
-      .then((res) => setForm(res.data))
+      .then((res) =>
+        setForm({ ...res.data, month: res.data.month.substring(0, 7) })
+      ) // Extracting YYYY-MM from the date
       .catch((err) => console.log("Error fetching cost data:", err));
   }, [id]);
 
@@ -26,38 +28,23 @@ const UpdateCost = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const monthPattern =
-    /^(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/i;
-
-  const validateForm = () => {
-    if (!monthPattern.test(form.month)) {
-      alert("Please enter a valid month name (e.g., January, Feb, etc.)");
-      return false;
-    }
-
-    return true;
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      axios
-        .put(`http://localhost:3000/api/costmanagement/${id}`, form)
-        .then(() => navigate("/Admin/costs"))
-        .catch((err) => console.log("Error updating cost:", err));
-    }
+    const formattedForm = { ...form, month: new Date(form.month) };
+    axios
+      .put(`http://localhost:3000/api/costmanagement/${id}`, formattedForm)
+      .then(() => navigate("/Admin/costs"))
+      .catch((err) => console.log("Error updating cost:", err));
   };
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
       <label>Month:</label>
       <input
-        type="text"
+        type="month"
         name="month"
-        placeholder="Enter month (e.g., January)"
         value={form.month}
         onChange={handleChange}
-        pattern={monthPattern.source} // Adds month pattern validation in HTML
         required
       />
 
@@ -117,7 +104,7 @@ const UpdateCost = () => {
       />
 
       <button type="submit" className="submit-btn">
-        Update Cost
+        Update
       </button>
     </form>
   );
