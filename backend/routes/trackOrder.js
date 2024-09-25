@@ -3,30 +3,51 @@ const router = express.Router();
 const TrackOrder = require('../models/TrackOrder'); // Adjust the path as needed
 
 // POST route to complete a job using tracking ID
-router.post('/complete/:trackingID', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const { trackingID } = req.params;
-    console.log(`Received request to complete job with tracking ID: ${trackingID}`);
+    const { cutId, workerId, customerId } = req.body;
 
-    // Find the job using tracking ID
-    const job = await TrackOrder.findOne({ trackingID });
-    if (!job) {
-      console.log('Job not found');
-      return res.status(404).json({ message: 'Job not found' });
+    // Find the worker
+    const worker = await Worker.findById(workerId);
+    if (!worker) {
+      return res.status(404).json({ message: 'Worker not found' });
     }
 
-    // Update job status to completed
-    job.status = 'Completed';
-    await job.save();
+    // Find the cut
+    const cut = await Cut.findById(cutId);
+    if (!cut) {
+      return res.status(404).json({ message: 'Cut not found' });
+    }
 
-    console.log(`Job with tracking ID: ${trackingID} marked as completed.`);
+    // Find the customer
+    const customer = await Customer.findById(customerId);
+    if (!customer) {
+      return res.status(404).json({ message: 'Customer not found' });
+    }
 
-    res.json({ message: 'Job completed successfully', job });
+    // Create a new job tracking entry
+    const newTrackOrder = new TrackOrder({
+      workerID: workerId,
+      cutID: cutId,
+      customerID: customerId,
+      trackingID: `TRACK-${Math.random().toString(36).substring(2, 8)}`, // Generate a random tracking ID
+      status: 'Assigned',
+    });
+
+    // Save the new tracking entry
+    await newTrackOrder.save();
+
+    // Update the worker's workload or any additional logic
+    worker.workload = (worker.workload || 0) + 1;
+    await worker.save();
+
+    // Save the changes and send a success response
+    res.status(201).json({ message: 'Job assigned successfully', trackOrder: newTrackOrder });
   } catch (error) {
-    console.error('Error completing job:', error);
-    res.status(500).json({ message: 'Error completing job', error: error.message });
+    res.status(500).json({ message: 'Failed to assign job', error: error.message });
   }
 });
+
 
 // DELETE route to remove a job from the database using tracking ID
 router.delete('/:trackingID', async (req, res) => {
