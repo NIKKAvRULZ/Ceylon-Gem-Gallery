@@ -29,6 +29,14 @@ const LoginHome = () => {
               </div>
             </Link>
 
+            {/* supplier login change the paths */}
+
+            <Link to="SupplierLogin" className="home-card">
+              <div className="card-content">
+                <h3>Supplier Login</h3>
+              </div>
+            </Link>
+
           </div>
         </div>
       </section>
