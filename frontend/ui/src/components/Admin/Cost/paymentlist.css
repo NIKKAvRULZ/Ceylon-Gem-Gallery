@@ -30,8 +30,8 @@ h2 {
 }
 
 .payment-table th {
-  background-color: #f7f7f7;
-  color: #333;
+  background-color: #27ae60;
+  color: #ffffff;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -59,6 +59,18 @@ p {
   border-radius: 6px;
   font-size: 14px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.payment-button {
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #27ae60;
+  color: white;
+  margin-right: 30px;
 }
 
 .delete-button {
