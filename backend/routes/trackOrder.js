@@ -3,6 +3,7 @@ const router = express.Router();
 const TrackOrder = require('../models/TrackOrder'); // Adjust the path as needed
 const Worker = require('../models/Worker')
 const Cut = require('../models/Cut/Cut')
+const Customer = require('../models/Customer/customer')
 
 // POST route to complete a job using tracking ID
 router.post('/', async (req, res) => {
@@ -81,5 +82,25 @@ router.get('/incomplete', async (req, res) => {
     res.status(500).json({ message: 'Error fetching jobs', error: error.message });
   }
 });
+
+router.get('/:trackingId', async (req, res) => {
+  try {
+    const { trackingId } = req.params;
+    const response = await TrackOrder.find({ trackingID: trackingId });
+    const customer = await Customer.findOne(response.customerID);
+    const worker = await Worker.findOne(response.workerID);
+    const cut = await Cut.findOne(response.cutID);
+    const data = {
+      track: response[0],
+      customer: customer,
+      worker: worker,
+      cut: cut
+    }
+    console.log(data)
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching jobs', error: error.message });
+  }
+})
 
 module.exports = router;

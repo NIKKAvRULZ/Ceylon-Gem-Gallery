@@ -32,7 +32,7 @@ const CompleteJob = () => {
     try {
       // Call API to complete the job
       const response = await axios.post(`http://localhost:3000/api/assign/complete/${trackingID}`);
-
+      
       // Success feedback and reset form
       alert('Job completed successfully!');
       setTrackingID('');
