@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const TrackOrder = require('../models/TrackOrder'); // Adjust the path as needed
+const Worker = require('../models/Worker')
+const Cut = require('../models/Cut/Cut')
 
 // POST route to complete a job using tracking ID
 router.post('/', async (req, res) => {
