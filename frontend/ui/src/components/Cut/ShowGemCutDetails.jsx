@@ -40,7 +40,7 @@ function ShowGemCutDetails() {
       const response = await axios.post(`http://localhost:3000/api/track`, {
         cutId: gemCut._id,
         workerId: selectedWorker,
-        customerId: '66ee8cc3f4cfe655dc12ce2d' // Replace with actual customer ID
+        customerId: '66f4092670e8d00c1926d00b' // Replace with actual customer ID
       });
 
       setTrackingID(response.data.trackOrder.trackingID);
