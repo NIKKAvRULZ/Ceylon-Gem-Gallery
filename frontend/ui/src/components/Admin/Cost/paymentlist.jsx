@@ -154,10 +154,15 @@ const PaymentList = () => {
       </div>
 
       <div style={{ marginBottom: "20px" }}>
-        <button onClick={() => navigate("/Admin/insert-payment")}>Add Payment</button>
-        <br />
+        <button
+          onClick={() => navigate("/Admin/insert-payment")}
+          className="payment-button"
+        >
+          Add Payment
+        </button>
+
         {/* Add a button to download PDF */}
-        <button onClick={generatePDF} style={{ marginLeft: "1px" }}>
+        <button onClick={generatePDF} className="update-button">
           Download PDF
         </button>
       </div>
@@ -197,10 +202,13 @@ const PaymentList = () => {
                 <td>
                   <button
                     className="update-button"
-                    onClick={() => navigate(`/Admin/update-payment/${payment._id}`)}
+                    onClick={() =>
+                      navigate(`/Admin/update-payment/${payment._id}`)
+                    }
                   >
                     Update
                   </button>
+                  <br></br>
                   <br />
                   <button
                     className="delete-button"

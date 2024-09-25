@@ -6,8 +6,28 @@ const Costs = require("../../models/Cost/costManagement");
 router.get("/test", (req, res) => res.send("Cost Management Route is working"));
 
 // Create a new cost record
+// Create a new cost record
 router.post("/", (req, res) => {
-  Costs.create(req.body)
+  const {
+    month,
+    validationCost,
+    cuttingCost,
+    salaryCost,
+    additionalCost,
+    profit,
+  } = req.body;
+
+  const costRecord = new Costs({
+    month: new Date(month), // Convert to Date
+    validationCost,
+    cuttingCost,
+    salaryCost,
+    additionalCost,
+    profit,
+  });
+
+  costRecord
+    .save()
     .then(() => res.json({ msg: "Cost added successfully" }))
     .catch(() => res.status(400).json({ msg: "Cost adding failed" }));
 });
