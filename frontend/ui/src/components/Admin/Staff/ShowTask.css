@@ -1,0 +1,109 @@
+/* General styling for the task page */
+.show-task-body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+}
+
+.show-task-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.show-task-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.task-table thead {
+  background-color: #41b647fa;
+  color: white;
+}
+
+.task-table th,
+.task-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.task-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Button styling */
+.show-task-button {
+  padding: 8px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.show-task-button:hover {
+  opacity: 0.9;
+}
+
+.show-task-button:focus {
+  outline: none;
+}
+
+.show-task-update-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.show-task-delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.show-task-button-back-btn {
+  background-color: #0d6efd;
+  color: white;
+  margin-top: 20px;
+  display: block;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.show-task-button-back-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  .show-task-container {
+    width: 95%;
+  }
+
+  .task-table,
+  .task-table th,
+  .task-table td {
+    font-size: 0.9rem;
+  }
+
+  .show-task-button {
+    font-size: 0.8rem;
+  }
+}

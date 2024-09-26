@@ -1,0 +1,83 @@
+/* TaskAssign.css */
+
+.task-assign-container {
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.task-assign-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.task-assign-container input {
+    width: 500px; /* Full width for better responsiveness */
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.task-assign-container button {
+    width: 500px; /* Full width button */
+    background-color: #3f583f;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.task-assign-container button:hover {
+    background-color: #45a049;
+    transform: scale(1.02); /* Slight button grow effect on hover */
+}
+
+.task-assign-container button:active {
+    transform: scale(1); /* Reset to normal size when clicked */
+}
+
+@media (max-width: 768px) {
+    .task-assign-container {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .task-assign-container button {
+        font-size: 16px;
+    }
+
+    .task-assign-container input {
+        padding: 10px;
+    }
+}
+
+/* Search bar styling */
+.search-container {
+    margin: 20px 0; /* Adjust spacing as needed */
+    text-align: center;
+  }
+  
+  .search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Other styles remain unchanged */
+  .task-assign-container select {
+    width: 525px; /* Full width for better responsiveness */
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

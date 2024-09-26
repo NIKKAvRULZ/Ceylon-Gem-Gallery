@@ -1,0 +1,128 @@
+/* Container for the entire staff list */
+.staff-list-container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+/* Title for the staff list page */
+.staff-list-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Container for the buttons (Add Staff, Show Assigned Task) */
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Button to add a new staff member */
+.add-staff-btn {
+  background-color: #41b647fa;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button to show assigned tasks */
+.show-btn {
+  background-color: #41b647fa;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-staff-btn:hover,
+.show-btn:hover {
+  background-color: #218838;
+}
+
+/* Styling for the table */
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Header cells of the table */
+.staff-table th {
+  background-color: #41b647fa;
+  color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Table cells */
+.staff-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Action buttons for edit, delete, and assign task */
+.edit-btn,
+.delete-btn,
+.assign-btn {
+  background-color: #41b647fa;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover,
+.assign-btn:hover {
+  background-color: #218838;
+}
+
+/* Delete button specific hover state */
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .staff-list-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .staff-table th,
+  .staff-table td {
+    padding: 8px;
+  }
+
+  .edit-btn,
+  .delete-btn,
+  .assign-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+/* Button to download the PDF */
+.pdf-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.pdf-btn:hover {
+  background-color: #0056b3;
+}

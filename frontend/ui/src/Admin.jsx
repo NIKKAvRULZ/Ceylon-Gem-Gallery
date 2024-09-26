@@ -19,6 +19,14 @@ import UpdateCost from "./components/Admin/Cost/UpdateCost";
 
 import AdminPaymentManagement from './components/Admin/AdminPaymentManagement';
 
+//staff
+import StaffList from "./components/Admin/Staff/StaffList";
+import StaffForm from "./components/Admin/Staff/StaffForm";
+import UpdateStaff from "./components/Admin/Staff/UpdateStaff";
+import TaskAssign from "./components/Admin/Staff/TaskAssign";
+import ShowTask from "./components/Admin/Staff/ShowTask";
+import UpdateTask from "./components/Admin/Staff/UpdateStaff";
+
 
 import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails';
 import UpdateCustomer from './components/Admin/customer/updateCustomer';
@@ -58,6 +66,18 @@ const Admin = () => {
         {/* job assignment and completion */}
         <Route path="/assign-job" element={<AssignJob />} />
         <Route path="/complete-job" element={<CompleteJob />} />
+
+        {/* staff */}
+        <Route path="/staff" element={<StaffList />} />
+        <Route path="/add-staff" element={<StaffForm />} />
+        <Route path="/updateee/:id" element={<UpdateStaff />} />
+
+        {/* staff part 2 */}
+        <Route path="/task-assign/:id" element={<TaskAssign />} />
+        <Route path="/show-task" element={<ShowTask />} />
+        <Route path="/update-task/:id" element={<UpdateTask />} />
+
+
       </Routes>
       <Footer />
     </div>

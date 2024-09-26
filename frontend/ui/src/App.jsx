@@ -7,6 +7,7 @@ import AdminLogin from './components/Login/AdminLogin';
 import UserLogin from './components/Login/UserLogin';
 import WorkerLogin from './components/Login/WorkerLogin';
 import LoginHome from './components/LoginHome';
+import StaffList from "./components/Admin/Staff/StaffList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/user/*' element={<User />} />
           <Route path='/WorkerLogin' element={<WorkerLogin />} />
           <Route path='/worker/*' element={<Worker />} />
+          <Route path="/staff" element={<StaffList />} />
         </Routes>
         {/* <Footer /> */}
       </Router>

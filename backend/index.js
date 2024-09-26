@@ -1,6 +1,12 @@
 const express = require("express");
 const dbConnection = require("./config/db");
 
+//charuka staff
+const staffRoutes = require("./routes/staff/StaffRoutes");
+ 
+const taskRoutes = require("./routes/staff/TaskRoutes"); // Import task routes
+
+
 const workerRoutes = require('./routes/Woker/Worker');
 
 
@@ -39,6 +45,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("Hello World"));
+
+// charuka staff
+app.use("/api/staff", staffRoutes);
+app.use("/api/tasks", taskRoutes);
 
 app.use("/api/employees", employeeRoutes);
 app.use("/api/cuts", cutsRoutes);
