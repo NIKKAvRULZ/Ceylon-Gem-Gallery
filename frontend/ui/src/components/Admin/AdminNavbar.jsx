@@ -72,10 +72,10 @@ const AdminNavbar = () => {
               Complete Job
             </Link>
             <Link
-              className={`nav-item ${activeLink === 'assign-job' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('assign-job')} to="assign-job"
+              className={`nav-item ${activeLink === 'staff' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('staff')} to="staff"
             >
-              Assign Job
+              Staff Management
             </Link>
             <Link
               className={`nav-item ${activeLink === 'About' ? 'highlight' : ''}`}

@@ -9,6 +9,7 @@
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
+  color: whitesmoke;
 }
 
 /* Container for the buttons (Add Staff, Show Assigned Task) */
@@ -48,6 +49,7 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  background-color: azure;
 }
 
 /* Header cells of the table */

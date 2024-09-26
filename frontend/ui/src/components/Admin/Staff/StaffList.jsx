@@ -45,7 +45,7 @@ const StaffList = () => {
 
   return (
     <div className="staff-list-container">
-      <h2>Staff List</h2>
+      <h2 className="staff-list-title ">Staff List</h2>
       <div className="actions-container">
         <Link to="/Admin/add-staff">
           <button className="add-staff-btn">Add New Staff</button>
