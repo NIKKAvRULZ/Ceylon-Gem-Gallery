@@ -24,6 +24,7 @@
 
       // Allow empty input to clear the field and restrict cut name input to letters and spaces only
       if (name === 'name' && !/^[A-Za-z\s]*$/.test(value)) {
+        setErrorMessage('Numbers are not allowed in the cut name');
         return; // Do not update state if the input is not valid
       }
 
@@ -171,6 +172,7 @@
                 onChange={handleChange}
               />
             </div>
+            
             <div className="form-group">
               <label htmlFor="cutDescription" className="label">Cut Description:</label>
               <textarea
