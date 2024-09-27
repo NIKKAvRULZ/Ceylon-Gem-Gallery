@@ -12,7 +12,7 @@ const RawGemCard = ({ gemCut }) => {
           onError={(e) => { e.target.src = '/path/to/default-image.jpg'; }} // Fallback image
         />
         <h3 className="card-title">{gemCut.name}</h3>
-        <p className="card-description">Rs.{gemCut.price}</p>
+        <p className="card-description">${gemCut.price}</p>
         <Link to={`/user/Gdetails/${gemCut._id}`}>
           <button className="Cut-Update">Details</button>
         </Link>

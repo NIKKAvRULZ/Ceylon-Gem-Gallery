@@ -127,8 +127,8 @@ function ShowDetailsGems() {
         </table>
         
         <div className="buttonContainer_SDG">
-          <Link to={"/user/Shop"}><button className="back_btn_SDG">Back</button></Link>
-          <button className="payment_btn_SDG" onClick={handleUseCut}>Payment</button>
+          <Link to={"/user/shop"}><button className="back_btn_SDG">Back</button></Link>
+          <Link to={"/user/insert-payment"}><button className="payment_btn_SDG">Payment</button></Link>
         </div>
       </div>
     </div>
