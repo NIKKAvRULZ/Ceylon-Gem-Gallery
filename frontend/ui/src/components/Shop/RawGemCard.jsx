@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
-import '../Cut/GemCutCard.css';
 import { Link } from 'react-router-dom';
 
-const GemCutCard = ({ gemCut }) => {
+const RawGemCard = ({ gemCut }) => {
   return (
     <div className="content-container">
       <div className="Cut-card">
@@ -13,8 +12,8 @@ const GemCutCard = ({ gemCut }) => {
           onError={(e) => { e.target.src = '/path/to/default-image.jpg'; }} // Fallback image
         />
         <h3 className="card-title">{gemCut.name}</h3>
-        <p className="card-description">{gemCut.description}</p>
-        <Link to={`/user/showdetails/${gemCut._id}`}>
+        <p className="card-description">${gemCut.price}</p>
+        <Link to={`/user/Gdetails/${gemCut._id}`}>
           <button className="Cut-Update">Details</button>
         </Link>
       </div>
@@ -23,7 +22,7 @@ const GemCutCard = ({ gemCut }) => {
 };
 
 // Define prop types for better validation
-GemCutCard.propTypes = {
+RawGemCard.propTypes = {
   gemCut: PropTypes.shape({
     imageUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -32,4 +31,4 @@ GemCutCard.propTypes = {
   }).isRequired,
 };
 
-export default GemCutCard;
+export default RawGemCard;

@@ -25,6 +25,8 @@ const trackRoutes = require("./routes/trackOrder");
 const homeRoutes = require("./routes/home");
 const customerRoutes = require("./routes/Customer/customer"); // Correct the path
 
+const shopRoutes = require("./routes/shop/gems");
+
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -55,6 +57,9 @@ app.use("/api/cuts", cutsRoutes);
 app.use("/api/assign", assignRoutes);
 app.use("/api/customer", customerRoutes); // Make sure to use the correct plural
 app.use("/api/notifications", notificationRoutes);
+
+//Shop
+app.use("/api/gemShop", shopRoutes);
 
 app.use("/api/track", trackRoutes);
 app.use("/api/home", homeRoutes);
