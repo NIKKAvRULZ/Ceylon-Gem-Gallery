@@ -104,6 +104,10 @@ function ShowDetailsGems() {
               <td className="description-text_SDG">{gemCut.description}</td>
             </tr>
             <tr>
+              <td>Gem Cut</td>
+              <td className="cut-text_SDG">{gemCut.cut}</td>
+            </tr>
+            <tr>
               <td>Shape</td>
               <td className="description-text_SDG">{gemCut.Shape}</td>
             </tr>

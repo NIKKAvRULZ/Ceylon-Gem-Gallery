@@ -2,12 +2,21 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from './components/Admin/AdminNavbar';
 import Footer from './components/Admin/AdminFooter';
+import AdminHome from './components/Admin/AdminHome';
 
 // cut
 import AdminGemCutHome from './components/Admin/AdminGemCutHome';
 import AdminGemCutList from './components/Admin/AdminGemCutList';
 import AdminAddGemCuts from './components/Admin/AdminAddGemCuts';
 import UpdateGemCut from './components/Admin/UpdateGemCut';
+
+//shop
+import AdminShopHome from "./components/Admin/Shop/AdminShopHome";
+import AddGem from "./components/Admin/Shop/AddGem";
+import GemList from "./components/Admin/Shop/GemList";
+import UpdateGem from './components/Admin/Shop/UpdateGem';
+
+
 
 // cost
 import PaymentList from "./components/Admin/Cost/paymentlist";
@@ -43,13 +52,29 @@ const Admin = () => {
     <div>
       <Navbar />
       <Routes>
+      <Route path='/AdminHome' element={<AdminHome />} />
+      <Route path='/' element={<AdminHome />} />
+
+
         {/* cut */}
         <Route path='/UpdateDetails/:id' element={<UpdateGemCut />} />
         <Route path="/AdminGemCutHome" element={<AdminGemCutHome />} />
         <Route path="/AdminGemCutHome/AdminGemCutList" element={<AdminGemCutList />} />
         <Route path="/AdminGemCutHome/AdminAddGemCuts" element={<AdminAddGemCuts />} />
-        <Route path='/' element={<AdminGemCutHome />} />
+
+        {/*payment*/}
         <Route path='/AdminPaymentManagement' element={<AdminPaymentManagement />} />
+        
+        {/* Shop */}
+        <Route path="/AdminShopHome" element={<AdminShopHome />} />
+        <Route path="/AdminShopHome/AdminAddGem" element={<AddGem />} />
+        <Route path="/AdminShopHome/AdminGemList" element={<GemList />} />
+        <Route path="/AdminGemCutHome/AdminGemCutList" element={<AdminGemCutList />} />
+        <Route path='/UpdateGem/:id' element={<UpdateGem />} />
+
+
+
+
         {/* cost */}
         <Route path="/payments" element={<PaymentList />} />
         <Route path="/insert-payment" element={<InsertPayment />} />

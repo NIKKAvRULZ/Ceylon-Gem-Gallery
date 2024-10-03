@@ -43,13 +43,13 @@ const AdminNavbar = () => {
           <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <Link
               className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('Home')} to="AdminGemCutHome"
+              onClick={() => handleNavClick('Home')} to="AdminHome"
             >
               Home
             </Link>
             <Link
               className={`nav-item ${activeLink === 'Shop' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('Shop')} to="AdminShop"
+              onClick={() => handleNavClick('Shop')} to="AdminShopHome"
             >
               Shop
             </Link>

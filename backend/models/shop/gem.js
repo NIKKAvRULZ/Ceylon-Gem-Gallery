@@ -14,29 +14,46 @@ const gemSchema = new mongoose.Schema({
         required: true
     },
 
+    cut: 
+    { 
+        type: String, 
+        required: true
+    },
+
+
     imageUrl: 
     { 
-        type: String 
+        type: String,
+        required: true 
+
+        
     },
 
     Shape: 
     { 
-        type: String 
+        type: String,
+        required: true  
     },
 
     Facets:
     { 
-        type: String
+        type: String,
+        required: true 
+
     },
 
     Proportions:
     { 
-        type: String
+        type: String,
+        required: true 
+
     },
 
     Appearance: 
     { 
-        type: String
+        type: String,
+        required: true 
+
     },
 
     price:

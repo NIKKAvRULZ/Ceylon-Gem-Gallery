@@ -29,9 +29,7 @@ const RawGemList = () => {
 
     return (
         <div className="show_GemCutList">
-            <Link to="/user/add-gem"><button>Add a new gem</button></Link>
-            <br />
-            <Link to="/user/deleteGems"><button>Delete gem</button></Link>
+
             <div className="search-container">
             <input
                 type="text"
