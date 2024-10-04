@@ -1,48 +1,47 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
-import GemCutCard from './RawGemCard';
+import RawGemCard from "./RawGemCard";
 
 const RawGemList = () => {
-    const [gemCuts, setGemCuts] = useState([]);
+    const [gems, setGems] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/gemShop')
             .then(res => {
-                setGemCuts(res.data);
+                if (res.data) {
+                    setGems(res.data);
+                }
             })
-            .catch(() => {
-                console.log('Error fetching gem cuts');
+            .catch((error) => {
+                console.error('Error fetching gems:', error);
             });
     }, []);
 
-    const filteredGemCuts = gemCuts.filter(gemCut =>
-        gemCut.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredGems = gems.filter(gem =>
+        gem.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const gemCutList = filteredGemCuts.length === 0 
-    ? <div className="no-gems-found">No gem cuts found!</div> 
-    : filteredGemCuts.map((gemCut, index) => (
-        <GemCutCard key={index} gemCut={gemCut} />
+    const gemList = filteredGems.length === 0 
+    ? <div className="no-gems-found">No gems found!</div> 
+    : filteredGems.map((gem, index) => (
+        <RawGemCard key={index} gem={gem} />
     ));
 
     return (
-        <div className="show_GemCutList">
-
+        <div className="show_GemList">
             <div className="search-container">
-            <input
-                type="text"
-                placeholder="Search by name..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-            />
-                <button className="search-button">Search</button>
+                <input
+                    type="text"
+                    placeholder="Search by name..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="search-input"
+                />
             </div>
             <div className="list-container">
                 <div className="list">
-                    {gemCutList}
+                    {gemList}
                 </div>
             </div>
         </div>
