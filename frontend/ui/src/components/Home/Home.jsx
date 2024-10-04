@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css'; // Import the CSS file
 import heroImage from '../../assets/logo.png'; // Placeholder for hero section image
 import customCuttingImage from '../../assets/custom-cutting.jpeg'; // Placeholder for custom cutting feature
@@ -6,6 +6,22 @@ import craftsmanshipImage from '../../assets/craftsmanshipImage.jpg'; // Placeho
 import trackingImage from '../../assets/trackingImage.jpeg'; // Placeholder for tracking feature
 
 const Home = () => {
+
+  useEffect(() => {
+    // Tawk.to script
+    var Tawk_API = Tawk_API || {};
+    var Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement('script');
+      var s0 = document.getElementsByTagName('script')[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/66ffb4a0256fb1049b1cd760/1i9bdj5bp';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  }, []); // Ensure the script runs only once when the component mounts
+
   return (
     <div className="home-container-main">
       {/* Hero Section */}
