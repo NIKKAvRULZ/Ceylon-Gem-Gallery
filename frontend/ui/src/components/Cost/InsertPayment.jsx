@@ -102,34 +102,35 @@ const InsertPayment = () => {
 
   // Generate PDF Receipt
   const generatePDF = () => {
-    const doc = new jsPDF();
+    const doc = new jsPDF("p", "pt", "a4");
 
     // Add Company Logo
     const logoURL =
       "https://i.ibb.co/sPPq6j0/Crown-Jewelry-gems-Stones-Logo-2.png";
-    doc.addImage(logoURL, "PNG", 170, 10, 15, 15);
+    doc.addImage(logoURL, "PNG", 450, 30, 100, 100); // Bigger and better-positioned logo
 
-    // Add Company Details
-    doc.setFontSize(24);
+    // Add Company Name and Contact Info
+    doc.setFontSize(26);
     doc.setFont("helvetica", "bold");
-    doc.text("Ceylon Gem Gallery", 14, 20);
-    doc.setFontSize(11);
+    doc.text("Ceylon Gem Gallery", 40, 80); // Adjusted position
+
+    doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
-    doc.text("Address: 123 Company Street, City, Country", 14, 30);
-    doc.text("Email: contact@company.com", 14, 36);
-    doc.text("Phone: +71 286 789", 14, 42);
+    doc.text("Address: 123 Company Street, City, Country", 40, 100);
+    doc.text("Email: contact@company.com", 40, 115);
+    doc.text("Phone: +71 286 789", 40, 130);
 
     // Document Title
-    doc.setFontSize(16);
+    doc.setFontSize(18);
     doc.setFont("helvetica", "bold");
-    doc.text("Payment Receipt", 14, 55);
+    doc.text("Payment Receipt", 40, 170);
 
-    // Divider
+    // Divider Line
     doc.setDrawColor(0, 0, 0);
-    doc.setLineWidth(0.5);
-    doc.line(14, 60, 196, 60);
+    doc.setLineWidth(1);
+    doc.line(40, 180, 560, 180); // Full-width divider line
 
-    // Add payment details from the form
+    // Add Payment Details (Formatted in a table style)
     const paymentDetails = [
       { label: "Card Holder Name", value: form.cardHName },
       { label: "Address", value: form.address },
@@ -139,35 +140,38 @@ const InsertPayment = () => {
       {
         label: "Card Number",
         value: form.cardNo.replace(/\d{12}(\d{4})/, "**** **** **** $1"),
-      }, // Mask card number
+      }, // Masked card number
       {
         label: "Expire Date",
         value: new Date(form.expireDate).toLocaleDateString(),
       },
-      { label: "CVC", value: "***" }, // Mask CVC
+      { label: "CVC", value: "***" }, // Masked CVC
       { label: "Payment Type", value: form.paymentType },
     ];
 
-    // Loop through details and add them to the PDF
-    let yPosition = 70;
-    doc.setFontSize(12);
+    // Render Payment Details
+    let yPosition = 220;
+    doc.setFontSize(14);
     paymentDetails.forEach((detail) => {
-      doc.text(`${detail.label}: ${detail.value}`, 14, yPosition);
-      yPosition += 8; // Move to the next line
+      doc.text(`${detail.label}:`, 40, yPosition);
+      doc.text(detail.value, 200, yPosition);
+      yPosition += 30; // More space between lines
     });
 
-    // Thank you message and catchphrase
-    yPosition += 10;
+    // Add Thank You Message
+    yPosition += 30;
     doc.setFont("helvetica", "italic");
-    doc.text("Thank you for your payment!", 14, yPosition);
-    yPosition += 8;
+    doc.setFontSize(14);
+    doc.text("Thank you for your payment!", 40, yPosition);
+
+    yPosition += 20;
     doc.text(
       "Ceylon Gem Gallery – Where tradition meets excellence.",
-      14,
+      40,
       yPosition
     );
 
-    // Save the PDF with the name "Payment_Receipt.pdf"
+    // Save the PDF
     doc.save("Payment_Receipt.pdf");
   };
 
