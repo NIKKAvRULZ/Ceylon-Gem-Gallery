@@ -34,7 +34,7 @@ import StaffForm from "./components/Admin/Staff/StaffForm";
 import UpdateStaff from "./components/Admin/Staff/UpdateStaff";
 import TaskAssign from "./components/Admin/Staff/TaskAssign";
 import ShowTask from "./components/Admin/Staff/ShowTask";
-import UpdateTask from "./components/Admin/Staff/UpdateStaff";
+import UpdateTask from "./components/Admin/Staff/UpdateTask";
 
 
 import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails';
@@ -95,12 +95,12 @@ const Admin = () => {
         {/* staff */}
         <Route path="/staff" element={<StaffList />} />
         <Route path="/add-staff" element={<StaffForm />} />
-        <Route path="/updateee/:id" element={<UpdateStaff />} />
+        <Route path="/update-staff/:id" element={<UpdateStaff />} />
 
         {/* staff part 2 */}
         <Route path="/task-assign/:id" element={<TaskAssign />} />
         <Route path="/show-task" element={<ShowTask />} />
-        <Route path="/update-task/:id" element={<UpdateTask />} />
+        <Route path="/update-t/:id" element={<UpdateTask/>} />
 
 
       </Routes>
