@@ -9,7 +9,7 @@ const PostCutForm = () => {
   const [formData, setFormData] = useState({
     validationid: "",
     gemType: "",
-    cutType: "",
+    cutType: "", // This will now be a dropdown
     weight: "",
     polish: "",
     price: "",
@@ -19,35 +19,29 @@ const PostCutForm = () => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Handle form field changes with validation
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
-    // Validation logic for each field
+
     switch (name) {
       case "validationid":
-        // Only allow numbers (integers)
         if (/^\d*$/.test(value)) {
           setFormData((prevData) => ({ ...prevData, [name]: value }));
         }
         break;
       case "gemType":
-      case "cutType":
       case "polish":
-        // Only allow letters (alphabetic characters)
         if (/^[a-zA-Z]*$/.test(value)) {
           setFormData((prevData) => ({ ...prevData, [name]: value }));
         }
         break;
       case "weight":
       case "price":
-        // Only allow numbers (with optional decimal for weight/price)
         if (/^\d*\.?\d*$/.test(value)) {
           setFormData((prevData) => ({ ...prevData, [name]: value }));
         }
         break;
+      case "cutType":
       case "description":
-        // Allow any characters for description
         setFormData((prevData) => ({ ...prevData, [name]: value }));
         break;
       default:
@@ -137,16 +131,28 @@ const PostCutForm = () => {
           />
         </div>
 
+        {/* Updated Cut Type Dropdown */}
         <div className="post-form-group">
           <label className="post-form-label" htmlFor="cutType">Cut Type</label>
-          <input
+          <select
             className="post-form-input"
-            type="text"
             name="cutType"
             value={formData.cutType}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Select Cut Type</option>
+            <option value="Marquise cut">Marquise cut</option>
+            <option value="Oval cut">Oval cut</option>
+            <option value="Round cut">Round cut</option>
+            <option value="Cushion cut">Cushion cut</option>
+            <option value="Trillion cut">Trillion cut</option>
+            <option value="Radient cut">Radient cut</option>
+            <option value="Pear cut">Pear cut</option>
+            <option value="Heart cut">Heart cut</option>
+            <option value="Asscher cut">Asscher cut</option>
+            <option value="Emerald cut">Emerald cut</option>
+          </select>
         </div>
 
         <div className="post-form-group">
