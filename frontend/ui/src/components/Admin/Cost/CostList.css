@@ -116,7 +116,7 @@
   background-color: #388e3c;
 }
 
-.delete-btn {
+.delete-btn-cost {
   background-color: #e74c3c;
   color: white;
   border: none;
@@ -126,7 +126,7 @@
   margin-left: 10px;
 }
 
-.delete-btn:hover {
+.delete-btn-cost:hover {
   background-color: #c0392b;
 }
 

@@ -26,7 +26,49 @@ const UpdatePayment = () => {
   }, [id]);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    switch (name) {
+      case "cardNo":
+        // Allow only digits and max length of 16 for card number
+        if (/^\d{0,16}$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      case "cardHName":
+      case "city":
+        // Allow only letters and spaces for card holder name and city (no digits)
+        if (/^[a-zA-Z\s]*$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      case "district":
+        // Ensure amount starts with $ and followed by numbers
+        if (/^\$\d*\.?\d{0,2}$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      case "postalCode":
+        // Allow only digits and max length of 5 for postal code
+        if (/^\d{0,5}$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      case "cvc":
+        // Allow only digits and max length of 3 for CVC
+        if (/^\d{0,3}$/.test(value)) {
+          setForm({ ...form, [name]: value });
+        }
+        break;
+
+      default:
+        setForm({ ...form, [name]: value });
+        break;
+    }
   };
 
   const handleSubmit = (e) => {
@@ -36,6 +78,11 @@ const UpdatePayment = () => {
       .then(() => navigate("/Admin/payments"))
       .catch((err) => console.log("Error updating payment:", err));
   };
+
+  // Get current year and month for the min attribute (future months only)
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-padded
 
   return (
     <div className="form-container">
@@ -48,6 +95,7 @@ const UpdatePayment = () => {
           value={form.cardHName}
           onChange={handleChange}
           required
+          placeholder="Enter card holder name"
         />
 
         <label>Address:</label>
@@ -57,6 +105,7 @@ const UpdatePayment = () => {
           value={form.address}
           onChange={handleChange}
           required
+          placeholder="Enter billing address"
         />
 
         <label>Amount:</label>
@@ -66,8 +115,9 @@ const UpdatePayment = () => {
           value={form.district}
           onChange={handleChange}
           required
+          placeholder="Enter amount (e.g., $100)"
           pattern="^\$\d+(\.\d{1,2})?$"
-          title="Please enter a valid amount starting with a $ sign"
+          title="Amount must start with '$' followed by a number"
         />
 
         <label>City:</label>
@@ -77,6 +127,7 @@ const UpdatePayment = () => {
           value={form.city}
           onChange={handleChange}
           required
+          placeholder="Enter city"
         />
 
         <label>Postal Code:</label>
@@ -86,6 +137,9 @@ const UpdatePayment = () => {
           value={form.postalCode}
           onChange={handleChange}
           required
+          pattern="\d{5}" // Enforce exactly 5 digits
+          title="Postal code must be 5 digits"
+          placeholder="Enter 5-digit postal code"
         />
 
         <label>Card Number:</label>
@@ -97,6 +151,7 @@ const UpdatePayment = () => {
           required
           pattern="\d{16}"
           title="Card number must be 16 digits"
+          placeholder="Enter 16-digit card number"
         />
 
         <label>Expire Date:</label>
@@ -106,17 +161,19 @@ const UpdatePayment = () => {
           value={form.expireDate}
           onChange={handleChange}
           required
+          min={`${currentYear}-${currentMonth}`} // Restrict to future months
         />
 
         <label>CVC:</label>
         <input
-          type="text"
+          type="password" // Show CVC as dots
           name="cvc"
           value={form.cvc}
           onChange={handleChange}
           required
           pattern="\d{3}"
           title="CVC must be 3 digits"
+          placeholder="Enter 3-digit CVC"
         />
 
         <label>Payment Type:</label>

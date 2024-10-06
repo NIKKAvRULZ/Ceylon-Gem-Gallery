@@ -205,7 +205,7 @@ const CostList = () => {
                   <br></br>
                   <br />
                   <button
-                    className="delete-btn"
+                    className="delete-btn-cost"
                     onClick={() => handleDelete(cost._id)}
                   >
                     Delete
