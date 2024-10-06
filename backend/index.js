@@ -1,18 +1,9 @@
 const express = require("express");
 const dbConnection = require("./config/db");
-const multer = require("multer");
-const path = require("path");
-
-
-//imashi validation
-
-
-const UserRoutes = require("./routes/Validation/UserRoutes");
-const PostCutRoutes = require("./routes/Validation/PostCutRoutes");
 
 //charuka staff
 const staffRoutes = require("./routes/staff/StaffRoutes");
- 
+const salaryRoutes = require("./routes/staff/SalaryRoutes");
 const taskRoutes = require("./routes/staff/TaskRoutes"); // Import task routes
 
 
@@ -57,19 +48,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => res.send("Hello World"));
 
-//imashi 
-app.use(cors());  // Use the specific CORS options
-app.use(express.json());
-app.use('/Images', express.static(path.join(__dirname, 'Images'))); // Serve static files
-
-
-//imashi
-app.use("/api/users", UserRoutes);
-app.use("/api/postcut", PostCutRoutes); 
-
 // charuka staff
 app.use("/api/staff", staffRoutes);
 app.use("/api/tasks", taskRoutes);
+app.use("/salary", salaryRoutes);
 
 app.use("/api/employees", employeeRoutes);
 app.use("/api/cuts", cutsRoutes);

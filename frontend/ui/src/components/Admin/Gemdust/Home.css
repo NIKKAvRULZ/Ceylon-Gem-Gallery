@@ -1,0 +1,118 @@
+/* Home Container */
+.gemdust-system-home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Products Section */
+.gemdust-system-products-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Product Card */
+.gemdust-system-product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gemdust-system-product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product Image */
+.gemdust-system-product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Product Info */
+.gemdust-system-product-info {
+  margin-top: 10px;
+}
+
+.gemdust-system-product-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.gemdust-system-product-info p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Add Gem Dust Button Container */
+.gemdust-system-add-gem-dust-button-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Add Gem Dust Button */
+.gemdust-system-add-gem-dust-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.gemdust-system-add-gem-dust-btn:hover {
+  background-color: #218838;
+}
+
+/* Gem Dust Button Container */
+.gemdust-system-gem-dust-button-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Gem Dust Button */
+.gemdust-system-gem-dust-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.gemdust-system-gem-dust-btn:hover {
+  background-color: #218838;
+}
+
+/* User Home Button Container */
+.gemdust-system-user-home-button-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* User Home Button */
+.gemdust-system-user-home-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.gemdust-system-user-home-btn:hover {
+  background-color: #218838;
+}

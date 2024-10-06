@@ -8,6 +8,13 @@ import UserLogin from './components/Login/UserLogin';
 import WorkerLogin from './components/Login/WorkerLogin';
 import LoginHome from './components/LoginHome';
 import StaffList from "./components/Admin/Staff/StaffList";
+import AddGemDust from "./components/Admin/Gemdust/AddGemDust";
+import GemdustDetails from "./components/Admin/Gemdust/GemdustDetails";
+import Home from "./components/Admin/Gemdust/GemdustHome";
+import UpdateGemdust from "./components/Admin/Gemdust/UpdateGemdust";
+import UserHome from "./components/Gemdust/UserHome";
+import GemShop from "./components/Gemdust/Gemshop";
+
 
 function App() {
   return (
@@ -22,6 +29,13 @@ function App() {
           <Route path='/WorkerLogin' element={<WorkerLogin />} />
           <Route path='/worker/*' element={<Worker />} />
           <Route path="/staff" element={<StaffList />} />
+          {/* <Route path="/addgemdust" element={<AddGemDust />} />
+          <Route path="/GemDustDetails" element={<GemdustDetails />} /> */}
+          <Route path="/Home" element={<Home />} />
+          {/* <Route path="/GemDustDetails/:id" element={<UpdateGemdust />} /> */}
+          {/* <Route path="/UserHome" element={<UserHome />} />
+          <Route path="/gemshop/:id" element={<GemShop />} />{" "} */}
+
         </Routes>
         {/* <Footer /> */}
       </Router>
