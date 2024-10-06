@@ -12,7 +12,7 @@
 }
 
 /* PDF Button */
-.pdf-button {
+.post-pdf-button {
   display: block;
   background-color: #16a085;
   color: white;
@@ -75,7 +75,7 @@
   width: 100%;
 }
 
-.edit-button, .delete-button {
+.post-edit-button, .post-delete-button{
   padding: 8px 12px;
   border-radius: 5px;
   border: none;
@@ -86,21 +86,21 @@
   margin: 0 5px;
 }
 
-.edit-button {
+.post-edit-button{
   background-color: #3498db;
   color: white;
 }
 
-.edit-button:hover {
+.post-edit-button:hover {
   background-color: #2980b9;
 }
 
-.delete-button {
+.post-delete-button{
   background-color: #e74c3c;
   color: white;
 }
 
-.delete-button:hover {
+.post-delete-button:hover {
   background-color: #c0392b;
 }
 

@@ -19,20 +19,39 @@ const PostCutForm = () => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Handle form field changes
+  // Handle form field changes with validation
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Prevent invalid input for specific fields
-  const handleNumberInput = (e) => {
-    const key = e.key;
-    if (!/[0-9.]/.test(key) || (key === '.' && e.target.value.includes('.'))) {
-      e.preventDefault();
+    
+    // Validation logic for each field
+    switch (name) {
+      case "validationid":
+        // Only allow numbers (integers)
+        if (/^\d*$/.test(value)) {
+          setFormData((prevData) => ({ ...prevData, [name]: value }));
+        }
+        break;
+      case "gemType":
+      case "cutType":
+      case "polish":
+        // Only allow letters (alphabetic characters)
+        if (/^[a-zA-Z]*$/.test(value)) {
+          setFormData((prevData) => ({ ...prevData, [name]: value }));
+        }
+        break;
+      case "weight":
+      case "price":
+        // Only allow numbers (with optional decimal for weight/price)
+        if (/^\d*\.?\d*$/.test(value)) {
+          setFormData((prevData) => ({ ...prevData, [name]: value }));
+        }
+        break;
+      case "description":
+        // Allow any characters for description
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+        break;
+      default:
+        break;
     }
   };
 
@@ -138,7 +157,6 @@ const PostCutForm = () => {
             name="weight"
             value={formData.weight}
             onChange={handleChange}
-            onKeyPress={handleNumberInput}
             required
           />
         </div>
@@ -163,22 +181,20 @@ const PostCutForm = () => {
             name="price"
             value={formData.price}
             onChange={handleChange}
-            onKeyPress={handleNumberInput}
             required
           />
         </div>
 
         <div className="post-form-group">
-  <label className="post-form-label" htmlFor="description">Description</label>
-  <textarea
-    className="post-description-input" // Updated to use new CSS class
-    name="description"
-    value={formData.description}
-    onChange={handleChange}
-    required
-  />
-</div>
-
+          <label className="post-form-label" htmlFor="description">Description</label>
+          <textarea
+            className="post-description-input"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
         <div className="post-form-group">
           <label className="post-form-label" htmlFor="image">Image</label>
