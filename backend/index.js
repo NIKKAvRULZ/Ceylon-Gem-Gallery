@@ -1,8 +1,13 @@
-const express = require("express");
+const express = require('express');
 const dbConnection = require("./config/db");
 const path = require("path");
 const multer = require("multer");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 //janidu gemdust
@@ -35,10 +40,10 @@ const customerRoutes = require("./routes/Customer/customer"); // Correct the pat
 
 const shopRoutes = require("./routes/shop/gems");
 
+//user
+const UserRouter = require('./routes/user'); // Adjust the path if needed
 
 
-const bodyParser = require("body-parser");
-const cors = require("cors");
 
 const app = express();
 app.use(cors({ origin: true, credentials: true }));
@@ -47,6 +52,14 @@ app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
 });
+
+app.use(express.json())
+app.use(cors({
+    origin: ["http://localhost:5173"],
+    credentials: true
+}))
+app.use(cookieParser())
+app.use('/auth', UserRouter)
 
 app.use(express.static('Images'));
 
@@ -95,6 +108,5 @@ app.use("/api/postcut", PostCutRoutes);
 
 
 const PORT = 3000;
-
 
 app.listen(PORT, () => console.log(`Server Running On PORT ${PORT}`));

@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f0f4f8;
 }
 
 /* Form container styling */
@@ -13,7 +14,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    text-align: center;
+    text-align: left;
     margin: 30px 0 30px 0;
 }
 
@@ -22,6 +23,7 @@
     font-size: 2rem;
     margin-bottom: 1.5rem;
     color: #333;
+    text-align: center;
 }
 
 /* Label styling */
@@ -30,23 +32,22 @@
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: #555;
-    text-align: left;
 }
 
 /* Input field styling */
 .form-input_Reg101 {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
 /* Button styling */
 .form-button_Reg101 {
-    background-color: #4CAF50; /* Changed to green */
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -59,69 +60,59 @@
 }
 
 .form-button_Reg101:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
 /* Link styling */
 .Haccount_Reg101 {
     display: block;
     margin-top: 1rem;
-    color: #4CAF50; /* Green link */
+    color: #4CAF50;
     text-decoration: none;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .Haccount_Reg101:hover {
     text-decoration: underline;
 }
 
-/* Default form styles */
-.form-input_Reg101 {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: border-color 0.3s ease; /* Smooth transition for border color */
+/* Checkbox and label container */
+.checkbox-container_Reg101 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-/* Error input field with animation */
-.input-error_reg101 {
-    border: 2px solid red;
-    animation: shake 0.3s ease-in-out; /* Shake animation for error input */
+/* Style for checkbox */
+.checkbox_show_pass_Reg101 {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
-/* Error text styling with fade-in animation */
-.error-text_reg101 {
-    color: red;
+/* Style for label text */
+.error-text_show_pass_Reg101 {
     font-size: 14px;
-    margin-top: -5px;
-    margin-bottom: 10px;
-    display: block;
-    opacity: 0; /* Start as invisible */
-    animation: fadeIn 0.5s forwards; /* Fade-in animation */
+    color: #555;
+    cursor: pointer;
+    vertical-align: middle;
 }
 
-/* Keyframes for shake animation (input field) */
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    20%, 60% {
-        transform: translateX(-5px);
-    }
-    40%, 80% {
-        transform: translateX(5px);
-    }
+/* Hover effect */
+.checkbox_show_pass_Reg101:hover,
+.error-text_show_pass_Reg101:hover {
+    color: #007bff;
 }
 
-/* Keyframes for fade-in animation (error text) */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Focus style */
+.checkbox_show_pass_Reg101:focus {
+    outline: 2px solid #007bff;
+}
+
+/* Checked state */
+.checkbox_show_pass_Reg101:checked + .error-text_show_pass_Reg101 {
+    color: #007bff;
 }

@@ -1,0 +1,53 @@
+.update-customer_UC101 {
+    max-width: 600px; /* Max width for the form container */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding inside the container */
+    border: 1px solid #ccc; /* Light border around the container */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.update-customer_UC101 h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* Dark color for the heading */
+}
+
+.update-customer_UC101 form {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+}
+
+.update-customer_UC101 label {
+    margin-bottom: 5px; /* Space below each label */
+    font-weight: bold; /* Make labels bold */
+}
+
+.update-customer_UC101 input {
+    margin-bottom: 15px; /* Space below each input */
+    padding: 10px; /* Padding inside input fields */
+    border: 1px solid #ccc; /* Light border for input fields */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 16px; /* Font size for input text */
+}
+
+.update-customer_UC101 button {
+    padding: 10px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #007bff; /* Primary color */
+    color: white; /* White text */
+    font-size: 16px; /* Font size for button text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.update-customer_UC101 button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.update-customer_UC101 p {
+    text-align: center; /* Center the message paragraph */
+    color: #ff0000; /* Red color for error/success messages */
+}

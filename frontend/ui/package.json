@@ -17,6 +17,7 @@
     "@mui/material": "^6.1.0",
     "@mui/styled-engine-sc": "^6.1.0",
     "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "flowbite": "^2.5.1",
     "flowbite-react": "^0.10.1",

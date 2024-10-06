@@ -1,117 +1,123 @@
-import {useState, useEffect} from 'react'
-import axios from 'axios'
-import { Link, useParams, useNavigate } from 'react-router-dom'
-import './InsertCus.css';
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import "./UpdateCus.css";
 
-function UpdateCustomer() {
-    const [customer, setCustomers] = useState({
-        Fname: "",
-        Lname: "",
-        Email: "",
-        Password: "",
-    });
+const UpdateCustomer = () => {
+  const [userData, setUserData] = useState({
+    Fname: "",
+    Lname: "",
+    Email: "",
+    Password: "",
+  });
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-    const { id } = useParams();
-    const navigate = useNavigate();
+  Axios.defaults.withCredentials = true;
 
-    useEffect(() => {
-        axios
-        .get(`http://localhost:3000/api/customer/${id}`)
-        .then((res) => {
-            setCustomers({
-                Fname: res.data.Fname,
-                Lname: res.data.Lname,
-                Email: res.data.Email,
-                Password: res.data.Password,
-            });
-        })
-        .catch((err) => {
-            console.log("Error from Update customer", err);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await Axios.get("http://localhost:3000/auth/profile", {
+          withCredentials: true,
         });
-    }, [id]);
-
-    const onChange = (e) => {
-        console.log(e.target.value)
-        setCustomers({ ...customer, [e.target.name]: e.target.value});
+        setUserData({
+          Fname: response.data.Fname,
+          Lname: response.data.Lname,
+          Email: response.data.Email,
+          Password: "", // Keep password empty initially
+        });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        setMessage("Error fetching profile information");
+      }
     };
 
-    const onSubmit = (e) => {
-        e.preventDefault();
+    fetchUserData();
+  }, []);
 
-        const data = {
-            Fname: customer.Fname,
-            Lname: customer.Lname,
-            Email: customer.Email,
-            Password: customer.Password,
-        };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
 
-        axios
-            .put(`http://localhost:3000/api/customer/${id}`, data)
-            .then((res) => {
-                navigate(`/showdetails/${id}`);
-            })
-            .catch((err) => {
-                console.log("Error in Update");
-            });
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    return (
+    try {
+      const response = await Axios.put(
+        "http://localhost:3000/auth/profile/update",
+        userData,
+        { withCredentials: true }
+      );
+      if (response.data.status) {
+        setMessage("Profile updated successfully");
+        navigate("/User/profileCard"); // Redirect to profile page after successful update
+      } else {
+        setMessage(response.data.message || "Error updating profile");
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      setMessage("Error updating profile");
+    }
+  };
+
+  return (
+    <div className="update-customer_UC101">
+      <h2>Update Your Profile</h2>
+      {message && <p>{message}</p>}
+      <form onSubmit={handleSubmit}>
         <div>
-            <div className='cont'>
-                <Link to="/" className="simple-button-link">Show Employee List</Link>
-            </div>
-
-            <div className="form-container">
-                <form noValidate onSubmit={onSubmit} className="form">
-                    <label htmlFor="first-name" className="form-label">First Name:</label>
-                    <input 
-                        type="text" 
-                        id="first-name" 
-                        name="Fname" 
-                        className="form-input" 
-                        onChange={onChange}
-                        value={customer.Fname} 
-                    />
-                    <br/>
-
-                    <label htmlFor="last-name" className="form-label">Last Name:</label>
-                    <input 
-                        type="text" 
-                        id="last-name" 
-                        name="Lname" 
-                        className="form-input" 
-                        onChange={onChange}
-                        value={customer.Lname} 
-                    />
-                    <br/>
-
-                    <label htmlFor="email" className="form-label">Email:</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="Email" 
-                        className="form-input" 
-                        onChange={onChange} 
-                        value={customer.Email}
-                    />
-                    <br/>
-
-                    <label htmlFor="password" className="form-label">Password:</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="Password" 
-                        className="form-input" 
-                        onChange={onChange}
-                        value={customer.Password} 
-                    />
-                    <br/>
-
-                    <button type="submit" className="form-button">Update Customer</button>
-                </form>
-            </div>
+          <label htmlFor="Fname">First Name:</label>
+          <input
+            type="text"
+            id="Fname"
+            name="Fname"
+            value={userData.Fname}
+            onChange={handleInputChange}
+            required
+          />
         </div>
-    )
-}
+        <div>
+          <label htmlFor="Lname">Last Name:</label>
+          <input
+            type="text"
+            id="Lname"
+            name="Lname"
+            value={userData.Lname}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="Email">Email:</label>
+          <input
+            type="email"
+            id="Email"
+            name="Email"
+            value={userData.Email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="Password">Password (leave blank if unchanged):</label>
+          <input
+            type="password"
+            id="Password"
+            name="Password"
+            value={userData.Password}
+            onChange={handleInputChange}
+          />
+        </div>
+        <button type="submit">Update Profile</button>
+      </form>
+    </div>
+  );
+};
 
 export default UpdateCustomer;

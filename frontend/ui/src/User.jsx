@@ -18,7 +18,10 @@ import ShowGemCutDetails from "./components/Cut/ShowGemCutDetails";
 import InsertPayment from './components/Cost/InsertPayment';
 
 // profile
-import Profile from './components/customer/profile';
+
+import Profile from './components/customer/Profile'
+import ProfileCard from './components/customer/ProfileCard'
+import UpdateCustomer from './components/customer/UpdateCustomer'
 
 
 import TrackOrder from './components/Cut/TrackGemCut';
@@ -52,9 +55,10 @@ const User = () => {
         <Route path="/insert-payment" element={<InsertPayment />} />
 
         {/* user */}
-        <Route path="/profile" element={<Profile />} />
-
-      
+        
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/profileCard' element={<ProfileCard />} />
+        <Route path="/profile/update" element={<UpdateCustomer />} />     
 
         <Route path="/GemCutHome/track-order" element={<TrackOrder />} />
 
