@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./ProfileCard.css";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 
 const ProfileCard = () => {
@@ -89,9 +89,7 @@ const ProfileCard = () => {
           <h3 className="email-label_PC101">Email</h3>
           <div className="email-content_PC101">
             <span className="email-text_PC101">{profile.Email}</span>
-            <Link to={"/User/profile/update"} className="change-btn_PC101">
-              Change
-            </Link>
+            
           </div>
         </div>
         <div className="email-container_PC101">
@@ -99,9 +97,7 @@ const ProfileCard = () => {
           <div className="email-content_PC101">
             {/* Display asterisks instead of the actual password */}
             <span className="email-text_PC101">{maskedPassword}</span>
-            <Link to={"/updatedetails"} className="change-btn_PC101">
-              Change
-            </Link>
+            
           </div>
         </div>
         <br />
@@ -110,19 +106,19 @@ const ProfileCard = () => {
           <h3 className="email-label_PC101">First name</h3>
           <div className="email-content_PC101">
             <span className="email-text_PC101">{profile.Fname}</span>
-            <Link to={"/updatedetails"} className="change-btn_PC101">
-              Change
-            </Link>
+            
           </div>
         </div>
         <div className="email-container_PC101">
           <h3 className="email-label_PC101">Last name</h3>
           <div className="email-content_PC101">
             <span className="email-text_PC101">{profile.Lname}</span>
-            <Link to={"/updatedetails"} className="change-btn_PC101">
-              Change
-            </Link>
           </div>
+        </div>
+        <div className="change_div_PC101">
+        <Link to={"/User/profile/update"} className="change-btn_PC101">
+              Edit Details
+            </Link>
         </div>
         <div className="logout_con_PC101">
           <Link to="/login">

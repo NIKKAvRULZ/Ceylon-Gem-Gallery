@@ -41,15 +41,17 @@ function Profile() {
       <div className="container_Pro101">
         <div className="container2_Pro101">
           <div className="avatar-upload_Pro101">
-            <div className="avatar-edit_Pro101">
-              <input
-                type="file"
-                id="imageUpload"
-                accept=".png, .jpg, .jpeg"
-                onChange={(e) => readURL(e.target)}
-              />
-              <label htmlFor="imageUpload"></label>
-            </div>
+          <div className="avatar-edit_Pro101">
+            <input
+              type="file"
+              id="imageUpload"
+              accept=".png, .jpg, .jpeg"
+              onChange={(e) => readURL(e.target)}
+            />
+            <label htmlFor="imageUpload">
+              <span role="img" aria-label="edit">🖊</span> {/* Optional icon */}
+            </label>
+          </div>
             <div className="avatar-preview_Pro101">
               <div
                 id="imagePreview"

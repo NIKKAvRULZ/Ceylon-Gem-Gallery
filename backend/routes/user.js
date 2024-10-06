@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id, Fname: user.Fname, Lname: user.Lname }, process.env.KEY, { expiresIn: '1h' });
-    res.cookie('token', token, { httpOnly: true, maxAge: 600000 });
+    res.cookie('token', token, { httpOnly: true, maxAge: 1800000  });
     return res.json({ status: true, message: "Login successful" });
 });
 const verifyUser = async (req, res, next) => {
