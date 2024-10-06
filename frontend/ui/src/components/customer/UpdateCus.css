@@ -1,53 +1,119 @@
-.update-customer_UC101 {
-    max-width: 600px; /* Max width for the form container */
-    margin: 0 auto; /* Center the form horizontally */
-    padding: 20px; /* Add padding inside the container */
-    border: 1px solid #ccc; /* Light border around the container */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background color */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+/* Container styling */
+.Mcontain_UC101 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.update-customer_UC101 h2 {
-    text-align: center; /* Center the heading */
-    margin-bottom: 20px; /* Space below the heading */
-    color: #333; /* Dark color for the heading */
+/* Form container styling */
+.form-container_UC101 {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    margin: 30px 0;
 }
 
-.update-customer_UC101 form {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange children in a column */
+/* Title styling */
+.loginh1_UC101 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
 }
 
-.update-customer_UC101 label {
-    margin-bottom: 5px; /* Space below each label */
-    font-weight: bold; /* Make labels bold */
+/* Label styling */
+.form-label_UC101 {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
 }
 
-.update-customer_UC101 input {
-    margin-bottom: 15px; /* Space below each input */
-    padding: 10px; /* Padding inside input fields */
-    border: 1px solid #ccc; /* Light border for input fields */
-    border-radius: 4px; /* Slightly rounded corners */
-    font-size: 16px; /* Font size for input text */
+/* Input field styling */
+.form-input_UC101 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
-.update-customer_UC101 button {
-    padding: 10px; /* Padding inside the button */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    background-color: #007bff; /* Primary color */
-    color: white; /* White text */
-    font-size: 16px; /* Font size for button text */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+/* Button styling */
+.form-button_UC101 {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-.update-customer_UC101 button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+.form-button_UC101:hover {
+    background-color: #45a049;
 }
 
-.update-customer_UC101 p {
-    text-align: center; /* Center the message paragraph */
-    color: #ff0000; /* Red color for error/success messages */
+/* Link styling */
+.Haccount_UC101 {
+    display: block;
+    margin-top: 1rem;
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.Haccount_UC101:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message_UC101 {
+    color: #fff; /* White text for contrast */
+    font-size: 16px; /* Slightly larger font size */
+    margin-top: 5px; /* Add some spacing */
+    background: linear-gradient(135deg, #f27c85, #ec727e); /* Gradient background */
+    border: 1px solid #f5c6cb; /* Border matching the gradient */
+    border-radius: 8px; /* More rounded corners */
+    padding: 12px; /* Padding for better spacing */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Drop shadow for depth */
+    animation: bounceIn 0.5s ease; /* Bounce-in animation */
+    opacity: 1; /* Ensure it's fully visible */
+}
+
+/* Toggle password visibility styling */
+.toggle-password_UC101 {
+    position: absolute;
+    right: 0;
+    top: 45%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Animation for the error message */
+@keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }

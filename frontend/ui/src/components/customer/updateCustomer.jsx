@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 import "./UpdateCus.css";
 
 const UpdateCustomer = () => {
@@ -11,6 +10,11 @@ const UpdateCustomer = () => {
     Email: "",
     Password: "",
   });
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [errorFname, setErrorFname] = useState(""); // State for first name error
+  const [errorLname, setErrorLname] = useState(""); // State for last name error
+  const [errorEmail, setErrorEmail] = useState(""); // State for email error
+  const [errorPassword, setErrorPassword] = useState(""); // State for password error
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -45,77 +49,152 @@ const UpdateCustomer = () => {
     });
   };
 
+  const handleFnameChange = (e) => {
+    const value = e.target.value;
+    if (/^[a-zA-Z\s]*$/.test(value)) {
+      setUserData({ ...userData, Fname: value });
+      setErrorFname("");
+    } else {
+      setErrorFname("Can't input numbers or symbols");
+    }
+  };
+
+  const handleLnameChange = (e) => {
+    const value = e.target.value;
+    if (/^[a-zA-Z\s]*$/.test(value)) {
+      setUserData({ ...userData, Lname: value });
+      setErrorLname("");
+    } else {
+      setErrorLname("Can't input numbers or symbols");
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    if (/^[a-z0-9@.]*$/.test(value)) {
+      setUserData({ ...userData, Email: value });
+      setErrorEmail("");
+    } else {
+      setErrorEmail(
+        "Only lowercase letters, numbers, and '@' symbol are allowed"
+      );
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setUserData({ ...userData, Password: value });
+    if (value.length < 6) {
+      setErrorPassword("Password must be at least 6 characters long");
+    } else {
+      setErrorPassword(""); // Clear error if valid
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await Axios.put(
-        "http://localhost:3000/auth/profile/update",
-        userData,
-        { withCredentials: true }
-      );
-      if (response.data.status) {
-        setMessage("Profile updated successfully");
-        navigate("/User/profileCard"); // Redirect to profile page after successful update
-      } else {
-        setMessage(response.data.message || "Error updating profile");
+    // Check for errors before submitting
+    if (!errorFname && !errorLname && !errorEmail && !errorPassword) {
+      try {
+        const response = await Axios.put(
+          "http://localhost:3000/auth/profile/update",
+          userData,
+          { withCredentials: true }
+        );
+        if (response.data.status) {
+          setMessage("Profile updated successfully");
+          navigate("/User/profileCard"); // Redirect to profile page after successful update
+        } else {
+          setMessage(response.data.message || "Error updating profile");
+        }
+      } catch (error) {
+        console.error("Error updating profile:", error);
+        setMessage("Error updating profile");
       }
-    } catch (error) {
-      console.error("Error updating profile:", error);
-      setMessage("Error updating profile");
     }
   };
 
   return (
-    <div className="update-customer_UC101">
-      <h2>Update Your Profile</h2>
-      {message && <p>{message}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="Fname">First Name:</label>
+    <div className="Mcontain_UC101">
+      <div className="form-container_UC101">
+        <h1 className="loginh1_UC101">Update Profile</h1>
+        <form onSubmit={handleSubmit} className="form_UC101">
+          <label htmlFor="first-name" className="form-label_UC101">
+            First Name:
+          </label>
           <input
             type="text"
-            id="Fname"
+            id="first-name"
             name="Fname"
             value={userData.Fname}
-            onChange={handleInputChange}
+            className="form-input_UC101"
+            onChange={handleFnameChange}
             required
           />
-        </div>
-        <div>
-          <label htmlFor="Lname">Last Name:</label>
+          {errorFname && <p className="error-message_UC101">{errorFname}</p>}
+          <br />
+          <label htmlFor="last-name" className="form-label_UC101">
+            Last Name:
+          </label>
           <input
             type="text"
-            id="Lname"
+            id="last-name"
             name="Lname"
             value={userData.Lname}
-            onChange={handleInputChange}
+            className="form-input_UC101"
+            onChange={handleLnameChange}
             required
           />
-        </div>
-        <div>
-          <label htmlFor="Email">Email:</label>
+          {errorLname && <p className="error-message_UC101">{errorLname}</p>}
+          <br />
+          <label htmlFor="email" className="form-label_UC101">
+            Email:
+          </label>
           <input
             type="email"
-            id="Email"
+            id="email"
             name="Email"
             value={userData.Email}
-            onChange={handleInputChange}
+            className="form-input_UC101"
+            onChange={handleEmailChange}
             required
           />
-        </div>
-        <div>
-          <label htmlFor="Password">Password (leave blank if unchanged):</label>
-          <input
-            type="password"
-            id="Password"
-            name="Password"
-            value={userData.Password}
-            onChange={handleInputChange}
-          />
-        </div>
-        <button type="submit">Update Profile</button>
-      </form>
+          {errorEmail && <p className="error-message_UC101">{errorEmail}</p>}
+          <br />
+          <label htmlFor="password" className="form-label_UC101">
+            Password:
+          </label>
+          <div style={{ position: "relative" }}>
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="Password"
+              placeholder="Leave blank if unchanging"
+              value={userData.Password}
+              className="form-input_UC101"
+              onChange={handlePasswordChange}
+            />
+            <button
+              type="button"
+              className="toggle-password_UC101"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
+          {errorPassword && (
+            <p className="error-message_UC101">{errorPassword}</p>
+          )}
+          <br />
+          <button type="submit" className="form-button_UC101">
+            Update
+          </button>
+        </form>
+        <Link to="/User/profileCard" className="Haccount_UC101">
+          Back to Profile
+        </Link>
+      </div>
     </div>
   );
 };

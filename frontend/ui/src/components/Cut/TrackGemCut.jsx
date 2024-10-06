@@ -6,18 +6,23 @@ const TrackOrder = () => {
   const [trackingID, setTrackingID] = useState('');
   const [jobDetails, setJobDetails] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // Added loading state
 
   const handleTrackOrder = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading animation
+    setJobDetails(null); // Clear previous results
+    setError(''); // Clear any previous error
+
     try {
       const response = await axios.get(`http://localhost:3000/api/track/${trackingID}`);
       console.log("Response Data:", response.data);
       setJobDetails(response.data);
-      setError('');
     } catch (error) {
       console.error("Error Fetching Job Details:", error);
-      setJobDetails(null);
       setError(error.response?.data?.message || 'Error fetching job details.');
+    } finally {
+      setLoading(false); // Stop loading animation
     }
   };
 
@@ -54,11 +59,13 @@ const TrackOrder = () => {
           <button id="track-order-button" type="submit">Track Order</button>
         </form>
 
+        {loading && <div className="loading-spinner"></div>} {/* Loading animation */}
+
         {error && <p id="error-message">{error}</p>}
 
-        {jobDetails && (<>
+        {jobDetails && !loading && (<>
           {jobDetails.track ? (
-            <div id="job-details">
+            <div id="job-details" className="slide-in">
               <h3>Job Details:</h3>
               <p><strong>Worker:</strong> {jobDetails.worker.name}</p>
               <p><strong>Cut ID:</strong> {jobDetails.cut._id}</p>
@@ -72,11 +79,9 @@ const TrackOrder = () => {
               )}
             </div>
           ) : (
-            <>
-              <div id="job-details">
-                <h3>Job Not Found</h3>
-              </div>
-            </>
+            <div id="job-details">
+              <h3>Job Not Found</h3>
+            </div>
           )}
         </>)}
       </div>
