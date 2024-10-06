@@ -4,12 +4,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./updatetask.css"; // Import CSS for UpdateTask
 
 const UpdateTask = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Get task ID from URL
   const [task, setTask] = useState({
     date: "",
     time: "",
     taskDescription: "",
-    staffName: "",
+     // Will be fetched and set but not changeable
   });
   const navigate = useNavigate();
 
@@ -17,11 +17,14 @@ const UpdateTask = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/tasks/${id}`)
-      .then((res) => setTask(res.data))
+      .then((res) => {
+        console.log("Task data fetched: ", res.data); // Debugging line to log the fetched task data
+        setTask(res.data); // Set task state with fetched data
+      })
       .catch((err) => console.error("Error fetching task:", err));
   }, [id]);
 
-  // Handle input change
+  // Handle input change for fields except staffName
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTask({ ...task, [name]: value });
@@ -32,9 +35,9 @@ const UpdateTask = () => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:3000/tasks/${id}`, task)
+      .put(`http://localhost:3000/api/tasks/${id}`, task)
       .then(() => {
-        navigate("/show-task"); // Navigate back to ShowTask page after update
+        navigate("/Admin/show-task"); // Navigate back to ShowTask page after update
       })
       .catch((err) => console.error("Error updating task:", err));
   };
@@ -58,14 +61,7 @@ const UpdateTask = () => {
           required
         />
 
-        <label>Staff Name:</label>
-        <input
-          type="text"
-          name="staffName"
-          value={task.staffName}
-          onChange={handleChange}
-          required
-        />
+        
 
         <button type="submit">Update Task</button>
       </form>

@@ -1,0 +1,75 @@
+/* Container styling */
+.salary-form-container {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  .salary-form-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form field styling */
+  .salary-form-field {
+    margin-bottom: 15px;
+  }
+  
+  /* Label styling */
+  .salary-form-label {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Input styling */
+  .salary-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  /* Select styling */
+  .salary-form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  /* Basic Salary display */
+  .salary-form-basic-salary {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  /* Submit button styling */
+  .salary-form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .salary-form-submit:hover {
+    background-color: #45a049;
+  }
+  

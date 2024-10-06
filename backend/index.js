@@ -3,7 +3,7 @@ const dbConnection = require("./config/db");
 
 //charuka staff
 const staffRoutes = require("./routes/staff/StaffRoutes");
- 
+const salaryRoutes = require("./routes/staff/SalaryRoutes");
 const taskRoutes = require("./routes/staff/TaskRoutes"); // Import task routes
 
 
@@ -51,6 +51,7 @@ app.get("/", (req, res) => res.send("Hello World"));
 // charuka staff
 app.use("/api/staff", staffRoutes);
 app.use("/api/tasks", taskRoutes);
+app.use("/salary", salaryRoutes);
 
 app.use("/api/employees", employeeRoutes);
 app.use("/api/cuts", cutsRoutes);

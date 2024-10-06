@@ -34,8 +34,9 @@ import StaffForm from "./components/Admin/Staff/StaffForm";
 import UpdateStaff from "./components/Admin/Staff/UpdateStaff";
 import TaskAssign from "./components/Admin/Staff/TaskAssign";
 import ShowTask from "./components/Admin/Staff/ShowTask";
-import UpdateTask from "./components/Admin/Staff/UpdateStaff";
-
+import UpdateTask from "./components/Admin/Staff/UpdateTask";
+import SalaryForm from './components/Admin/Staff/SalaryForm';
+import SalaryList from './components/Admin/Staff/SalaryList';
 
 import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails';
 import UpdateCustomer from './components/Admin/customer/updateCustomer';
@@ -95,13 +96,14 @@ const Admin = () => {
         {/* staff */}
         <Route path="/staff" element={<StaffList />} />
         <Route path="/add-staff" element={<StaffForm />} />
-        <Route path="/updateee/:id" element={<UpdateStaff />} />
+        <Route path="/update-staff/:id" element={<UpdateStaff />} />
 
         {/* staff part 2 */}
         <Route path="/task-assign/:id" element={<TaskAssign />} />
         <Route path="/show-task" element={<ShowTask />} />
-        <Route path="/update-task/:id" element={<UpdateTask />} />
-
+        <Route path="/update-t/:id" element={<UpdateTask/>} />
+        <Route path="/salary-list" element={<SalaryList />} />
+         <Route path="/add-salary" element={<SalaryForm />} />
 
       </Routes>
       <Footer />

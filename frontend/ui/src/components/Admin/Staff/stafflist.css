@@ -1,15 +1,21 @@
 /* Container for the entire staff list */
 .staff-list-container {
-  width: 80%;
+  width: 85%;
   margin: 50px auto;
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Title for the staff list page */
 .staff-list-title {
   text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: whitesmoke;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #333;
+  letter-spacing: 1px;
 }
 
 /* Container for the buttons (Add Staff, Show Assigned Task) */
@@ -19,112 +25,159 @@
   margin-bottom: 20px;
 }
 
-/* Button to add a new staff member */
-.add-staff-btn {
-  background-color: #41b647fa;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
+/* Button shared styles */
+button {
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* Button to show assigned tasks */
+/* Button to add a new staff member */
+.add-staff-btn,
 .show-btn {
-  background-color: #41b647fa;
+  background-color: #41b647;
   color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .add-staff-btn:hover,
 .show-btn:hover {
   background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the search bar */
+.search-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #41b647;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Styling for the table */
 .staff-table {
   width: 100%;
   border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   margin-top: 20px;
-  background-color: azure;
 }
 
 /* Header cells of the table */
 .staff-table th {
-  background-color: #41b647fa;
+  background-color: #41b647;
   color: white;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 15px;
+  border: none;
   text-align: center;
+  font-size: 18px;
+}
+
+.staff-table th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.staff-table th:last-child {
+  border-top-right-radius: 10px;
 }
 
 /* Table cells */
 .staff-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 12px;
+  border: none;
   text-align: center;
+  color: #333;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
 }
 
-/* Action buttons for edit, delete, and assign task */
+/* Alternate row color for better readability */
+.staff-table tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+/* Action buttons for edit, delete, assign task, and PDF download */
 .edit-btn,
 .delete-btn,
-.assign-btn {
-  background-color: #41b647fa;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 4px;
-  cursor: pointer;
+.assign-btn
+ {
+  background-color: #41b647;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 10px;
   margin: 0 5px;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.pdf-btn {
+  background-color: #4149b6;
+  color: white;
+  padding: 5px 18px;
+  border-radius: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+/* Hover effects for buttons */
 .edit-btn:hover,
-.assign-btn:hover {
+.assign-btn:hover,
+.pdf-btn:hover {
   background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Delete button specific hover state */
 .delete-btn {
   background-color: #dc3545;
 }
 
 .delete-btn:hover {
   background-color: #c82333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .staff-list-container {
-    width: 100%;
-    padding: 10px;
+    width: 95%;
+    padding: 20px;
   }
 
   .staff-table th,
   .staff-table td {
-    padding: 8px;
+    padding: 10px;
   }
 
   .edit-btn,
   .delete-btn,
-  .assign-btn {
-    padding: 6px 10px;
+  .assign-btn,
+  .pdf-btn {
+    padding: 8px 12px;
     font-size: 14px;
   }
-}
-/* Button to download the PDF */
-.pdf-btn {
-  background-color: #007bff;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 0 5px;
-  transition: background-color 0.3s ease;
-}
 
-.pdf-btn:hover {
-  background-color: #0056b3;
+  .search-bar {
+    width: 80%;
+  }
 }
