@@ -1,58 +1,7 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  background-color: #1c1c1c;
-}
-
-/* Home Container */
-.home-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: radial-gradient(circle, #212121 0%, #141414 100%);
-}
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  color: #f0f0f0;
-  padding: 2rem;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  color: #00ffcc;
-  text-shadow: 0px 0px 15px #00ffcc, 0px 0px 30px #00ffcc;
-}
-
-.hero-text p {
-  font-size: 1.3rem;
-  margin-bottom: 3rem;
-  color: #b8b8b8;
-}
-
-/* Home Card Container */
-.home-card-container {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
-
+/* Updated Home Card */
 .home-card {
-  background: #141414;
-  border: 2px solid #00ffcc;
+  background: linear-gradient(135deg, #2e3a67, #3b6d8e); /* Deep blue and green gradient */
+  border: 2px solid #bca56d; /* Soft gold border */
   border-radius: 15px;
   width: 220px;
   height: 180px;
@@ -68,7 +17,7 @@ body {
 
 .home-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0px 0px 40px rgba(0, 255, 204, 0.5), 0px 0px 20px rgba(0, 255, 204, 0.3);
+  box-shadow: 0px 0px 40px rgba(188, 165, 109, 0.5), 0px 0px 20px rgba(188, 165, 109, 0.3);
 }
 
 .home-card::before {
@@ -78,7 +27,7 @@ body {
   left: 50%;
   width: 300%;
   height: 300%;
-  background: rgba(0, 255, 204, 0.2);
+  background: rgba(235, 143, 173, 0.2); /* Light pinkish glow */
   border-radius: 50%;
   transition: transform 0.6s ease;
   transform: translate(-50%, -50%) scale(0);
@@ -88,16 +37,10 @@ body {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.card-content {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
 .card-content h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #00ffcc;
+  color: #f0e5da; /* Light cream color for text */
   transition: color 0.4s ease;
 }
 
@@ -105,57 +48,19 @@ body {
   color: #ffffff;
 }
 
-/* Button 3D Effect */
-.home-card {
-  position: relative;
-}
-
-.home-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(0, 255, 204, 0.5));
-  opacity: 0.5;
-  transition: 0.5s;
-  border-radius: 15px;
-}
-
-.home-card:hover::after {
-  opacity: 0;
-}
-
 /* Neon Glow Animation */
 @keyframes neon-glow {
   0% {
-    box-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    box-shadow: 0 0 5px #bc9f6d, 0 0 10px #bc9f6d, 0 0 20px #bc9f6d, 0 0 30px #bc9f6d;
   }
   50% {
-    box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc, 0 0 50px #00ffcc;
+    box-shadow: 0 0 20px #bc9f6d, 0 0 30px #bc9f6d, 0 0 40px #bc9f6d, 0 0 50px #bc9f6d;
   }
   100% {
-    box-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    box-shadow: 0 0 5px #bc9f6d, 0 0 10px #bc9f6d, 0 0 20px #bc9f6d, 0 0 30px #bc9f6d;
   }
 }
 
 .home-card:hover {
   animation: neon-glow 1.5s infinite alternate;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .home-card-container {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .hero-text p {
-    font-size: 1.1rem;
-  }
 }

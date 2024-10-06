@@ -1,0 +1,44 @@
+/* GemList.css */
+
+.gem-list-container {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for the container */
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .gem-list-table {
+    width: 100%;
+    border-collapse: collapse; /* Merge table borders */
+  }
+  
+  .gem-list-table th,
+  .gem-list-table td {
+    padding: 12px; /* Padding for cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ccc; /* Light gray bottom border */
+  }
+  
+  .gem-list-table th {
+    background-color: #007bff; /* Blue background for header */
+    color: white; /* White text for header */
+  }
+  
+  .gem-list-table tr:hover {
+    background-color: #f1f1f1; /* Light gray on row hover */
+  }
+  
+  .gem-delete-button {
+    background-color: #dc3545; /* Red background for delete button */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background change */
+  }
+  
+  .gem-delete-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+  }
+  

@@ -1,0 +1,60 @@
+/* staffform.css */
+.staffform-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.staffform-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.staffform-input {
+  width: 70%;
+  padding: 15px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.staffsubmit-button {
+  width: 50%;
+  background-color: #3f583f;
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.staffsubmit-button:hover {
+  background-color: #45a049;
+  transform: scale(1.02); /* Slight button grow effect on hover */
+}
+
+.staffsubmit-button:active {
+  transform: scale(1); /* Reset to normal size when clicked */
+}
+
+@media (max-width: 768px) {
+  .staffform-container {
+    padding: 20px;
+    margin: 30px auto;
+  }
+
+  .staffsubmit-button {
+    font-size: 16px;
+  }
+
+  .staffform-input {
+    padding: 10px;
+  }
+}

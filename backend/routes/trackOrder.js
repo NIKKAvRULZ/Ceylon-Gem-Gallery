@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const TrackOrder = require('../models/TrackOrder'); // Import the model
-const Worker = require('../models/Worker');
-const Cut = require('../models/Cut/Cut');
-const Customer = require('../models/Customer/customer');
+const TrackOrder = require('../models/TrackOrder'); // Adjust the path as needed
+const Worker = require('../models/Worker')
+const Cut = require('../models/Cut/Cut')
+const Customer = require('../models/Customer/customer')
 
-// POST Assign Job (Worker to Cut and Customer)
+// POST route to complete a job using tracking ID
 router.post('/', async (req, res) => {
   try {
     const { cutId, workerId, customerId } = req.body;
@@ -51,38 +51,56 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET route to fetch all job tracking records
-router.get('/', async (req, res) => {
-  try {
-    const trackOrders = await TrackOrder.find()
-      .populate('workerID', 'name') // Populate worker details
-      .populate('cutID') // Populate cut details
-      .populate('customerID', 'Fname Lname'); // Populate customer details
 
-    res.status(200).json(trackOrders);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching job records', error: error.message });
-  }
-});
-
-// GET route to fetch job details by tracking ID
-router.get('/:trackingID', async (req, res) => {
+// DELETE route to remove a job from the database using tracking ID
+router.delete('/:trackingID', async (req, res) => {
   try {
     const { trackingID } = req.params;
-    const trackOrder = await TrackOrder.findOne({ trackingID })
-      .populate('workerID', 'name')
-      .populate('cutID')
-      .populate('customerID', 'Fname Lname');
+    console.log(`Received request to delete job with tracking ID: ${trackingID}`);
 
-    if (!trackOrder) {
+    // Find and delete the job using tracking ID
+    const result = await TrackOrder.findByIdAndDelete(trackingID);
+    if (result.deletedCount === 0) {
+      console.log('Job not found');
       return res.status(404).json({ message: 'Job not found' });
     }
 
-    res.status(200).json({ job: trackOrder });
+    console.log(`Job with tracking ID: ${trackingID} deleted successfully.`);
+    res.json({ message: 'Job deleted successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching job details', error: error.message });
+    console.error('Error deleting job:', error);
+    res.status(500).json({ message: 'Error deleting job', error: error.message });
   }
 });
 
+// Route to get all incomplete jobs
+router.get('/incomplete', async (req, res) => {
+  try {
+    const jobs = await TrackOrder.find({ status: { $ne: 'Completed' } }); // Fetch jobs not marked as 'Completed'
+    res.json(jobs);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching jobs', error: error.message });
+  }
+});
+
+router.get('/:trackingId', async (req, res) => {
+  try {
+    const { trackingId } = req.params;
+    const response = await TrackOrder.find({ trackingID: trackingId });
+    const customer = await Customer.findOne(response.customerID);
+    const worker = await Worker.findOne(response.workerID);
+    const cut = await Cut.findOne(response.cutID);
+    const data = {
+      track: response[0],
+      customer: customer,
+      worker: worker,
+      cut: cut
+    }
+    console.log(data)
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching jobs', error: error.message });
+  }
+})
 
 module.exports = router;

@@ -1,0 +1,60 @@
+/* updatetask.css */
+
+.update-task-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.update-task-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.update-task-container input {
+    width: 100%; /* Full width for better responsiveness */
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.update-task-container button {
+    width: 100%; /* Full width button */
+    background-color: #3f583f;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.update-task-container button:hover {
+    background-color: #45a049;
+    transform: scale(1.02); /* Slight button grow effect on hover */
+}
+
+.update-task-container button:active {
+    transform: scale(1); /* Reset to normal size when clicked */
+}
+
+@media (max-width: 768px) {
+    .update-task-container {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .update-task-container button {
+        font-size: 16px;
+    }
+
+    .update-task-container input {
+        padding: 10px;
+    }
+}

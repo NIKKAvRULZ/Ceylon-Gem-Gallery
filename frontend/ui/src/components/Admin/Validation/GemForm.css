@@ -1,0 +1,100 @@
+/* GemForm.css */
+
+.validation-gem-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #a8edea, #fed6e3); 
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.validation-gem-form-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.validation-form-header {
+    text-align: center;
+    font-size: 28px;
+    color: #28a745; 
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.validation-gem-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.validation-form-label {
+    font-weight: 600;
+    color: #28a745;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.validation-form-input,
+.validation-form-select {
+    padding: 12px 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #28a745;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.validation-form-input:focus,
+.validation-form-select:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+.validation-form-input:hover,
+.validation-form-select:hover {
+    border-color: #28a745;
+}
+
+.validation-form-button {
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.validation-form-button:hover {
+    background-color: #218838;
+    box-shadow: 0 5px 15px rgba(33, 136, 56, 0.4);
+}
+
+.validation-form-button:active {
+    transform: scale(0.98);
+}
+
+.validation-error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .validation-gem-form-container {
+        padding: 20px;
+    }
+
+    .validation-form-button {
+        font-size: 16px;
+    }
+}

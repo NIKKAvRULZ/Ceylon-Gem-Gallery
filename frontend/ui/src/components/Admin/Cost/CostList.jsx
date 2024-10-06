@@ -20,7 +20,6 @@ const CostList = () => {
   }, []);
 
   const handleDelete = (id) => {
-    // Confirm delete action
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this record?"
     );
@@ -37,6 +36,16 @@ const CostList = () => {
   const formatMonth = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-GB", { year: "numeric", month: "long" });
+  };
+
+  // Format numbers as currency (e.g., USD) with 2 decimal places
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
   };
 
   // Filter costs by month based on formatted month-year string
@@ -89,16 +98,17 @@ const CostList = () => {
 
     const data = filteredCosts.map((cost) => ({
       month: formatMonth(cost.month),
-      validationCost: cost.validationCost,
-      cuttingCost: cost.cuttingCost,
-      salaryCost: cost.salaryCost,
-      additionalCost: cost.additionalCost,
-      totalCost:
+      validationCost: formatCurrency(cost.validationCost),
+      cuttingCost: formatCurrency(cost.cuttingCost),
+      salaryCost: formatCurrency(cost.salaryCost),
+      additionalCost: formatCurrency(cost.additionalCost),
+      totalCost: formatCurrency(
         Number(cost.validationCost) +
-        Number(cost.cuttingCost) +
-        Number(cost.salaryCost) +
-        Number(cost.additionalCost),
-      netProfit: cost.netProfit,
+          Number(cost.cuttingCost) +
+          Number(cost.salaryCost) +
+          Number(cost.additionalCost)
+      ),
+      netProfit: formatCurrency(cost.netProfit),
     }));
 
     // Table Style Configuration
@@ -175,17 +185,19 @@ const CostList = () => {
             {filteredCosts.map((cost, index) => (
               <tr key={index}>
                 <td>{formatMonth(cost.month)}</td>
-                <td>{cost.validationCost}</td>
-                <td>{cost.cuttingCost}</td>
-                <td>{cost.salaryCost}</td>
-                <td>{cost.additionalCost}</td>
+                <td>{formatCurrency(cost.validationCost)}</td>
+                <td>{formatCurrency(cost.cuttingCost)}</td>
+                <td>{formatCurrency(cost.salaryCost)}</td>
+                <td>{formatCurrency(cost.additionalCost)}</td>
                 <td>
-                  {Number(cost.validationCost) +
-                    Number(cost.cuttingCost) +
-                    Number(cost.salaryCost) +
-                    Number(cost.additionalCost)}
+                  {formatCurrency(
+                    Number(cost.validationCost) +
+                      Number(cost.cuttingCost) +
+                      Number(cost.salaryCost) +
+                      Number(cost.additionalCost)
+                  )}
                 </td>
-                <td>{cost.netProfit}</td>
+                <td>{formatCurrency(cost.netProfit)}</td>
                 <td>
                   <Link to={`/Admin/update-cost/${cost._id}`}>
                     <button className="update-link">Update</button>
@@ -193,7 +205,7 @@ const CostList = () => {
                   <br></br>
                   <br />
                   <button
-                    className="delete-btn"
+                    className="delete-btn-cost"
                     onClick={() => handleDelete(cost._id)}
                   >
                     Delete

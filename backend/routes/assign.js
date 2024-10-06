@@ -7,7 +7,6 @@ const Worker = require('../models/Worker');
 // POST route to complete a job using tracking ID
 router.post('/complete/:trackingID', async (req, res) => {
   try {
-    const { workerID } = req.body;
     const { trackingID } = req.params;
 
     // Find the job using tracking ID
@@ -18,7 +17,6 @@ router.post('/complete/:trackingID', async (req, res) => {
 
     // Update job status
     job.status = 'Completed'; // Set the status to completed
-    job.workerID = workerID; // Associate the worker with the job
     await job.save();
 
     res.json({ message: 'Job completed successfully', job });
