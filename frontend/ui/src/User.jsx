@@ -20,7 +20,7 @@ import InsertPayment from './components/Cost/InsertPayment';
 // profile
 
 import Profile from './components/customer/Profile'
-import ProfileCard from './components/customer/ProfileCard'
+import ProfileCard from './components/customer/ProfileCard';
 import UpdateCustomer from './components/customer/UpdateCustomer'
 
 
