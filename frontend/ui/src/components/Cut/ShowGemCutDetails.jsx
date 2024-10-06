@@ -58,21 +58,40 @@ function ShowGemCutDetails() {
     const doc = new jsPDF();
     const logoURL = '../../assets/logo.png';
     
+    // Add logo and title
     doc.addImage(logoURL, 'PNG', 170, 10, 20, 20);
     doc.setFontSize(22).setFont('helvetica', 'bold').text("Gem Cut Receipt", 14, 20);
     
+    // Order set date and handover deadline
     const orderSetDate = new Date();
-    const estimatedFinishDate = new Date(orderSetDate);
-    estimatedFinishDate.setDate(estimatedFinishDate.getDate() + 2);
-
+    const handOverDeadline = new Date(orderSetDate);
+    handOverDeadline.setDate(handOverDeadline.getDate() + 2); // 2 days after order date
+  
+    // Estimated finish date (3 days after handover)
+    const estimatedFinishDate = new Date(handOverDeadline);
+    estimatedFinishDate.setDate(estimatedFinishDate.getDate() + 3); // 3 days after handover
+  
+    // Text details
     doc.setFontSize(12).setFont('helvetica', 'normal')
       .text(`Order Set Date: ${orderSetDate.toLocaleDateString()}`, 14, 30)
       .text(`Tracking ID: ${trackingID}`, 14, 36)
-      .text(`Estimated Finish Date: ${estimatedFinishDate.toLocaleDateString()}`, 14, 42)
-      .text(`Worker Name: ${workers.find(worker => worker._id === selectedWorker)?.name}`, 14, 48);
-
-    doc.setDrawColor(0, 0, 0).setLineWidth(0.5).line(14, 52, 196, 52);
+      .text(`Handover Gem By: ${handOverDeadline.toLocaleDateString()}`, 14, 42)
+      .text(`Estimated Finish Date: ${estimatedFinishDate.toLocaleDateString()}`, 14, 48)
+      .text(`Worker Name: ${workers.find(worker => worker._id === selectedWorker)?.name}`, 14, 54);
     
+    // Set text color to green for handover instruction
+    doc.setTextColor(0, 128, 0); // RGB for green
+    doc.setFont('helvetica', 'italic')
+      .text(`Please hand over the gem to the gem shop on or before ${handOverDeadline.toLocaleDateString()}.`, 14, 62)
+      .text(`Estimated finish date is 3 days after the gem is handed over to the shop.`, 14, 68);
+    
+    // Reset text color to black
+    doc.setTextColor(0, 0, 0);
+  
+    // Draw line separator
+    doc.setDrawColor(0, 0, 0).setLineWidth(0.5).line(14, 72, 196, 72);
+  
+    // Table for gem cut details
     const columns = ["Property", "Details"];
     const rows = [
       ["Cut Name", gemCut.name],
@@ -82,10 +101,20 @@ function ShowGemCutDetails() {
       ["Proportions", gemCut.Proportions],
       ["Appearance", gemCut.Appearance],
     ];
-
-    doc.autoTable({ head: [columns], body: rows, startY: 104, styles: { fontSize: 12, cellPadding: 5 }, headStyles: { fillColor: [65, 117, 88], textColor: [255, 255, 255] }, bodyStyles: { fillColor: [245, 245, 245] } });
+  
+    doc.autoTable({
+      head: [columns],
+      body: rows,
+      startY: 78,
+      styles: { fontSize: 12, cellPadding: 5 },
+      headStyles: { fillColor: [65, 117, 88], textColor: [255, 255, 255] },
+      bodyStyles: { fillColor: [245, 245, 245] }
+    });
+  
+    // Save the PDF
     doc.save('gem-cut-receipt.pdf');
   };
+  
 
   return (
     <div className="showGemCutDetails">
