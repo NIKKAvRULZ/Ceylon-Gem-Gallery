@@ -1,0 +1,125 @@
+.post-cut-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #a8edea, #fed6e3); /* Gradient background */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-cut-form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 28px;
+  color: #28a745; /* Green color for heading */
+  margin-bottom: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.post-cut-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #28a745; /* Green color for all labels */
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+.form-input {
+  padding: 12px 15px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #28a745; /* Green color for input text */
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #28a745; /* Green border when input is focused */
+}
+
+.form-input:hover {
+  border-color: #28a745; /* Green border on hover */
+}
+
+.form-submit-button {
+  padding: 15px;
+  background-color: #28a745; /* Green background for the button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-submit-button:hover {
+  background-color: #218838; /* Darker green on hover */
+  box-shadow: 0 5px 15px rgba(33, 136, 56, 0.4);
+}
+
+.form-submit-button:active {
+  transform: scale(0.98);
+}
+
+.form-submit-button:disabled {
+  background-color: #28a74566; /* Slightly transparent green when disabled */
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .post-cut-form-container {
+    padding: 20px;
+  }
+
+  .submit-button {
+    font-size: 16px;
+  }
+}
+.description-input {
+  padding: 12px 120px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #28a745; /* Green color for input text */
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px; /* Set minimum height for better usability */
+}
+
+.description-input:focus {
+  outline: none;
+  border-color: #28a745; /* Green border when focused */
+}
+
+.description-input:hover {
+  border-color: #28a745; /* Green border on hover */
+}

@@ -36,6 +36,13 @@ import TaskAssign from "./components/Admin/Staff/TaskAssign";
 import ShowTask from "./components/Admin/Staff/ShowTask";
 import UpdateTask from "./components/Admin/Staff/UpdateStaff";
 
+//validation
+import GemList2 from './components/Admin/Validation/GemList2';
+import GemForm from './components/Admin/Validation/GemForm';
+import PostCutGemList from './components/Admin/Validation/PostCutGemList';
+import PostCutForm from './components/Admin/Validation/PostCutForm';
+import UpdatePostCut from './components/Admin/Validation/UpdatePostCut';
+
 
 import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails';
 import UpdateCustomer from './components/Admin/customer/updateCustomer';
@@ -101,6 +108,17 @@ const Admin = () => {
         <Route path="/task-assign/:id" element={<TaskAssign />} />
         <Route path="/show-task" element={<ShowTask />} />
         <Route path="/update-task/:id" element={<UpdateTask />} />
+
+
+        {/* validation */}
+        <Route path="/validation" element={<GemList2 />} />
+        <Route path="/validation-add" element={<GemForm />} />
+        <Route path="/validation-update/:id" element={<GemForm />} />
+        <Route path="/validation-details/" element={<PostCutGemList />} />
+        <Route path="/validation-postcut/:id" element={<UpdatePostCut />} />
+        <Route path="/validation-postcutf/:id" element={<PostCutForm />} />
+
+
 
 
       </Routes>
