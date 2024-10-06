@@ -76,6 +76,7 @@ p {
 .delete-button {
   background-color: #e74c3c;
   color: white;
+  padding: 8px 16px;
 }
 
 .delete-button:hover {
