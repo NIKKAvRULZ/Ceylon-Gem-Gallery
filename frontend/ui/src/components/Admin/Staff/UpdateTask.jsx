@@ -9,7 +9,7 @@ const UpdateTask = () => {
     date: "",
     time: "",
     taskDescription: "",
-    staffName: "", // Will be fetched and set but not changeable
+     // Will be fetched and set but not changeable
   });
   const navigate = useNavigate();
 
@@ -61,13 +61,7 @@ const UpdateTask = () => {
           required
         />
 
-        <label>Staff Name:</label>
-        <input
-          type="text"
-          name="staffName"
-          value={task.staffName}
-          disabled // Make staffName non-editable
-        />
+        
 
         <button type="submit">Update Task</button>
       </form>

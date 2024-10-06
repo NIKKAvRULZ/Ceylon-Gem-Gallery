@@ -90,12 +90,23 @@ const StaffList = () => {
     <div className="staff-list-container">
       <h2>Staff List</h2>
       <div className="actions-container">
+
         <Link to="/Admin/add-staff">
           <button className="add-staff-btn">Add New Staff</button>
         </Link>
+
+        <Link to="/Admin/add-salary">
+          <button className="add-staff-btn">Salary Making</button>
+        </Link>
+        
+        <Link to="/Admin/salary-list">
+          <button className="add-staff-btn">Salary Details</button>
+        </Link>  
+
         <Link to={`/Admin/show-task/`}>
           <button className="show-btn">Show Assigned Task</button>
         </Link>
+
       </div>
 
       {/* Search bar */}
