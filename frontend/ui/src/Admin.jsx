@@ -47,6 +47,14 @@ import InsertCustomer from './components/Admin/customer/InsertCustomer';
 import AssignJob from './components/Admin/AssignJob';
 import CompleteJob from './components/Admin/CompleteJob';
 
+//janidu gemdust
+import AddGemDust from "./components/Admin/Gemdust/AddGemDust";
+import GemdustDetails from "./components/Admin/Gemdust/GemdustDetails";
+
+import UpdateGemdust from "./components/Admin/Gemdust/UpdateGemdust";
+import AdminGemDustHome from './components/Admin/AdminGemDustHome';
+
+
 const Admin = () => {
   return (
     <div>
@@ -102,6 +110,14 @@ const Admin = () => {
         <Route path="/show-task" element={<ShowTask />} />
         <Route path="/update-task/:id" element={<UpdateTask />} />
 
+        {/* janidu gemdust */}
+        <Route path="/addgemdust" element={<AddGemDust />} />
+        <Route path="/GemDustDetails" element={<GemdustDetails />} />
+  
+        <Route path="/GemDustDetails/:id" element={<UpdateGemdust />} />
+        <Route path='/AdminGemDustHome' element={<AdminGemDustHome />} />
+        
+        
 
       </Routes>
       <Footer />

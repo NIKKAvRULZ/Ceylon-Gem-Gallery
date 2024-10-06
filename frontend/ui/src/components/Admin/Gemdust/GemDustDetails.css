@@ -1,0 +1,91 @@
+/* Gem Dust Details Container */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../src/assets/bg5.png'); /* Replace with your wallpaper path */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Fix the background image, so it doesn't move when scrolling */
+  height: 100%; /* Full height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+.gemdust-system-details-container {
+  padding: 24px;
+  /* background-color: #f4f4f4; */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Title Styles */
+.gemdust-system-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* List Styles */
+.gemdust-system-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the items in the list */
+  gap: 24px;
+  width: 100%; /* Ensure the list takes full width of the container */
+  padding-top: 16px; /* Add spacing from the title */
+  margin: 0; /* Reset any margin to ensure alignment */
+}
+
+/* Individual Gem Dust Item Styles */
+.gemdust-system-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.2s ease;
+}
+
+.gemdust-system-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Heading Styles for Gem Dust Item */
+.gemdust-system-item h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.gemdust-system-item h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+/* PDF Button Styles */
+.gemdust-system-pdf-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.gemdust-system-pdf-button:hover {
+  background-color: #45a049;
+}
+
+/* Image Styles */
+.gemdust-system-image {
+  width: 100%; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Optional rounded corners */
+}

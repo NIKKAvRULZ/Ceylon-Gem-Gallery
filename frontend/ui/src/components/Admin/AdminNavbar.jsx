@@ -82,6 +82,11 @@ const AdminNavbar = () => {
               onClick={() => handleNavClick('About')} to="About"
             ></Link>
 
+            <Link className={`nav-item ${activeLink === 'Gem Cut Manage' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Custom Cuts')} to="AdminGemDustHome" >
+              Manage GemDust
+            </Link>
+
           </div>
 
           {/* User Icon */}
