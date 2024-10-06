@@ -22,22 +22,26 @@ const PaymentList = () => {
       });
   }, []);
 
+  // Delete payment with confirmation
   const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3000/api/costpayroute/${id}`)
-      .then(() => {
-        setPayments(payments.filter((payment) => payment._id !== id));
-      })
-      .catch((err) => console.log("Error deleting payment:", err));
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this record?"
+    );
+
+    if (confirmed) {
+      axios
+        .delete(`http://localhost:3000/api/costpayroute/${id}`)
+        .then(() => {
+          setPayments(payments.filter((payment) => payment._id !== id));
+          alert("Payment record deleted successfully.");
+        })
+        .catch((err) => console.log("Error deleting payment:", err));
+    }
   };
 
+  // Generate PDF for payment records
   const generatePDF = () => {
     const doc = new jsPDF();
-
-    // Add Company Logo (smaller size)
-    const logoURL =
-      "https://i.ibb.co/sPPq6j0/Crown-Jewelry-gems-Stones-Logo-2.png"; // Replace with your logo
-    doc.addImage(logoURL, "PNG", 170, 10, 15, 15); // Adjusted logo size
 
     // Add Company Name
     doc.setFontSize(24);
@@ -71,7 +75,6 @@ const PaymentList = () => {
       { header: "Postal Code", dataKey: "postalCode" },
       { header: "Card Number", dataKey: "cardNo" },
       { header: "Expire Date", dataKey: "expireDate" },
-      { header: "CVC", dataKey: "cvc" },
       { header: "Payment Type", dataKey: "paymentType" },
     ];
 
@@ -85,7 +88,6 @@ const PaymentList = () => {
       postalCode: payment.postalCode,
       cardNo: payment.cardNo,
       expireDate: new Date(payment.expireDate).toLocaleDateString(),
-      cvc: payment.cvc,
       paymentType: payment.paymentType,
     }));
 
@@ -120,13 +122,12 @@ const PaymentList = () => {
         cardNo: { cellWidth: "auto" }, // Wider column for card number
         address: { cellWidth: "auto" }, // Adjust width for longer text like address
         expireDate: { halign: "center", cellWidth: "auto" }, // Center alignment for dates
-        cvc: { halign: "center", cellWidth: "auto" }, // Small width for CVC
         paymentType: { halign: "center", cellWidth: "auto" },
       },
     });
 
     // Save the PDF with a relevant name
-    doc.save("payment-details-professional.pdf");
+    doc.save("payment-details-Ceylon-Gem-Gallery.pdf");
   };
 
   // Function to handle search input change
@@ -181,7 +182,6 @@ const PaymentList = () => {
               <th>Postal Code</th>
               <th>Card Number</th>
               <th>Expire Date</th>
-              <th>CVC</th>
               <th>Payment Type</th>
               <th>Actions</th>
             </tr>
@@ -197,7 +197,6 @@ const PaymentList = () => {
                 <td>{payment.postalCode}</td>
                 <td>{payment.cardNo}</td>
                 <td>{new Date(payment.expireDate).toLocaleDateString()}</td>
-                <td>{payment.cvc}</td>
                 <td>{payment.paymentType}</td>
                 <td>
                   <button
@@ -208,7 +207,7 @@ const PaymentList = () => {
                   >
                     Update
                   </button>
-                  <br></br>
+                  <br />
                   <br />
                   <button
                     className="delete-button"
