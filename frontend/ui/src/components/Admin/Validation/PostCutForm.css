@@ -13,7 +13,7 @@
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-.form-title {
+.post-form-title {
   text-align: center;
   font-size: 28px;
   color: #28a745; /* Green color for heading */
@@ -28,18 +28,18 @@
   gap: 20px;
 }
 
-.form-group {
+.post-form-group {
   margin-bottom: 15px;
 }
 
-.form-label {
+.post-form-label {
   font-weight: 600;
   color: #28a745; /* Green color for all labels */
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
 }
 
-.form-input {
+.post-form-input {
   padding: 12px 15px;
   border: 1px solid #cbd5e0;
   border-radius: 8px;
@@ -50,16 +50,16 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.form-input:focus {
+.post-form-input:focus {
   outline: none;
   border-color: #28a745; /* Green border when input is focused */
 }
 
-.form-input:hover {
+.post-form-input:hover {
   border-color: #28a745; /* Green border on hover */
 }
 
-.form-submit-button {
+.post-form-submit-button {
   padding: 15px;
   background-color: #28a745; /* Green background for the button */
   color: white;
@@ -71,21 +71,21 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-submit-button:hover {
+.post-form-submit-button:hover {
   background-color: #218838; /* Darker green on hover */
   box-shadow: 0 5px 15px rgba(33, 136, 56, 0.4);
 }
 
-.form-submit-button:active {
+.post-form-submit-button:active {
   transform: scale(0.98);
 }
 
-.form-submit-button:disabled {
+.post-form-submit-button:disabled {
   background-color: #28a74566; /* Slightly transparent green when disabled */
   cursor: not-allowed;
 }
 
-.error-message {
+.post-error-message {
   color: red;
   font-size: 14px;
   margin-bottom: 15px;
@@ -98,11 +98,11 @@
     padding: 20px;
   }
 
-  .submit-button {
+  .post-submit-button {
     font-size: 16px;
   }
 }
-.description-input {
+.post-description-input {
   padding: 12px 120px;
   border: 1px solid #cbd5e0;
   border-radius: 8px;
@@ -115,11 +115,11 @@
   min-height: 100px; /* Set minimum height for better usability */
 }
 
-.description-input:focus {
+.post-description-input:focus {
   outline: none;
   border-color: #28a745; /* Green border when focused */
 }
 
-.description-input:hover {
+.post-description-input:hover {
   border-color: #28a745; /* Green border on hover */
 }

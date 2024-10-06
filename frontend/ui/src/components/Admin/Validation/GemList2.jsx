@@ -29,56 +29,56 @@ const GemList = () => {
   );
 
   return (
-    <div className="gem-list-container">
-      <h2 className="gem-list-title">Gem List</h2>
+    <div className="validation-gem-list-container">
+      <h2 className="validation-gem-list-title">Gem List</h2>
 
       {/* Search Bar */}
-      <div className="gem-list-search">
+      <div className="validation-gem-list-search">
         <input
           type="text"
           placeholder="Search by Validation ID or Name"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="gem-list-search-input"
+          className="validation-gem-list-search-input"
         />
       </div>
 
-      <table className="gem-list-table">
-        <thead className="gem-list-header">
+      <table className="validation-gem-list-table">
+        <thead className="validation-gem-list-header">
           <tr>
-            <th className="gem-list-header-cell">Validation ID</th>
-            <th className="gem-list-header-cell">Name</th>
-            <th className="gem-list-header-cell">Type</th>
-            <th className="gem-list-header-cell">Colour</th>
-            <th className="gem-list-header-cell">Clarity</th>
-            <th className="gem-list-header-cell">Weight (in carats)</th>
-            <th className="gem-list-header-cell">Price (in USD)</th>
-            <th className="gem-list-header-cell">Actions</th>
+            <th className="validation-gem-list-header-cell">Validation ID</th>
+            <th className="validation-gem-list-header-cell">Name</th>
+            <th className="validation-gem-list-header-cell">Type</th>
+            <th className="validation-gem-list-header-cell">Colour</th>
+            <th className="validation-gem-list-header-cell">Clarity</th>
+            <th className="validation-gem-list-header-cell">Weight (in carats)</th>
+            <th className="validation-gem-list-header-cell">Price (in USD)</th>
+            <th className="validation-gem-list-header-cell">Actions</th>
           </tr>
         </thead>
-        <tbody className="gem-list-body">
+        <tbody className="validation-gem-list-body">
           {filteredGems.map((gem) => (
-            <tr key={gem._id} className="gem-list-row">
-              <td className="gem-list-cell">{gem.validationid}</td>
-              <td className="gem-list-cell">{gem.name}</td>
-              <td className="gem-list-cell">{gem.gemType}</td>
-              <td className="gem-list-cell">{gem.colour}</td>
-              <td className="gem-list-cell">{gem.clarity}</td>
-              <td className="gem-list-cell">{gem.weight}</td>
-              <td className="gem-list-cell">${gem.price}</td>
-              <td className="gem-list-cell">
-                <Link to={`/Admin/validation-update/${gem._id}`} className="gem-list-link">Update</Link>
-                <button onClick={() => deleteGem(gem._id)} className="gem-list-button">Delete</button>
-                <Link to={`/Admin/validation-postcutf/${gem._id}`} className="gem-list-link">Add Postcut details</Link>
+            <tr key={gem._id} className="validation-gem-list-row">
+              <td className="validation-gem-list-cell">{gem.validationid}</td>
+              <td className="validation-gem-list-cell">{gem.name}</td>
+              <td className="validation-gem-list-cell">{gem.gemType}</td>
+              <td className="validation-gem-list-cell">{gem.colour}</td>
+              <td className="validation-gem-list-cell">{gem.clarity}</td>
+              <td className="validation-gem-list-cell">{gem.weight}</td>
+              <td className="validation-gem-list-cell">${gem.price}</td>
+              <td className="validation-gem-list-cell">
+                <Link to={`/Admin/validation-update/${gem._id}`} className="validation-gem-list-link">Update</Link>
+                <button onClick={() => deleteGem(gem._id)} className="validation-gem-list-button">Delete</button>
+                <Link to={`/Admin/validation-postcutf/${gem._id}`} className="validation-gem-list-link">Add Postcut details</Link>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div className="gem-list-actions">
-        <Link to="/Admin/validation-add" className="gem-list-add-link">Add New Gem</Link>
-        <Link to={`/Admin/validation-details/`} className="gem-list-show-link">Show Postcut details</Link>
+      <div className="validation-gem-list-actions">
+        <Link to="/Admin/validation-add" className="validation-gem-list-add-link">Add New Gem</Link>
+        <Link to={`/Admin/validation-details/`} className="validation-gem-list-show-link">Show Postcut details</Link>
       </div>
     </div>
   );

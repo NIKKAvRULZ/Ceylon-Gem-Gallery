@@ -1,15 +1,13 @@
 .postcut-gem-list-container {
   padding: 20px;
-  
   max-width: 1200px;
   margin: 0 auto;
 }
 
-h1 {
+.postcut-title {
   text-align: center;
   color: #34495e;
   font-size: 2.5em;
-  
   margin-bottom: 20px;
 }
 
@@ -120,4 +118,3 @@ h1 {
 .show-postcutgems-button:hover {
   background-color: #1e8a7a;
 }
-

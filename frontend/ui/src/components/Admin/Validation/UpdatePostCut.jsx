@@ -3,7 +3,6 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import './UpdatePostCut.css';
 
-
 const URL = "http://localhost:3000/api/postcut";
 
 function UpdatePostCut() {
@@ -15,19 +14,18 @@ function UpdatePostCut() {
     weight: "",
     polish: "",
     price: "",
-    description:"",
+    description: "",
     image: null
   });
 
   const [existingImage, setExistingImage] = useState("");
 
   useEffect(() => {
-    // Fetch existing gem data by ID
     axios.get(`${URL}/${id}`)
       .then((response) => {
         const data = response.data.postCutGem;
         setPostCutGem({
-            cutType: data.cutType,
+          cutType: data.cutType,
           weight: data.weight,
           polish: data.polish,
           price: data.price,
@@ -71,79 +69,90 @@ function UpdatePostCut() {
 
   return (
     <div className="update-postcut-container">
-      <h2>Update Post-Cut Gem</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div>
-          <label>Cut Type:</label>
+      <h2 className="update-postcut-header">Update Post-Cut Gem</h2>
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="update-postcut-form">
+        <div className="update-postcut-field-container">
+          <label className="update-postcut-label">Cut Type:</label>
           <input
             type="text"
             name="cutType"
             value={postCutGem.cutType}
             onChange={handleInputChange}
             required
+            className="update-postcut-input"
           />
         </div>
 
-        <div>
-          <label>Weight (g):</label>
+        <div className="update-postcut-field-container">
+          <label className="update-postcut-label">Weight (g):</label>
           <input
             type="number"
             name="weight"
             value={postCutGem.weight}
             onChange={handleInputChange}
             required
+            className="update-postcut-input"
           />
         </div>
 
-        <div>
-          <label>Polish:</label>
+        <div className="update-postcut-field-container">
+          <label className="update-postcut-label">Polish:</label>
           <input
             type="text"
             name="polish"
             value={postCutGem.polish}
             onChange={handleInputChange}
             required
+            className="update-postcut-input"
           />
         </div>
 
-        <div>
-          <label>Price:</label>
+        <div className="update-postcut-field-container">
+          <label className="update-postcut-label">Price:</label>
           <input
             type="number"
             name="price"
             value={postCutGem.price}
             onChange={handleInputChange}
             required
+            className="update-postcut-input"
           />
         </div>
 
-        <div>
-          <label>Description:</label>
+        <div className="update-postcut-field-container">
+          <label className="update-postcut-label">Description:</label>
           <input
             type="text"
             name="description"
             value={postCutGem.description}
             onChange={handleInputChange}
             required
+            className="update-postcut-input"
           />
         </div>
 
-        <div>
-          <label>Image:</label>
-          <input type="file" name="image" onChange={handleFileChange} />
+        <div className="update-postcut-field-container">
+          <label className="update-postcut-label">Image:</label>
+          <input
+            type="file"
+            name="image"
+            onChange={handleFileChange}
+            className="update-postcut-file-input"
+          />
           {existingImage && (
             <div>
               <p>Current Image:</p>
               <img
                 src={`http://localhost:3000/${existingImage}`}
                 alt="Gem"
+                className="update-postcut-img"
                 style={{ width: "150px", height: "150px", objectFit: "cover" }}
               />
             </div>
           )}
         </div>
 
-        <button type="submit">Update Gem</button>
+        <button type="submit" className="update-postcut-button">Update Gem</button>
       </form>
     </div>
   );

@@ -1,68 +1,68 @@
 /* GemForm.css */
 
-.gem-form-container {
+.validation-gem-form-container {
     max-width: 600px;
     margin: 40px auto;
     padding: 30px;
-    background: linear-gradient(135deg, #a8edea, #fed6e3); /* Gradient background */
+    background: linear-gradient(135deg, #a8edea, #fed6e3); 
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gem-form-container:hover {
+.validation-gem-form-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-.gem-form-container h2 {
+.validation-form-header {
     text-align: center;
     font-size: 28px;
-    color: #28a745; /* Green color for heading */
+    color: #28a745; 
     margin-bottom: 25px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
-.gem-form {
+.validation-gem-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.gem-form label {
+.validation-form-label {
     font-weight: 600;
-    color: #28a745; /* Green color for all labels */
+    color: #28a745;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
 }
 
-.gem-form input,
-.gem-form select {
+.validation-form-input,
+.validation-form-select {
     padding: 12px 15px;
     border: 1px solid #cbd5e0;
     border-radius: 8px;
     font-size: 16px;
-    color: #28a745; /* Green color for input text */
+    color: #28a745;
     font-family: 'Roboto', sans-serif;
     transition: border-color 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.gem-form input:focus,
-.gem-form select:focus {
+.validation-form-input:focus,
+.validation-form-select:focus {
     outline: none;
-    border-color: #28a745; /* Green border when input is focused */
+    border-color: #28a745;
 }
 
-.gem-form input:hover,
-.gem-form select:hover {
-    border-color: #28a745; /* Green border on hover */
+.validation-form-input:hover,
+.validation-form-select:hover {
+    border-color: #28a745;
 }
 
-.gem-form button {
+.validation-form-button {
     padding: 15px;
-    background-color: #28a745; /* Green background for the button */
+    background-color: #28a745;
     color: white;
     border: none;
     border-radius: 8px;
@@ -72,16 +72,16 @@
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gem-form button:hover {
-    background-color: #218838; /* Darker green on hover */
+.validation-form-button:hover {
+    background-color: #218838;
     box-shadow: 0 5px 15px rgba(33, 136, 56, 0.4);
 }
 
-.gem-form button:active {
+.validation-form-button:active {
     transform: scale(0.98);
 }
 
-.error-message {
+.validation-error-message {
     color: red;
     font-size: 14px;
     margin-bottom: 15px;
@@ -90,11 +90,11 @@
 
 /* Responsive Styling */
 @media (max-width: 768px) {
-    .gem-form-container {
+    .validation-gem-form-container {
         padding: 20px;
     }
 
-    .gem-form button {
+    .validation-form-button {
         font-size: 16px;
     }
 }

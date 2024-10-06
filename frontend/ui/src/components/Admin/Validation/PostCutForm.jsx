@@ -94,10 +94,10 @@ const PostCutForm = () => {
     <div className="post-cut-form-container">
       <h2 className="form-title">Add Post-Cut Gem</h2>
       <form id="postCutForm" onSubmit={handleSubmit} className="post-cut-form">
-        <div className="form-group">
-          <label className="form-label" htmlFor="validationid">Validation ID</label>
+        <div className="post-form-group">
+          <label className="post-form-label" htmlFor="validationid">Validation ID</label>
           <input
-            className="form-input"
+            className="post-form-input"
             type="text"
             name="validationid"
             value={formData.validationid}
@@ -106,10 +106,10 @@ const PostCutForm = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label className="form-label" htmlFor="gemType">Gem Type</label>
+        <div className="post-form-group">
+          <label className="post-form-label" htmlFor="gemType">Gem Type</label>
           <input
-            className="form-input"
+            className="post-form-input"
             type="text"
             name="gemType"
             value={formData.gemType}
@@ -118,10 +118,10 @@ const PostCutForm = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label className="form-label" htmlFor="cutType">Cut Type</label>
+        <div className="post-form-group">
+          <label className="post-form-label" htmlFor="cutType">Cut Type</label>
           <input
-            className="form-input"
+            className="post-form-input"
             type="text"
             name="cutType"
             value={formData.cutType}
@@ -130,10 +130,10 @@ const PostCutForm = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label className="form-label" htmlFor="weight">Weight (ct)</label>
+        <div className="post-form-group">
+          <label className="post-form-label" htmlFor="weight">Weight (ct)</label>
           <input
-            className="form-input"
+            className="post-form-input"
             type="text"
             name="weight"
             value={formData.weight}
@@ -143,10 +143,10 @@ const PostCutForm = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label className="form-label" htmlFor="polish">Polish</label>
+        <div className="post-form-group">
+          <label className="post-form-label" htmlFor="polish">Polish</label>
           <input
-            className="form-input"
+            className="post-form-input"
             type="text"
             name="polish"
             value={formData.polish}
@@ -155,10 +155,10 @@ const PostCutForm = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label className="form-label" htmlFor="price">Price ($)</label>
+        <div className="post-form-group">
+          <label className="post-form-label" htmlFor="price">Price ($)</label>
           <input
-            className="form-input"
+            className="post-form-input"
             type="text"
             name="price"
             value={formData.price}
@@ -168,10 +168,10 @@ const PostCutForm = () => {
           />
         </div>
 
-        <div className="form-group">
-  <label className="form-label" htmlFor="description">Description</label>
+        <div className="post-form-group">
+  <label className="post-form-label" htmlFor="description">Description</label>
   <textarea
-    className="description-input" // Updated to use new CSS class
+    className="post-description-input" // Updated to use new CSS class
     name="description"
     value={formData.description}
     onChange={handleChange}
@@ -180,10 +180,10 @@ const PostCutForm = () => {
 </div>
 
 
-        <div className="form-group">
-          <label className="form-label" htmlFor="image">Image</label>
+        <div className="post-form-group">
+          <label className="post-form-label" htmlFor="image">Image</label>
           <input
-            className="form-input"
+            className="post-form-input"
             type="file"
             name="image"
             onChange={handleFileChange}
@@ -191,7 +191,7 @@ const PostCutForm = () => {
           />
         </div>
 
-        <button type="submit" className="form-submit-button" disabled={loading}>
+        <button type="submit" className="post-form-submit-button" disabled={loading}>
           {loading ? "Submitting..." : "Submit"}
         </button>
       </form>

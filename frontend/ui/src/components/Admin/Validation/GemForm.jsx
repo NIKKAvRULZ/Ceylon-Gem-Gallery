@@ -30,7 +30,6 @@ const GemForm = () => {
     setGem({ ...gem, [name]: value });
   };
 
-  // Prevent non-letter input for name field
   const handleNameKeyPress = (e) => {
     const char = String.fromCharCode(e.keyCode || e.which);
     const namePattern = /^[A-Za-z\s]+$/; // Allow only letters and spaces
@@ -39,7 +38,6 @@ const GemForm = () => {
     }
   };
 
-  // Prevent non-numeric input for validationid field
   const handleIdKeyPress = (e) => {
     const char = String.fromCharCode(e.keyCode || e.which);
     const idPattern = /^[0-9]+$/; // Allow only numbers
@@ -48,7 +46,6 @@ const GemForm = () => {
     }
   };
 
-  // Allow only numbers in weight and price fields
   const handleNumberKeyPress = (e) => {
     const char = String.fromCharCode(e.keyCode || e.which);
     const numberPattern = /^[0-9.]+$/; // Allow only numbers and decimal point
@@ -60,7 +57,6 @@ const GemForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Submit form if no errors
     const request = id 
       ? axios.put(`http://localhost:3000/api/users/${id}`, gem)
       : axios.post('http://localhost:3000/api/users', gem);
@@ -70,30 +66,33 @@ const GemForm = () => {
   };
 
   return (
-    <div className="gem-form-container">
-      <h2>{id ? 'Update Gem' : 'Add New Gem'}</h2>
-      <form onSubmit={handleSubmit} className="gem-form">
+    <div className="validation-gem-form-container">
+      <h2 className="validation-form-header">{id ? 'Update Gem' : 'Add New Gem'}</h2>
+      <form onSubmit={handleSubmit} className="validation-gem-form">
         
-        <label>Gem ID</label>
+        <label className="validation-form-label">Gem ID</label>
         <input
+          className="validation-form-input"
           name="validationid"
           value={gem.validationid}
           onChange={handleChange}
-          onKeyPress={handleIdKeyPress} // Prevent non-numeric characters
+          onKeyPress={handleIdKeyPress} 
           required
         />
         
-        <label>Gem Name</label>
+        <label className="validation-form-label">Gem Name</label>
         <input
+          className="validation-form-input"
           name="name"
           value={gem.name}
           onChange={handleChange}
-          onKeyPress={handleNameKeyPress} // Prevent non-letter characters
+          onKeyPress={handleNameKeyPress} 
           required
         />
         
-        <label>Gem Type</label>
+        <label className="validation-form-label">Gem Type</label>
         <select
+          className="validation-form-select"
           name="gemType"
           value={gem.gemType}
           onChange={handleChange}
@@ -107,17 +106,19 @@ const GemForm = () => {
           <option value="Synthetic">Synthetic/Man-made</option>
         </select>
         
-        <label>Colour</label>
+        <label className="validation-form-label">Colour</label>
         <input
+          className="validation-form-input"
           name="colour"
           value={gem.colour}
           onChange={handleChange}
-          onKeyPress={handleNameKeyPress} // Prevent non-letter characters (if colors should be letters only)
+          onKeyPress={handleNameKeyPress}
           required
         />
         
-        <label>Clarity</label>
+        <label className="validation-form-label">Clarity</label>
         <select
+          className="validation-form-select"
           name="clarity"
           value={gem.clarity}
           onChange={handleChange}
@@ -133,31 +134,31 @@ const GemForm = () => {
           <option value="SI2">SI2 (Slightly Included)</option>
         </select>
 
-        <label>Weight</label>
+        <label className="validation-form-label">Weight</label>
         <input
+          className="validation-form-input"
           type="number"
           name="weight"
           value={gem.weight}
           onChange={handleChange}
-          onKeyPress={handleNumberKeyPress} // Allow only numeric and decimal
+          onKeyPress={handleNumberKeyPress}
           min="0"
           required
         />
         
-        <label>Estimated Price</label>
+        <label className="validation-form-label">Estimated Price</label>
        <input
+         className="validation-form-input"
          type="number"
          name="price"
          value={gem.price}
          onChange={handleChange}
-         onKeyPress={handleNumberKeyPress} // Allow only numeric and decimal
-         min="0" // Prevent negative values via input field
+         onKeyPress={handleNumberKeyPress}
+         min="0" 
          required
        />
-
         
-        
-        <button type="submit">{id ? 'Update' : 'Add'}</button>
+        <button className="validation-form-button" type="submit">{id ? 'Update' : 'Add'}</button>
       </form>
     </div>
   );
