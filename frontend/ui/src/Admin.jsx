@@ -111,6 +111,11 @@ const Admin = () => {
         <Route path="/show-task" element={<ShowTask />} />
         <Route path="/update-task/:id" element={<UpdateTask />} />
 
+        {/*Gem Dust*/}
+        <Route path="/addgemdust" element={<AddGemDust />} />
+        <Route path="/update-gemdust/:id" element={<UpdateGemdust/>} />
+        <Route path="/GemDustDetails" element={<GemdustDetails />} />
+        <Route path="/AdminGemDustHome" element={<AdminGemDustHome />} />
 
       </Routes>
       <Footer />
