@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './GemShop.css'; // Import your CSS file for styling
+import { Link } from 'react-router-dom';
 
 const GemDetails = () => {
   const { id } = useParams(); // Get the gem ID from the URL
@@ -71,9 +72,7 @@ const GemDetails = () => {
             </div>
           </div>
 
-          <button className="gemdust-system-purchase-btn" onClick={handlePurchase}>
-            Purchase Now
-          </button>
+          <Link to={"/user/insert-payment"}><button className="gemdust-system-purchase-btn" onClick={handlePurchase}>Payment</button></Link>
         </>
       )}
     </div>
