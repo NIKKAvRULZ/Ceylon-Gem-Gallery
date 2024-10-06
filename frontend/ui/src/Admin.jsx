@@ -17,6 +17,13 @@ import GemList from "./components/Admin/Shop/GemList";
 import UpdateGem from './components/Admin/Shop/UpdateGem';
 
 
+//validation
+import GemList2 from './components/Admin/Validation/GemList2';
+import GemForm from './components/Admin/Validation/GemForm';
+import PostCutGemList from './components/Admin/Validation/PostCutGemList';
+import PostCutForm from './components/Admin/Validation/PostCutForm';
+import UpdatePostCut from './components/Admin/Validation/UpdatePostCut';
+
 
 // cost
 import PaymentList from "./components/Admin/Cost/paymentlist";
@@ -110,6 +117,19 @@ const Admin = () => {
         <Route path="/show-task" element={<ShowTask />} />
         <Route path="/update-task/:id" element={<UpdateTask />} />
 
+        {/*Gem Dust*/}
+        <Route path="/addgemdust" element={<AddGemDust />} />
+        <Route path="/update-gemdust/:id" element={<UpdateGemdust/>} />
+        <Route path="/GemDustDetails" element={<GemdustDetails />} />
+        <Route path="/AdminGemDustHome" element={<AdminGemDustHome />} />
+
+        {/* validation */}
+        <Route path="/validation" element={<GemList2 />} />
+        <Route path="/validation-add" element={<GemForm />} />
+        <Route path="/validation-update/:id" element={<GemForm />} />
+        <Route path="/validation-details/" element={<PostCutGemList />} />
+        <Route path="/validation-postcut/:id" element={<UpdatePostCut />} />
+        <Route path="/validation-postcutf/:id" element={<PostCutForm />} />
 
       </Routes>
       <Footer />
