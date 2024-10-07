@@ -37,6 +37,18 @@ const CostList = () => {
     return formattedMonth.includes(searchTerm.toLowerCase());
   });
 
+  // Function to delete cost entry by id
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this cost?")) {
+      axios
+        .delete(`http://localhost:3000/api/costmanagement/${id}`)
+        .then((res) => {
+          setCosts(costs.filter((cost) => cost._id !== id)); // Filter out the deleted cost
+        })
+        .catch((err) => console.log("Error deleting cost:", err));
+    }
+  };
+
   // Existing PDF generation function for cost records
   const generatePDF = () => {
     const doc = new jsPDF();
