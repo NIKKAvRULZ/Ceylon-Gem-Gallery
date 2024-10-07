@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import "./CostList.css"; // Make sure to import your CSS file here
+import "./CostList.css";
 
 const CostList = () => {
   const [costs, setCosts] = useState([]);
@@ -13,32 +13,16 @@ const CostList = () => {
     axios
       .get("http://localhost:3000/api/costmanagement")
       .then((res) => {
-        console.log(res.data); // Check if data is fetched properly
         setCosts(res.data);
       })
       .catch((err) => console.log("Error fetching costs:", err));
   }, []);
 
-  const handleDelete = (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this record?"
-    );
-
-    if (confirmDelete) {
-      axios
-        .delete(`http://localhost:3000/api/costmanagement/${id}`)
-        .then(() => setCosts(costs.filter((cost) => cost._id !== id)))
-        .catch((err) => console.log("Error deleting cost:", err));
-    }
-  };
-
-  // Format month to display only year and month
   const formatMonth = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-GB", { year: "numeric", month: "long" });
   };
 
-  // Format numbers as currency (e.g., USD) with 2 decimal places
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -48,44 +32,45 @@ const CostList = () => {
     }).format(amount);
   };
 
-  // Filter costs by month based on formatted month-year string
   const filteredCosts = costs.filter((cost) => {
     const formattedMonth = formatMonth(cost.month).toLowerCase();
     return formattedMonth.includes(searchTerm.toLowerCase());
   });
 
-  // Generate PDF
+  // Function to delete cost entry by id
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this cost?")) {
+      axios
+        .delete(`http://localhost:3000/api/costmanagement/${id}`)
+        .then((res) => {
+          setCosts(costs.filter((cost) => cost._id !== id)); // Filter out the deleted cost
+        })
+        .catch((err) => console.log("Error deleting cost:", err));
+    }
+  };
+
+  // Existing PDF generation function for cost records
   const generatePDF = () => {
     const doc = new jsPDF();
-
-    // Add Company Logo
     const logoURL =
-      "https://i.ibb.co/sPPq6j0/Crown-Jewelry-gems-Stones-Logo-2.png"; // Replace with actual logo URL or base64
-    doc.addImage(logoURL, "png", 170, 10, 20, 20); // Adjust logo position and size
+      "https://i.ibb.co/sPPq6j0/Crown-Jewelry-gems-Stones-Logo-2.png";
 
-    // Add Company Name
+    doc.addImage(logoURL, "png", 170, 10, 20, 20);
     doc.setFontSize(22);
     doc.setFont("helvetica", "bold");
-    doc.text("Ceylon Gem Gallery", 14, 20); // Adjust company name
-
-    // Add Address and Contact Info
+    doc.text("Ceylon Gem Gallery", 14, 20);
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
-    doc.text("Address: 123 Company Street, City, Country", 14, 30); // Adjust address
-    doc.text("Email: contact@company.com", 14, 36); // Adjust email
-    doc.text("Phone: +71 283 789", 14, 42); // Adjust phone number
-
-    // Add Document Title
+    doc.text("Address: 123 Company Street, City, Country", 14, 30);
+    doc.text("Email: contact@company.com", 14, 36);
+    doc.text("Phone: +71 283 789", 14, 42);
     doc.setFontSize(16);
     doc.setFont("helvetica", "bold");
     doc.text("Cost Management Records", 14, 55);
-
-    // Add Divider
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.5);
-    doc.line(14, 60, 196, 60); // Horizontal line
+    doc.line(14, 60, 196, 60);
 
-    // Table Columns and Data
     const columns = [
       { header: "Month", dataKey: "month" },
       { header: "Validation Cost", dataKey: "validationCost" },
@@ -111,7 +96,6 @@ const CostList = () => {
       netProfit: formatCurrency(cost.netProfit),
     }));
 
-    // Table Style Configuration
     doc.autoTable({
       columns,
       body: data,
@@ -124,32 +108,92 @@ const CostList = () => {
         lineWidth: 0.1,
       },
       headStyles: {
-        fillColor: [76, 175, 80], // Green for table header
-        textColor: [255, 255, 255], // White text
+        fillColor: [76, 175, 80],
+        textColor: [255, 255, 255],
       },
       bodyStyles: {
-        fillColor: [245, 245, 245], // Light grey for table body
+        fillColor: [245, 245, 245],
       },
       alternateRowStyles: {
-        fillColor: [220, 220, 220], // Alternate row color
+        fillColor: [220, 220, 220],
       },
     });
 
-    // Save PDF
     doc.save("cost_records.pdf");
+  };
+
+  // New function to generate the balance sheet PDF
+  const generateBalanceSheetPDF = () => {
+    const doc = new jsPDF();
+    const logoURL =
+      "https://i.ibb.co/sPPq6j0/Crown-Jewelry-gems-Stones-Logo-2.png";
+
+    doc.addImage(logoURL, "png", 170, 10, 20, 20);
+    doc.setFontSize(22);
+    doc.setFont("helvetica", "bold");
+    doc.text("Ceylon Gem Gallery", 14, 20);
+    doc.setFontSize(12);
+    doc.text("Balance Sheet", 14, 30);
+    doc.text("Date: " + new Date().toLocaleDateString(), 14, 36);
+    doc.setDrawColor(0, 0, 0);
+    doc.setLineWidth(0.5);
+    doc.line(14, 40, 196, 40);
+
+    // Assets Section
+    doc.setFontSize(16);
+    doc.text("Assets", 14, 50);
+    doc.autoTable({
+      startY: 55,
+      head: [["Month", "Total Cost"]],
+      body: filteredCosts.map((cost) => [
+        formatMonth(cost.month),
+        formatCurrency(
+          Number(cost.validationCost) +
+            Number(cost.cuttingCost) +
+            Number(cost.salaryCost) +
+            Number(cost.additionalCost)
+        ),
+      ]),
+    });
+
+    // Liabilities Section (assuming liabilities as 40% of total assets for simplicity)
+    const totalAssets = filteredCosts.reduce(
+      (acc, cost) =>
+        acc +
+        (Number(cost.validationCost) +
+          Number(cost.cuttingCost) +
+          Number(cost.salaryCost) +
+          Number(cost.additionalCost)),
+      0
+    );
+    const liabilities = totalAssets * 0.4;
+    const equity = totalAssets - liabilities;
+
+    doc.text("Liabilities", 14, doc.lastAutoTable.finalY + 10);
+    doc.autoTable({
+      startY: doc.lastAutoTable.finalY + 15,
+      body: [["Total Liabilities", formatCurrency(liabilities)]],
+    });
+
+    // Equity Section
+    doc.text("Equity", 14, doc.lastAutoTable.finalY + 10);
+    doc.autoTable({
+      startY: doc.lastAutoTable.finalY + 15,
+      body: [["Total Equity", formatCurrency(equity)]],
+    });
+
+    doc.save("balance_sheet.pdf");
   };
 
   return (
     <div className="cost-list-container">
       <h2 className="page-title">Cost Management</h2>
 
-      {/* Add Cost Link */}
       <div className="actions-section">
         <Link to="/Admin/insert-cost" className="add-cost-link">
           + Add New Cost
         </Link>
 
-        {/* Search Bar */}
         <input
           type="text"
           className="search-bar"
@@ -159,12 +203,16 @@ const CostList = () => {
         />
       </div>
 
-      {/* Download PDF Button */}
+      {/* Existing Download PDF Button */}
       <button className="download-btn" onClick={generatePDF}>
-        Download PDF
+        Download Cost Records PDF
       </button>
 
-      {/* If no costs are found */}
+      {/* New Button for Balance Sheet PDF */}
+      <button className="download-btn" onClick={generateBalanceSheetPDF}>
+        Download Balance Sheet PDF
+      </button>
+
       {filteredCosts.length === 0 ? (
         <p className="no-data">No cost records found</p>
       ) : (
@@ -202,8 +250,6 @@ const CostList = () => {
                   <Link to={`/Admin/update-cost/${cost._id}`}>
                     <button className="update-link">Update</button>
                   </Link>
-                  <br></br>
-                  <br />
                   <button
                     className="delete-btn-cost"
                     onClick={() => handleDelete(cost._id)}
