@@ -64,7 +64,7 @@ function Profile() {
         <div>
           <h2 className="pro_cusDetail_Pro101">
             {customer && (
-              <p>
+              <p className="paragraph_Pro101">
                 {customer.Fname} {customer.Lname}
               </p>
             )}

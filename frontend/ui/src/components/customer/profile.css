@@ -86,6 +86,11 @@
   cursor: pointer;
 }
 
+.paragraph_Pro101 {
+  font-size: 30px;
+  color: black;
+}
+
 .profile_Pro101 .overlay_Pro101 p {
   position: absolute;
   bottom: 10px;
