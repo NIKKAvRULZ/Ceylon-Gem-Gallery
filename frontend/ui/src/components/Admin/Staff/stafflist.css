@@ -2,7 +2,7 @@
 .staff-list-container {
   width: 85%;
   margin: 50px auto;
-  background-color: #f9f9f9;
+ 
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -74,7 +74,7 @@ button {
 .staff-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
+  background-color: #e9e4e4;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);

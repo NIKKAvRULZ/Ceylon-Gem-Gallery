@@ -1,7 +1,7 @@
 /* TaskAssign.css */
 
 .task-assign-container {
-    max-width: 650px;
+    max-width: 540px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -75,7 +75,7 @@
   
   /* Other styles remain unchanged */
   .task-assign-container select {
-    width: 525px; /* Full width for better responsiveness */
+    width: 500px; /* Full width for better responsiveness */
     padding: 12px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
