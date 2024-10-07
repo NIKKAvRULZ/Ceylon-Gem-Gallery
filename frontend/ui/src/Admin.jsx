@@ -17,6 +17,13 @@ import GemList from "./components/Admin/Shop/GemList";
 import UpdateGem from './components/Admin/Shop/UpdateGem';
 
 
+//validation
+import GemList2 from './components/Admin/Validation/GemList2';
+import GemForm from './components/Admin/Validation/GemForm';
+import PostCutGemList from './components/Admin/Validation/PostCutGemList';
+import PostCutForm from './components/Admin/Validation/PostCutForm';
+import UpdatePostCut from './components/Admin/Validation/UpdatePostCut';
+
 
 // cost
 import PaymentList from "./components/Admin/Cost/paymentlist";
@@ -34,9 +41,8 @@ import StaffForm from "./components/Admin/Staff/StaffForm";
 import UpdateStaff from "./components/Admin/Staff/UpdateStaff";
 import TaskAssign from "./components/Admin/Staff/TaskAssign";
 import ShowTask from "./components/Admin/Staff/ShowTask";
-import UpdateTask from "./components/Admin/Staff/UpdateTask";
-import SalaryForm from './components/Admin/Staff/SalaryForm';
-import SalaryList from './components/Admin/Staff/SalaryList';
+import UpdateTask from "./components/Admin/Staff/UpdateStaff";
+
 
 import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails';
 import UpdateCustomer from './components/Admin/customer/updateCustomer';
@@ -47,6 +53,14 @@ import InsertCustomer from './components/Admin/customer/InsertCustomer';
 // job assignment and completion
 import AssignJob from './components/Admin/AssignJob';
 import CompleteJob from './components/Admin/CompleteJob';
+
+//janidu gemdust
+import AddGemDust from "./components/Admin/Gemdust/AddGemDust";
+import GemdustDetails from "./components/Admin/Gemdust/GemdustDetails";
+
+import UpdateGemdust from "./components/Admin/Gemdust/UpdateGemdust";
+import AdminGemDustHome from './components/Admin/AdminGemDustHome';
+
 
 const Admin = () => {
   return (
@@ -101,9 +115,21 @@ const Admin = () => {
         {/* staff part 2 */}
         <Route path="/task-assign/:id" element={<TaskAssign />} />
         <Route path="/show-task" element={<ShowTask />} />
-        <Route path="/update-t/:id" element={<UpdateTask/>} />
-        <Route path="/salary-list" element={<SalaryList />} />
-         <Route path="/add-salary" element={<SalaryForm />} />
+        <Route path="/update-task/:id" element={<UpdateTask />} />
+
+        {/*Gem Dust*/}
+        <Route path="/addgemdust" element={<AddGemDust />} />
+        <Route path="/update-gemdust/:id" element={<UpdateGemdust/>} />
+        <Route path="/GemDustDetails" element={<GemdustDetails />} />
+        <Route path="/AdminGemDustHome" element={<AdminGemDustHome />} />
+
+        {/* validation */}
+        <Route path="/validation" element={<GemList2 />} />
+        <Route path="/validation-add" element={<GemForm />} />
+        <Route path="/validation-update/:id" element={<GemForm />} />
+        <Route path="/validation-details/" element={<PostCutGemList />} />
+        <Route path="/validation-postcut/:id" element={<UpdatePostCut />} />
+        <Route path="/validation-postcutf/:id" element={<PostCutForm />} />
 
       </Routes>
       <Footer />

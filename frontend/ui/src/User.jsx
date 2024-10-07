@@ -18,11 +18,19 @@ import ShowGemCutDetails from "./components/Cut/ShowGemCutDetails";
 import InsertPayment from './components/Cost/InsertPayment';
 
 // profile
-import Profile from './components/customer/profile';
+
+import Profile from './components/customer/Profile'
+import ProfileCard from './components/customer/ProfileCard';
+import UpdateCustomer from './components/customer/UpdateCustomer'
 
 
 import TrackOrder from './components/Cut/TrackGemCut';
 import ShowDetailsGems from "./components/Shop/ShowDetailsGems";
+
+
+//gemdust
+import UserHome from "./components/Gemdust/UserHome"; // Import UserHome
+import GemShop from "./components/Gemdust/Gemshop";
 
 const User = () => {
   return (
@@ -47,11 +55,21 @@ const User = () => {
         <Route path="/insert-payment" element={<InsertPayment />} />
 
         {/* user */}
-        <Route path="/profile" element={<Profile />} />
-
-      
+        
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/profileCard' element={<ProfileCard />} />
+        <Route path="/profile/update" element={<UpdateCustomer />} />     
 
         <Route path="/GemCutHome/track-order" element={<TrackOrder />} />
+
+
+         {/* Gemdust */}
+
+         <Route path="/UserHome" element={<UserHome />} />
+          {/* Add the GemShop route for gemshop/:gemId */}
+          <Route path="/gemshop/:id" element={<GemShop />} />{" "}
+          {/* Updated Route */}
+          <Route path="/gemshop/:id" element={<GemShop />} />{" "}
 
       </Routes>
       <Footer />

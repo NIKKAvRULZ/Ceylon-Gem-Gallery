@@ -1,0 +1,104 @@
+/* Gem Dust Details Container */
+.gemdust-system-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Gem Dust Title Styles */
+.gemdust-system-title {
+  font-size: 28px; /* Increased font size for the title */
+  color: #333; /* Darker color for contrast */
+}
+
+/* Gem Dust Image Styling */
+.gemdust-system-image {
+  width: auto; /* Set width to auto to keep aspect ratio */
+  max-width: 150px; /* Adjusted max width for the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Error Message Styles */
+.gemdust-system-error {
+  color: red;
+  margin: 10px 0;
+}
+
+/* Image Preview Styles */
+.gemdust-system-image-preview {
+  margin-bottom: 20px;
+}
+
+/* Gem Dust Info Styles */
+.gemdust-system-info {
+  width: 100%;
+  margin: 20px 0; /* Added margin for spacing */
+  background-color: #f8f8f8; /* Light background for contrast */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding for inner spacing */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Gem Dust Detail Item Styles */
+.gemdust-system-detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: start; /* Changed to 'start' for left alignment */
+  margin-bottom: 15px;
+  padding: 10px; /* Added padding for better touch targets */
+  background: #fff; /* White background for detail items */
+  border-radius: 8px; /* Rounded corners for detail items */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+/* Hover Effect for Detail Items */
+.gemdust-system-detail-item:hover {
+  background: #e9e9e9; /* Light grey on hover */
+}
+
+/* Icon Styles */
+.gemdust-system-icon {
+  margin-right: 10px;
+  font-size: 24px; /* Increased icon size for better visibility */
+  color: #4CAF50; /* Icon color to match the theme */
+}
+
+
+
+
+/* Price Detail Item Styles */
+.price-detail {
+  font-size: 22px; /* Increased font size for price */
+  font-weight: bold; /* Bold font for emphasis */
+  color: #FF5733; /* Change color for emphasis */
+}
+
+/* Purchase Button Styles */
+.gemdust-system-purchase-btn {
+  padding: 12px 25px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  margin-top: 20px; /* Added margin for spacing from details */
+}
+
+.gemdust-system-purchase-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}

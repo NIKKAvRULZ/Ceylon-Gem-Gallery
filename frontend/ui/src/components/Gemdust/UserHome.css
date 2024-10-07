@@ -1,0 +1,116 @@
+
+
+
+.gemdust-user-home-container {
+  padding: 20px;
+  /* background: #f9f9f9; */
+}
+
+/* Center the Search Bar with adjusted margin */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Refined Search Bar styling */
+.search-bar {
+  width: 30%; /* Compact width */
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+}
+
+.search-bar:focus {
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+/* Grid styling for the Gem Dust items */
+.user-gemdust-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+  gap: 20px; /* Adjusted spacing between items */
+  justify-content: center;
+}
+
+/* Increased card size for each Gem Dust Item */
+.user-gemdust-item {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  width: 250px; /* Increased width */
+  height: 300px; /* Increased height */
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-gemdust-item:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Adjusted image size to fit the larger card */
+.gemdust-image {
+  width: 100%;
+  height: auto; /* Adjust height automatically to maintain aspect ratio */
+  max-height: 180px; /* Limit the image height to fit inside the card */
+  border-radius: 10px;
+  object-fit: contain; /* Ensure the entire image fits within the boundaries */
+  transition: opacity 0.3s ease;
+}
+
+.user-gemdust-item:hover .gemdust-image {
+  opacity: 0.95;
+}
+
+/* Gem Dust Details Styling */
+.gemdust-details {
+  margin-top: 10px;
+}
+
+.gemdust-details h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #333;
+}
+
+.gemdust-details p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Design: Adjust grid layout for smaller screens */
+@media (max-width: 1200px) {
+  .user-gemdust-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  }
+}
+
+@media (max-width: 992px) {
+  .user-gemdust-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .user-gemdust-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  }
+}
+
+@media (max-width: 576px) {
+  .user-gemdust-list {
+    grid-template-columns: repeat(1, 1fr); /* 1 item per row for mobile */
+  }
+}
