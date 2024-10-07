@@ -9,6 +9,8 @@ const cookieParser = require("cookie-parser");
 const dotenv = require('dotenv');
 dotenv.config();
 
+//mihiran supplier
+const supRoutes = require("./routes/Supplier/supRoutes");
 
 //janidu gemdust
 const router = require("./routes/Gemdust/gemdustRoutes");
@@ -106,6 +108,8 @@ app.use("/gemdust", router);
 app.use("/api/users", UserRoutes);
 app.use("/api/postcut", PostCutRoutes); 
 
+//mihiran supplier
+app.use("/sup", supRoutes);
 
 const PORT = 3000;
 

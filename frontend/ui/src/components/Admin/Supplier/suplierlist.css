@@ -1,0 +1,65 @@
+/* suplierlist.css */
+.suplier-list-container {
+  padding: 20px;
+}
+
+.add-suplier-btn,
+.generate-pdf-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-suplier-btn:hover,
+.generate-pdf-btn:hover {
+  background-color: #45a049;
+}
+
+.search-suplier-input {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+
+.suplier-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ccc;
+}
+
+.suplier-table th,
+.suplier-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.update-suplier-btn,
+.delete-suplier-btn {
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-suplier-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.delete-suplier-btn {
+  background-color: #f44336;
+  color: white;
+}

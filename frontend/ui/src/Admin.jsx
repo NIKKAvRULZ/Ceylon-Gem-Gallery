@@ -63,6 +63,11 @@ import GemdustDetails from "./components/Admin/Gemdust/GemdustDetails";
 import UpdateGemdust from "./components/Admin/Gemdust/UpdateGemdust";
 import AdminGemDustHome from './components/Admin/AdminGemDustHome';
 
+//mihiran supplier
+import SuplierForm from "./components/Admin/Supplier/SuplierForm";
+import SuplierList from "./components/Admin/Supplier/SuplierList";
+import UpdateSuplier from "./components/Admin/Supplier/UpdateSuplier";
+import SupplierHome from "./components/Admin/Supplier/SupplierHome";
 
 const Admin = () => {
   return (
@@ -135,6 +140,11 @@ const Admin = () => {
         <Route path="/validation-postcut/:id" element={<UpdatePostCut />} />
         <Route path="/validation-postcutf/:id" element={<PostCutForm />} />
 
+        {/* Supplier */}
+        <Route path="/add-suplier" element={<SuplierForm/>} />
+        <Route path="/suplier-list" element={<SuplierList/>} />
+        <Route path="/update-suplier/:id" element={<UpdateSuplier />} />
+        <Route path="/supplier-home" element={<SupplierHome />} />
       </Routes>
       <Footer />
     </div>
