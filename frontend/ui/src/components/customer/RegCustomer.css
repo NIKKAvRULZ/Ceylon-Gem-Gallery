@@ -1,0 +1,164 @@
+/* Container styling */
+.Mcontain_Reg101 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form container styling */
+.form-container_Reg101 {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    margin: 30px 0 30px 0;
+}
+
+/* Title styling */
+.loginh1_Reg101 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Label styling */
+.form-label_Reg101 {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Input field styling */
+.form-input_Reg101 {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Button styling */
+.form-button_Reg101 {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.form-button_Reg101:hover {
+    background-color: #45a049;
+}
+
+/* Link styling */
+.Haccount_Reg101 {
+    display: block;
+    margin-top: 1rem;
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.Haccount_Reg101:hover {
+    text-decoration: underline;
+}
+
+/* Checkbox and label container */
+.checkbox-container_Reg101 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Style for checkbox */
+.checkbox_show_pass_Reg101 {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Style for label text */
+.error-text_show_pass_Reg101 {
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* Hover effect */
+.checkbox_show_pass_Reg101:hover,
+.error-text_show_pass_Reg101:hover {
+    color: #007bff;
+}
+
+/* Focus style */
+.checkbox_show_pass_Reg101:focus {
+    outline: 2px solid #007bff;
+}
+
+/* Checked state */
+.checkbox_show_pass_Reg101:checked + .error-text_show_pass_Reg101 {
+    color: #007bff;
+}
+
+.toggle-password_Reg101 {
+    position: absolute;
+    right: 0;
+    top: 45%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Animation for the error message */
+@keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .error-message_Reg101 {
+    color: #fff; /* White text for contrast */
+    font-size: 16px; /* Slightly larger font size */
+    margin-top: 5px; /* Add some spacing */
+    background: linear-gradient(135deg, #f27c85, #ec727e); /* Gradient background */
+    border: 1px solid #f5c6cb; /* Border matching the gradient */
+    border-radius: 8px; /* More rounded corners */
+    padding: 12px; /* Padding for better spacing */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Drop shadow for depth */
+    animation: bounceIn 0.5s ease; /* Bounce-in animation */
+    opacity: 1; /* Ensure it's fully visible */
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
