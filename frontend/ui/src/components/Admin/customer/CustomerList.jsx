@@ -77,7 +77,7 @@ function CustomerList() {
                                         <td>{customer.Email || "N/A"}</td>
                                         <td>{customer.Password || "N/A"}</td>
                                         <td>
-                                            <Link to={`/updatecustomerdetails/${customer._id}`} className="edit-link">Edit</Link>
+                                            <Link to={`/Admin/updatecustomerdetails/${customer._id}`} className="edit-link">Edit</Link>
                                             <button 
                                                 className="edit-link" 
                                                 onClick={() => onDeleteClick(customer._id)}

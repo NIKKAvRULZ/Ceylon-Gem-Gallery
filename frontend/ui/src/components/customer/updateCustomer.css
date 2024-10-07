@@ -1,0 +1,84 @@
+.up_mainCon_UC {
+    margin: 40px 0 30px 0;
+}
+
+/* Container for the "Show Employee List" button */
+.upCont_UC {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+/* Button link styling */
+.up_simple-button-link_UC {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.up_simple-button-link_UC:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Form container */
+.up_form-container_UC {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Form styling */
+.up_form_UC {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label styling */
+.up_form-label_UC {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Input fields styling */
+.up_form-input_UC {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.up_form-input_UC:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Submit button styling */
+.up_form-button_UC {
+    background-color: #008CBA;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.up_form-button_UC:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
+}
