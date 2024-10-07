@@ -59,7 +59,7 @@ const Navbar = () => {
             </Link>
             <Link
               className={`nav-item ${activeLink === 'complete-job' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('complete-job')} to="complete-job" // change this
+              onClick={() => handleNavClick('complete-job0')} to="UserHome" // change this
             >
               Gem Dust
             </Link>

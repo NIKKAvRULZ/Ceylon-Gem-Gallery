@@ -1,0 +1,72 @@
+/* Container styling */
+.gemdust-system-container {
+  max-width: 600px; /* Limit the width of the form */
+  margin: 50px auto; /* Center the form on the page */
+  padding: 20px;
+  background-color: #f7f7f7; /* Light background for contrast */
+  border-radius: 10px; /* Smooth rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Title Styling */
+.gemdust-system-form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Group Styling */
+.gemdust-system-form-group {
+  margin-bottom: 20px;
+}
+
+/* Label Styling */
+.gemdust-system-form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Input Field Styling */
+.gemdust-system-form-group input,
+.gemdust-system-form-group select {
+  width: 100%; /* Make the input fields and select dropdown stretch full width */
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* Submit Button Styling */
+.gemdust-system-submit-button {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.gemdust-system-submit-button:hover {
+  background-color: #45a049; /* Darken the button color on hover */
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .gemdust-system-container {
+    width: 90%; /* Adjust width on smaller screens */
+    padding: 15px;
+  }
+
+  .gemdust-system-submit-button {
+    padding: 10px 0;
+  }
+}

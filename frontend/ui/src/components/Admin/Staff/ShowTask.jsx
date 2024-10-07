@@ -18,7 +18,7 @@ const ShowTask = () => {
   // Handle delete task
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000//api/tasks/${id}`)
+      .delete(`http://localhost:3000/api/tasks/${id}`)
       .then(() => {
         setTasks(tasks.filter((task) => task._id !== id));
       })
@@ -27,7 +27,7 @@ const ShowTask = () => {
 
   // Handle update task (navigating to update page)
   const handleUpdate = (id) => {
-    navigate(`/update-task/${id}`);
+    navigate(`/Admin/update-t/${id}`);
   };
 
   return (

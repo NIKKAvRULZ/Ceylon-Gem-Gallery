@@ -57,12 +57,12 @@ const AdminNavbar = () => {
               onClick={() => handleNavClick('Custom Cuts')} to="AdminGemCutHome" >
               Custom Cuts
             </Link>
-            <Link className={`nav-item ${activeLink === 'Gem Cut Manage' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('Custom Cuts')} to="AdminPaymentManagement" >
+            <Link className={`nav-item ${activeLink === 'Payment Manage' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Payment')} to="AdminPaymentManagement" >
               Transactions
             </Link>
-            <Link className={`nav-item ${activeLink === 'Gem Cut Manage' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('Custom Cuts')} to="customerList" >
+            <Link className={`nav-item ${activeLink === 'customer Manage' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('customer')} to="customerList" >
               Customer
             </Link>
             <Link
@@ -77,10 +77,16 @@ const AdminNavbar = () => {
             >
               Staff Management
             </Link>
-            <Link
-              className={`nav-item ${activeLink === 'About' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('About')} to="About"
-            ></Link>
+            <Link className={`nav-item ${activeLink === 'Gem dust Manage' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Gem Dust')} to="AdminGemDustHome" 
+              >
+              Manage GemDust
+            </Link>
+            <Link className={`nav-item ${activeLink === 'Validation' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Validation')} to="validation" 
+              >
+              Gem Validation
+            </Link>
 
           </div>
 

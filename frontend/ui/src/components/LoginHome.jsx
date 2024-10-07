@@ -11,7 +11,7 @@ const LoginHome = () => {
 
           <div className="home-card-container">
 
-            <Link to="UserLogin" className="home-card">
+            <Link to="login" className="home-card">
               <div className="card-content">
                 <h3>User Login</h3>
               </div>

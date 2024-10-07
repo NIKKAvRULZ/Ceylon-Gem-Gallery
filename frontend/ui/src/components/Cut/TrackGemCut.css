@@ -1,89 +1,170 @@
+/* General page styling */
+.page-tr {
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Track order container */
+#track-order-container {
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif; /* Consistent font */
+  text-align: center; /* Center text and input fields */
+  vertical-align: middle;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
+  border-radius: 12px; /* More rounded corners */
+  background-color: #fff; /* Cleaner white background */
+  margin-top: 30px; /* Space above the form */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation on hover */
+}
+
+#track-order-container:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Title styling */
+#track-order-title {
+  color: #3E9263; /* Title color */
+  margin-bottom: 20px; /* Add space below the title */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Form styling */
+#track-order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input field styling */
+#track-order-input {
+  padding: 12px 15px; /* Comfortable padding */
+  width: 100%;
+  max-width: 400px; /* Set a max width for better centering */
+  margin-bottom: 20px; /* Increased margin for better spacing */
+  border: 1px solid #3E9263; /* Matching border color */
+  border-radius: 8px; /* Softer corners */
+  background-color: #f9f9f9; /* Light background */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+#track-order-input:focus {
+  outline: none;
+  border-color: #dc3545; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5); /* Soft shadow on focus */
+}
+
+/* Button styling */
+#track-order-button {
+  padding: 12px 25px; /* Comfortable button size */
+  background-color: #3E9263; /* Button color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Button transition */
+  max-width: 220px; /* Optional: set a max width for the button */
+}
+
+#track-order-button:hover {
+  background-color: #2b6f4b; /* Darker shade on hover */
+  transform: translateY(-3px); /* Lift the button on hover */
+}
+
+/* Loading spinner */
+.loading-spinner {
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+/* Spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error message */
+#error-message {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Slide-in animation for job details */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Job details container */
+#job-details {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease-in-out; /* Applying slide-in animation */
+  margin-top: 20px;
+}
+
+/* Job details header */
+#job-details h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Job details text */
+#job-details p {
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Delete button styling */
+#delete-order-button {
+  padding: 12px 25px; /* Comfortable button size */
+  background-color: #ff4c4c; /* Button color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  max-width: 220px; /* Optional: set a max width for the button */
+}
+
+#delete-order-button:hover {
+  background-color: #ff1a1a; /* Darker shade on hover */
+  transform: translateY(-3px); /* Lift the button on hover */
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 600px) {
   #track-order-container {
     padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-    font-family: 'Arial', sans-serif; /* Consistent font */
-    text-align: center; /* Center text and input fields */
-    vertical-align: middle;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background */
-    margin-bottom: 20px; /* Space between the form and the message */
-    margin-top: 20px; /* Space above the form */
-    margin-bottom: 20px; /* Space between the form and the message */
-
+    width: 90%;
   }
 
-  #track-order-title {
-    color: #3E9263; /* Title color */
+  #track-order-input,
+  #track-order-button,
+  #delete-order-button {
+    width: 100%; /* Full-width for mobile devices */
+    max-width: none;
   }
-
-  #track-order-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center the form elements vertically */
-  }
-
-  #track-order-input {
-    padding: 12px 15px; /* Comfortable padding */
-    width: 100%; /* Keep this if you want it to fill the form's width */
-    max-width: 400px; /* Set a max width for better centering */
-    margin-bottom: 15px;
-    border: 1px solid #3E9263; /* Matching border color */
-    border-radius: 8px; /* Softer corners */
-    background-color: #f9f9f9; /* Light background */
-    transition: border-color 0.3s ease;
-  }
-
-  #track-order-input:focus {
-    outline: none;
-    border-color: #dc3545; /* Change border color on focus */
-  }
-
-  #track-order-button {
-    padding: 12px 20px; /* Comfortable button size */
-    background-color: #3E9263; /* Button color */
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    max-width: 200px; /* Optional: set a max width for the button */
-  }
-
-  #track-order-button:hover {
-    background-color: #2b6f4b; /* Darker shade on hover */
-  }
-
-  #error-message {
-    color: red;
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  #job-details {
-    margin-top: 20px;
-    background-color: #f0f9f0; /* Light green background for job details */
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-
-  #job-details h3 {
-    margin-bottom: 10px;
-    color: #333; /* Darker color for header */
-  }
-
-  #job-details p {
-    margin: 5px 0;
-    color: #333; /* Consistent text color */
-  }
-
-  .page-tr {
-    padding: 10px;
-    min-height: 100vh;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-
-  }
+}

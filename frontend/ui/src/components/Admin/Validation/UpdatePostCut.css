@@ -1,0 +1,82 @@
+.update-postcut-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #a8edea, #fed6e3); /* Gradient background */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-postcut-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.update-postcut-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-postcut-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.update-postcut-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.update-postcut-file-input {
+  padding: 0;
+}
+
+.update-postcut-img {
+  margin-top: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.update-postcut-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-postcut-button:hover {
+  background-color: #0056b3;
+}
+
+.update-postcut-field-container {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .update-postcut-container {
+    padding: 15px;
+  }
+
+  .update-postcut-header {
+    font-size: 24px;
+  }
+
+  .update-postcut-input {
+    font-size: 14px;
+  }
+
+  .update-postcut-button {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
