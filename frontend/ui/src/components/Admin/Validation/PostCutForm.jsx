@@ -130,6 +130,7 @@ const PostCutForm = () => {
             required
           />
         </div>
+        
 
         {/* Updated Cut Type Dropdown */}
         <div className="post-form-group">
