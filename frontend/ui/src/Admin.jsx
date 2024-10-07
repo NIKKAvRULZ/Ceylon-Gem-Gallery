@@ -42,6 +42,8 @@ import UpdateStaff from "./components/Admin/Staff/UpdateStaff";
 import TaskAssign from "./components/Admin/Staff/TaskAssign";
 import ShowTask from "./components/Admin/Staff/ShowTask";
 import UpdateTask from "./components/Admin/Staff/UpdateStaff";
+import SalaryForm from './components/Admin/Staff/SalaryForm';
+import SalaryList from './components/Admin/Staff/SalaryList';
 
 
 import ShowCustomerDetails from './components/Admin/customer/ShowCustomerDetails';
@@ -61,6 +63,11 @@ import GemdustDetails from "./components/Admin/Gemdust/GemdustDetails";
 import UpdateGemdust from "./components/Admin/Gemdust/UpdateGemdust";
 import AdminGemDustHome from './components/Admin/AdminGemDustHome';
 
+//mihiran supplier
+import SuplierForm from "./components/Admin/Supplier/SuplierForm";
+import SuplierList from "./components/Admin/Supplier/SuplierList";
+import UpdateSuplier from "./components/Admin/Supplier/UpdateSuplier";
+import SupplierHome from "./components/Admin/Supplier/SupplierHome";
 
 const Admin = () => {
   return (
@@ -116,6 +123,8 @@ const Admin = () => {
         <Route path="/task-assign/:id" element={<TaskAssign />} />
         <Route path="/show-task" element={<ShowTask />} />
         <Route path="/update-task/:id" element={<UpdateTask />} />
+        <Route path="/salary-list" element={<SalaryList />} />
+         <Route path="/add-salary" element={<SalaryForm />} />
 
         {/*Gem Dust*/}
         <Route path="/addgemdust" element={<AddGemDust />} />
@@ -131,6 +140,11 @@ const Admin = () => {
         <Route path="/validation-postcut/:id" element={<UpdatePostCut />} />
         <Route path="/validation-postcutf/:id" element={<PostCutForm />} />
 
+        {/* Supplier */}
+        <Route path="/add-suplier" element={<SuplierForm/>} />
+        <Route path="/suplier-list" element={<SuplierList/>} />
+        <Route path="/update-suplier/:id" element={<UpdateSuplier />} />
+        <Route path="/supplier-home" element={<SupplierHome />} />
       </Routes>
       <Footer />
     </div>

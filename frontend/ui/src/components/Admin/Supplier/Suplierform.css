@@ -1,0 +1,94 @@
+/* SuplierForm.css */
+.supform-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.supform-group {
+  margin-bottom: 20px;
+}
+
+.supform-label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+.supform-input-name,
+.supform-input-company,
+.supform-input-phoneNo,
+.supform-input-email,
+.supform-input-address {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.supform-input-name:focus,
+.supform-input-company:focus,
+.supform-input-phoneNo:focus,
+.supform-input-email:focus,
+.supform-input-address:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.supform-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.supform-submit-btn {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.supform-submit-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.02);
+}
+
+.supform-submit-btn:active {
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .supform-container {
+    padding: 20px;
+  }
+
+  .supform-label {
+    font-size: 14px;
+  }
+
+  .supform-input-name,
+  .supform-input-company,
+  .supform-input-phoneNo,
+  .supform-input-email,
+  .supform-input-address {
+    padding: 10px;
+  }
+
+  .supform-submit-btn {
+    font-size: 14px;
+  }
+}

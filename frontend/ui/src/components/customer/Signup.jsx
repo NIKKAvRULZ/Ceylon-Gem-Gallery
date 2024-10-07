@@ -13,12 +13,15 @@ const Signup = () => {
   const [errorLname, setErrorLname] = useState(""); // State for last name error
   const [errorEmail, setErrorEmail] = useState(""); // State for email error
   const [errorPassword, setErrorPassword] = useState(""); // State for password error
+  const [backendError, setBackendError] = useState(""); // State for backend error message
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Check if there are any errors before submitting
+    // Clear previous backend error message
+    setBackendError("");
+
     if (!errorFname && !errorLname && !errorEmail && !errorPassword) {
       Axios.post("http://localhost:3000/auth/signup", {
         Fname,
@@ -29,6 +32,8 @@ const Signup = () => {
         .then((response) => {
           if (response.data.status) {
             navigate("/login");
+          } else {
+            setBackendError(response.data.message); // Set backend error message
           }
         })
         .catch((err) => {
@@ -40,10 +45,9 @@ const Signup = () => {
   // Handle first name input
   const handleFnameChange = (e) => {
     const value = e.target.value;
-    // Check if the input is valid (only letters and spaces)
     if (/^[a-zA-Z\s]*$/.test(value)) {
       setFname(value);
-      setErrorFname(""); // Clear error if valid
+      setErrorFname(""); 
     } else {
       setErrorFname("Can't input numbers or symbols");
     }
@@ -52,10 +56,9 @@ const Signup = () => {
   // Handle last name input
   const handleLnameChange = (e) => {
     const value = e.target.value;
-    // Check if the input is valid (only letters and spaces)
     if (/^[a-zA-Z\s]*$/.test(value)) {
       setLname(value);
-      setErrorLname(""); // Clear error if valid
+      setErrorLname(""); 
     } else {
       setErrorLname("Can't input numbers or symbols");
     }
@@ -64,10 +67,9 @@ const Signup = () => {
   // Handle email input
   const handleEmailChange = (e) => {
     const value = e.target.value;
-    // Check if the input is valid (only lowercase letters, numbers, '@', and '.')
     if (/^[a-z0-9@.]*$/.test(value)) {
       setEmail(value);
-      setErrorEmail(""); // Clear error if valid
+      setErrorEmail(""); 
     } else {
       setErrorEmail("Only lowercase letters, numbers, and '@' symbol are allowed");
     }
@@ -76,13 +78,11 @@ const Signup = () => {
   // Handle password input
   const handlePasswordChange = (e) => {
     const value = e.target.value;
-    setPassword(value); // Update the password value
-
-    // Check if the password meets the minimum length requirement
+    setPassword(value);
     if (value.length < 6) {
       setErrorPassword("Password must be at least 6 characters long");
     } else {
-      setErrorPassword(""); // Clear error if valid
+      setErrorPassword(""); 
     }
   };
 
@@ -141,7 +141,7 @@ const Signup = () => {
               type={showPassword ? "text" : "password"}
               id="password"
               className="form-input_Reg101"
-              onChange={handlePasswordChange} // Use the new password handler
+              onChange={handlePasswordChange} 
               value={Password}
               required
             />
@@ -153,11 +153,12 @@ const Signup = () => {
               {showPassword ? "Hide" : "Show"}
             </button>
           </div>
-          {errorPassword && <p className="error-message_Reg101">{errorPassword}</p>} {/* Error message for password */}
+          {errorPassword && <p className="error-message_Reg101">{errorPassword}</p>}
           <br />
           <button type="submit" className="form-button_Reg101">
             Register
           </button>
+          {backendError && <p className="error-message_Reg101">{backendError}</p>} {/* Display backend error */}
         </form>
         <Link to="/login" className="Haccount_Reg101">
           Have an account
