@@ -112,7 +112,7 @@ const SalaryList = () => {
               <td>{salary.additionalCosts}</td>
               <td>{salary.totalSalary}</td>
               <td>
-                <button className="delete-button" onClick={() => handleDelete(salary._id)}>Remove</button><br></br>
+                <button className="salary-delete-button" onClick={() => handleDelete(salary._id)}>Remove</button><br></br>
                 <br></br>
                 <button className="paysheet-button" onClick={() => generatePDF(salary)}>Paysheet</button>
               </td>

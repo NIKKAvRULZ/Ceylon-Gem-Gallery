@@ -42,7 +42,7 @@
   }
   
   /* Delete button styling */
-  .delete-button {
+  .salary-delete-button {
     background-color: #f44336;
     color: white;
     border: none;
@@ -52,7 +52,7 @@
     font-size: 14px;
   }
   
-  .delete-button:hover {
+  .salary-delete-button:hover {
     background-color: #d32f2f;
   }
   
