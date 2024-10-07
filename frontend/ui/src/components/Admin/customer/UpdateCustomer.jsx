@@ -54,7 +54,8 @@ function UpdateCustomer() {
 
         try {
             await axios.put(`http://localhost:3000/api/customer/${id}`, data);
-            navigate(`/showcustomerdetails/${id}`);
+            //navigate(`/showcustomerdetails/${id}`);
+            navigate('/admin/customerList');
         } catch (err) {
             console.log("Error in Update:", err);
             setError("Failed to update customer details.");
