@@ -84,7 +84,7 @@ const ProfileCard = () => {
   return (
     <div className="Main_div_PC101">
       <div className="mcontiner_PC101">
-        <h1>Profile</h1>
+        <h1 className="headers2_PC101">Profile</h1>
         <div className="email-container_PC101">
           <h3 className="email-label_PC101">Email</h3>
           <div className="email-content_PC101">
@@ -101,7 +101,7 @@ const ProfileCard = () => {
           </div>
         </div>
         <br />
-        <h2>Personal Information</h2>
+        <h2 className="headers2_PC101">Personal Information</h2>
         <div className="email-container_PC101">
           <h3 className="email-label_PC101">First name</h3>
           <div className="email-content_PC101">
