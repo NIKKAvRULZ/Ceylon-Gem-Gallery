@@ -151,6 +151,8 @@ const StaffList = () => {
               <Link to={`/Admin/update-staff/${user._id}`}>
              <button className="edit-btn">Edit</button>
               </Link>
+              <br></br>
+              <br></br>
 
                 <button className="delete-btn" onClick={() => handleDelete(user._id)}>
                   Delete
