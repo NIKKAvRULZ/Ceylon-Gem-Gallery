@@ -17,13 +17,17 @@ General Layout
     display: inline-block;
     margin-bottom: 20px;
     text-decoration: none;
-    color: #3E9263;
+    color: white;
     font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #3E9263;
   }
   
   .back-link:hover {
-    color: #2b6d46;
-    text-decoration: underline;
+    color: rgb(250, 237, 168);
+    text-decoration: none;
   }
   
   /* Title and Description */
@@ -32,7 +36,7 @@ General Layout
     font-size: 32px;
     font-weight: 700;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   
   .customer-description {

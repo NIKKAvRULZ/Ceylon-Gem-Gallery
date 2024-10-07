@@ -26,7 +26,13 @@ const AdminNavbar = () => {
 
           {/* Logo Section */}
           <div className="logo-section">
-            <img className="logo-image" src={logo} alt="Logo" />
+          <Link
+              className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Home')} to="AdminHome"
+            >
+              <img className="logo-image" src={logo} alt="Logo" />  
+            </Link>
+            
             <div className="logo-text">
               <span className="logo-black">Ceylon<br /> </span>
               <span className="logo-green">Gem</span>
@@ -41,12 +47,7 @@ const AdminNavbar = () => {
 
           {/* Navigation Links */}
           <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-            <Link
-              className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('Home')} to="AdminHome"
-            >
-              Home
-            </Link>
+            
             <Link
               className={`nav-item ${activeLink === 'Shop' ? 'highlight' : ''}`}
               onClick={() => handleNavClick('Shop')} to="AdminShopHome"
@@ -86,6 +87,12 @@ const AdminNavbar = () => {
               onClick={() => handleNavClick('Validation')} to="validation" 
               >
               Gem Validation
+            </Link>
+            <Link
+              className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
+              onClick={() => handleNavClick('Supplier')} to="AdminHome"
+            >
+              Supplier
             </Link>
 
           </div>

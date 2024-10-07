@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
-
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
@@ -32,18 +31,18 @@ const Login = () => {
     <div className="login-container Login_01">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
-        <label>Email:</label>
+        <label htmlFor="email" className="label_Login_01">Email:</label>
         <input
+          id="email"
           type="email"
           autoComplete="off"
-          placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label>Password:</label>
+        <label htmlFor="pass" className="label_Login_01">Password:</label>
         <input
+          id="pass"
           type="password"
-          placeholder="********"
           onChange={(e) => setPassword(e.target.value)}
         />
 

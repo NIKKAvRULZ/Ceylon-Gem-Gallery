@@ -80,7 +80,7 @@ function UpdateGemdust() {
     e.preventDefault();
     await sendRequest();
     // Navigate to the GemDustDetails page after submission
-    navigate('/gemdustdetails');
+    navigate('/admin/gemdustdetails');
   };
 
   return (

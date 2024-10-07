@@ -1,10 +1,10 @@
-.Mcontain {
+.Mcontain_IC {
     margin: 40px;
     margin-bottom: 40px;
 }
 
 /* General Styling for the Container */
-.form-container {
+.form-container_IC {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
@@ -15,28 +15,19 @@
 }
 
 /* Link Styling */
-/* a {
-    display: inline-block;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: #3E9263;
-    font-weight: bold;
-    font-size: 16px;
-} */
-
 a:hover {
     color: #2b6d46;
     text-decoration: underline;
 }
 
 /* Form Styling */
-.form {
+.form_IC {
     display: flex;
     flex-direction: column;
 }
 
 /* Label Styling */
-.form-label {
+.form-label_IC {
     font-family: 'Manrope', sans-serif;
     font-size: 18px;
     color: #333;
@@ -45,7 +36,7 @@ a:hover {
 }
 
 /* Input Field Styling */
-.form-input {
+.form-input_IC {
     font-family: 'Manrope', sans-serif;
     font-size: 16px;
     padding: 10px;
@@ -58,7 +49,7 @@ a:hover {
 }
 
 /* Focus State for Inputs */
-.form-input:focus {
+.form-input_IC:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 5px rgba(62, 146, 99, 0.5);
     border-color: #3E9263;
@@ -66,7 +57,7 @@ a:hover {
 }
 
 /* Button Styling */
-.form-button {
+.form-button_IC {
     padding: 10px 20px;
     background-color: #3E9263;
     color: white;
@@ -78,19 +69,18 @@ a:hover {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.form-button:active {
+.form-button_IC:active {
     background-color: #2b6d46;
     transform: scale(0.98);
 }
 
-
 /* Hover Effect for Button */
-.form-button:hover {
+.form-button_IC:hover {
     background-color: #2b6d46;
 }
 
 /* Simple button-like styling for the link */
-.simple-button-link {
+.simple-button-link_IC {
     display: inline-block;
     padding: 8px 16px;
     background-color: #4CAF50;  /* Green background */
@@ -104,10 +94,10 @@ a:hover {
 }
 
 /* Hover effect */
-.simple-button-link:hover {
+.simple-button-link_IC:hover {
     background-color: #45a049;   /* Darker green on hover */
 }
 
-.cont {
+.cont_IC {
     padding: 20px;
 }
