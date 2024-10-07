@@ -36,7 +36,7 @@ function Gemdust(props) {
       
       <div className="gemdust-system-btn-container">
         <button className="gemdust-system-update-button">
-          <Link to={`/Admin/GemDustDetails/${_id}`} className="gemdust-system-link">Update</Link>
+          <Link to={`/Admin/UpdateGemdust/${_id}`} className="gemdust-system-link">Update</Link>
         </button>
         <button className="gemdust-system-delete-button" onClick={deleteHandler}>Delete</button>
       </div>
