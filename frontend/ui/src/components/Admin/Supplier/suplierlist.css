@@ -1,109 +1,65 @@
 /* suplierlist.css */
-
 .suplier-list-container {
-  max-width: 1200px;
-  margin: 40px auto;
   padding: 20px;
-  background-color: #f7f9fc;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
 }
 
-.suplier-list-container h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: #333;
+.add-suplier-btn,
+.generate-pdf-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
   margin-bottom: 20px;
-}
-
-.add-suplier-btn {
-  display: inline-block;
-  padding: 10px 200px;
-  margin-bottom: 20px;
-  background-color: #007bff;
-  color: #fff;
+  font-size: 16px;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.add-suplier-btn:hover {
-  background-color: #0056b3;
+.add-suplier-btn:hover,
+.generate-pdf-btn:hover {
+  background-color: #45a049;
+}
+
+.search-suplier-input {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+
 }
 
 .suplier-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
+  background-color: #ccc;
 }
 
-.suplier-table th, 
+.suplier-table th,
 .suplier-table td {
-  padding: 15px 20px;
+  padding: 12px;
+  border: 1px solid #ddd;
   text-align: left;
-  color: #555;
 }
 
-.suplier-table th {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-}
-
-.suplier-table tbody tr:nth-child(even) {
-  background-color: #f1f3f5;
-}
-
-.suplier-table tbody tr:hover {
-  background-color: #e9ecef;
-}
-
-.update-suplier-btn, 
+.update-suplier-btn,
 .delete-suplier-btn {
-  padding: 8px 15px;
-  margin-right: 10px;
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 14px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
 }
 
 .update-suplier-btn {
-  background-color: #28a745;
+  background-color: #2196F3;
   color: white;
-}
-
-.update-suplier-btn:hover {
-  background-color: #218838;
 }
 
 .delete-suplier-btn {
-  background-color: #dc3545;
+  background-color: #f44336;
   color: white;
-}
-
-.delete-suplier-btn:hover {
-  background-color: #c82333;
-}
-
-@media (max-width: 768px) {
-  .suplier-table th, 
-  .suplier-table td {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-  }
-
-  .add-suplier-btn {
-    font-size: 0.9rem;
-  }
-
-  .update-suplier-btn, 
-  .delete-suplier-btn {
-    font-size: 0.9rem;
-  }
 }
