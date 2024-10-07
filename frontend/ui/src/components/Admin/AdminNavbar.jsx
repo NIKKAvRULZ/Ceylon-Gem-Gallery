@@ -90,7 +90,7 @@ const AdminNavbar = () => {
             </Link>
             <Link
               className={`nav-item ${activeLink === 'Home' ? 'highlight' : ''}`}
-              onClick={() => handleNavClick('Supplier')} to="AdminHome"
+              onClick={() => handleNavClick('Supplier')} to="supplier-home"
             >
               Supplier
             </Link>
